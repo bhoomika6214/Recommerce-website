@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { FiUsers, FiBookOpen, FiSettings } from 'react-icons/fi';
 import { FaHandshake, FaHandRock } from 'react-icons/fa';
 import './About.css';
+import Logo from '../assets/logo.png';
 
 const steps = [
   { icon: <FiUsers />, label: 'ENGAGE' },
@@ -69,14 +70,7 @@ const About = () => {
 
           <div className="about-brand-card">
             <div className="about-brand-logo-col">
-              <svg className="about-brand-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g fill="#3b6ef6">
-                  <path d="M50 48 C50 30, 44 18, 34 10 C46 12, 56 22, 58 38 Z" />
-                  <path d="M52 50 C70 50, 82 44, 90 34 C88 46, 78 56, 62 58 Z" />
-                  <path d="M50 52 C50 70, 56 82, 66 90 C54 88, 44 78, 42 62 Z" />
-                  <path d="M48 50 C30 50, 18 56, 10 66 C12 54, 22 44, 38 42 Z" />
-                </g>
-              </svg>
+              <img src={Logo} alt="Recommerce Logo" className="about-brand-logo" />
               <h3 className="about-brand-name">RECOMMERCE</h3>
               <span className="about-brand-tag">A Brand of Urdhva Management</span>
             </div>
