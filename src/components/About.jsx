@@ -1,119 +1,93 @@
-import { BsBullseye, BsEye, BsDiamond, BsGraphUpArrow, BsPlayFill } from 'react-icons/bs';
+import React, { useEffect, useRef } from 'react';
+import { FiUsers, FiBookOpen, FiSettings } from 'react-icons/fi';
+import { FaHandshake, FaHandRock } from 'react-icons/fa';
 import './About.css';
 
+const steps = [
+  { icon: <FiUsers />, label: 'ENGAGE' },
+  { icon: <FiBookOpen />, label: 'EDUCATE' },
+  { icon: <FaHandshake />, label: 'EXCHANGE' },
+  { icon: <FaHandRock />, label: 'EMPOWER' },
+  { icon: <FiSettings />, label: 'ENABLE' },
+];
+
 const About = () => {
-  const cardsData = [
-    {
-      id: 'mission',
-      icon: <BsBullseye />,
-      title: 'Our Mission',
-      content: 'Accelerate the circular economy by connecting industries and unlocking sustainable value at every stage of the resource lifecycle.'
-    },
-    {
-      id: 'vision',
-      icon: <BsEye />,
-      title: 'Our Vision',
-      content: 'To be the world\'s most trusted circular commerce ecosystem, driving a future where resources are valued, reused, and renewed without limits.'
-    },
-    {
-      id: 'values',
-      icon: <BsDiamond />,
-      title: 'Our Values',
-      isList: true,
-      content: ['Sustainability', 'Collaboration', 'Innovation', 'Transparency', 'Impact']
-    },
-    {
-      id: 'impact',
-      icon: <BsGraphUpArrow />,
-      title: 'Our Impact',
-      content: 'Together, we turn industry challenges into circular opportunities—creating economic value for today and a better tomorrow for generations to come.'
-    }
-  ];
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1 }
+    );
+    ref.current?.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="about-section">
-      {/* Top Section: Text & Globe */}
-      <div className="about-hero">
-        
-        {/* Left Column: Text Content */}
-        <div className="about-text-content">
-          <div className="section-eyebrow">
-            <span className="eyebrow-line"></span>
-            ABOUT RECOMMERCE
-          </div>
-          
-          <h1 className="about-title">
-            Powering a<br />
-            <span className="text-blue">Circular Tomorrow</span><br />
-            Together Today.
-          </h1>
-          
-          <p className="about-description">
-            Recommerce is the global ecosystem connecting industries, 
-            innovators, and leaders to build a more sustainable, 
-            resource-efficient future through collaboration, innovation, 
-            and circular solutions that create lasting impact.
+    <section className="about section" id="about" ref={ref}>
+      <div className="about-bg-arcs" />
+      <div className="about-bg-dots" />
+
+      <div className="about-container">
+        {/* Left Column - Quote & Description */}
+        <div className="about-left animate-on-scroll">
+          <span className="about-quote-mark">&ldquo;</span>
+          <h2 className="about-quote">
+            Creating a circular business model is challenging, and taking the wrong approach can be expensive
+            <span className="about-quote-mark-end">&rdquo;</span>
+          </h2>
+          <span className="about-underline" />
+
+          <p className="about-desc">
+            Recommerce, is a brand of Urdhva Management and the pioneering force in leading the charge towards a brighter future for the industries, A category-defining company dedicated to building a sustainable reverse commerce ecosystem
           </p>
-          
-          <button className="mission-btn">
-            <span className="play-icon-circle"><BsPlayFill className="play-icon-svg" /></span> 
-            OUR MISSION &rarr;
-          </button>
+
+          <p className="about-desc">
+            At Recommerce, we embody the ideals of Engage, Educate, Exchange, Empower, and Enable, propelling industries and individuals towards a brighter future. Our tagline, <em>&ldquo;Unlocking Infinite Possibilities, Connecting Industries: Pioneering Sustainability for a Thriving Tomorrow!&rdquo;</em> encapsulates our mission to revolutionize India&rsquo;s business landscape through Recommerce, our pioneering brand dedicated to driving a circular economy.
+          </p>
         </div>
 
-        {/* Right Column: Globe Visual */}
-        <div className="about-visual-center">
-          <div className="globe-container">
-            {/* Replace src with your specific 3D globe image or video */}
-            <img 
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" 
-              alt="Global Ecosystem" 
-              className="globe-image" 
-            />
-            <div className="globe-overlay-text">
-              <span className="globe-eyebrow">A GLOBAL ECOSYSTEM</span>
-              <h2>Connecting Today<br/>For a Sustainable<br/>Tomorrow</h2>
-            </div>
+        {/* Right Column - Steps & Brand Card */}
+        <div className="about-right animate-on-scroll">
+          <div className="about-steps">
+            {steps.map((step, index) => (
+              <React.Fragment key={index}>
+                <div className="about-step">
+                  <div className="about-step-icon">
+                    {step.icon}
+                  </div>
+                  <span className="about-step-label">{step.label}</span>
+                </div>
+                {index < steps.length - 1 && <span className="about-step-connector" />}
+              </React.Fragment>
+            ))}
           </div>
-          {/* Glowing Pedestal Base */}
-          <div className="pedestal-base">
-            <div className="pedestal-ring-1"></div>
-            <div className="pedestal-ring-2"></div>
-            <div className="pedestal-glow"></div>
+
+          <div className="about-brand-card">
+            <div className="about-brand-logo-col">
+              <svg className="about-brand-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g fill="#3b6ef6">
+                  <path d="M50 48 C50 30, 44 18, 34 10 C46 12, 56 22, 58 38 Z" />
+                  <path d="M52 50 C70 50, 82 44, 90 34 C88 46, 78 56, 62 58 Z" />
+                  <path d="M50 52 C50 70, 56 82, 66 90 C54 88, 44 78, 42 62 Z" />
+                  <path d="M48 50 C30 50, 18 56, 10 66 C12 54, 22 44, 38 42 Z" />
+                </g>
+              </svg>
+              <h3 className="about-brand-name">RECOMMERCE</h3>
+              <span className="about-brand-tag">A Brand of Urdhva Management</span>
+            </div>
+
+            <span className="about-brand-divider" />
+
+            <p className="about-brand-desc">
+              We unite industry experts and change-makers from diverse backgrounds to tackle global challenges head-on. By providing top-notch services in the reverse commerce market, we set a new standard for industry and customer experiences.
+            </p>
           </div>
         </div>
-
-      </div>
-
-      {/* Bottom Section: 4 Information Cards */}
-      <div className="about-cards-grid">
-        {cardsData.map((card) => (
-          <div key={card.id} className="about-card">
-            <div className="card-header">
-              <span className="card-icon text-blue">{card.icon}</span>
-              <h3 className="card-title">{card.title}</h3>
-            </div>
-            <div className="card-body">
-              {card.isList ? (
-                <ul className="values-list">
-                  {card.content.map((item, index) => (
-                    <li key={index}>
-                      <span className="list-dot"></span>{item}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>{card.content}</p>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Bottom Footer Banner */}
-      <div className="about-bottom-banner">
-        <p>MORE THAN A PLATFORM. A MOVEMENT.</p>
-        <div className="bottom-glow-line"></div>
       </div>
     </section>
   );
