@@ -1,0 +1,307 @@
+.mva-container {
+  width: 100%;
+  background: #f8fafc;
+  padding: 60px 40px;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mva-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* ==================== CARD STYLES ==================== */
+.mva-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.mva-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #1572e6 0%, #1572e6 100%);
+  transform: translateY(4px);
+  transition: all 0.3s ease;
+}
+
+.mva-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.mva-card:hover::before {
+  transform: translateY(0);
+  height: 6px;
+}
+
+/* Card Header */
+.mva-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mva-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1572e6 0%, #0d47a1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(21, 114, 230, 0.3);
+  transition: all 0.3s ease;
+}
+
+.mva-card:hover .mva-icon-circle {
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(21, 114, 230, 0.4);
+}
+
+.mva-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #1572e6;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.mva-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f1419;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Divider */
+.mva-divider {
+  width: 48px;
+  height: 3px;
+  background: #1572e6;
+  margin-bottom: 24px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mva-card:hover .mva-divider {
+  width: 64px;
+}
+
+/* Card Body */
+.mva-card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.mva-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #536878;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1200px) {
+  .mva-container {
+    padding: 50px 32px;
+  }
+
+  .mva-grid {
+    gap: 24px;
+  }
+
+  .mva-card {
+    padding: 32px 24px;
+  }
+
+  .mva-title {
+    font-size: 24px;
+  }
+
+  .mva-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 992px) {
+  .mva-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .mva-card {
+    padding: 28px 20px;
+  }
+
+  .mva-icon-circle {
+    width: 72px;
+    height: 72px;
+  }
+
+  .mva-title {
+    font-size: 22px;
+  }
+
+  .mva-description {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .mva-container {
+    padding: 40px 20px;
+    min-height: auto;
+  }
+
+  .mva-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .mva-card {
+    padding: 24px 20px;
+  }
+
+  .mva-card-header {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .mva-icon-circle {
+    width: 64px;
+    height: 64px;
+  }
+
+  .mva-icon-circle svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mva-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .mva-title {
+    font-size: 20px;
+  }
+
+  .mva-divider {
+    margin-bottom: 16px;
+  }
+
+  .mva-description {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .mva-container {
+    padding: 30px 16px;
+  }
+
+  .mva-grid {
+    gap: 16px;
+  }
+
+  .mva-card {
+    padding: 20px 16px;
+  }
+
+  .mva-card-header {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .mva-icon-circle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .mva-icon-circle svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .mva-label {
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+
+  .mva-title {
+    font-size: 18px;
+  }
+
+  .mva-divider {
+    width: 36px;
+    margin-bottom: 12px;
+  }
+
+  .mva-description {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .mva-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mva-card {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.mva-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.mva-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.mva-card:nth-child(3) {
+  animation-delay: 0.3s;
+}

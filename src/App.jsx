@@ -4,6 +4,8 @@ import Hero2 from './components/Hero2'
 import './App.css'
 import About from './components/About'
 import Service from './components/Service'
+import MissionVisionApproach from './components/Missionvisionapproach'
+import OurServices from './components/Ourservices'
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Navbar />
       <Hero2 />
       <About />
+      <MissionVisionApproach />
+      <OurServices />
       <Service />
     </div>
   )
