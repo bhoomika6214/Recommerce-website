@@ -81,28 +81,6 @@ const OurServices = () => {
     },
   ];
 
-  const stats = [
-    {
-      icon: FiUsers,
-      label: 'Industries Served',
-      value: '20+',
-    },
-    {
-      icon: FiCalendar,
-      label: 'Events Delivered',
-      value: '50+',
-    },
-    {
-      icon: FiGlobe,
-      label: 'Experts Network',
-      value: '100+',
-    },
-    {
-      icon: FiActivity,
-      label: 'Impact Driven',
-      value: '∞',
-    },
-  ];
 
   return (
     <div className="our-services">
@@ -120,23 +98,6 @@ const OurServices = () => {
             </p>
           </div>
 
-          {/* Stats Grid */}
-          <div className="our-services-stats">
-            {stats.map((stat, index) => {
-              const StatIcon = stat.icon;
-              return (
-                <div key={index} className="stat-item">
-                  <div className="stat-icon-wrapper">
-                    <StatIcon size={24} />
-                  </div>
-                  <div className="stat-content">
-                    <p className="stat-label">{stat.label}</p>
-                    <p className="stat-value">{stat.value}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
 
         {/* Right Circular Services Section */}
