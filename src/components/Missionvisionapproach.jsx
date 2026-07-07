@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiTarget, FiEye, FiTrendingUp } from 'react-icons/fi';
-import './MissionVisionApproach.css';
+import './Missionvisionapproach.css';
 
 const MissionVisionApproach = () => {
   const sections = [

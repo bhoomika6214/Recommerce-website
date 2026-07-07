@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FiUsers, FiBookOpen, FiSettings } from 'react-icons/fi';
 import { FaHandshake, FaHandRock } from 'react-icons/fa';
 import './About.css';
@@ -14,6 +14,8 @@ const steps = [
 
 const About = () => {
   const ref = useRef(null);
+  const stepsRef = useRef(null);
+  const [stepsVisible, setStepsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,6 +27,21 @@ const About = () => {
       { threshold: 0.1 }
     );
     ref.current?.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setStepsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (stepsRef.current) observer.observe(stepsRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -54,16 +71,24 @@ const About = () => {
 
         {/* Right Column - Steps & Brand Card */}
         <div className="about-right animate-on-scroll">
-          <div className="about-steps">
+          <div className="about-steps" ref={stepsRef}>
             {steps.map((step, index) => (
               <React.Fragment key={index}>
-                <div className="about-step">
+                <div
+                  className={`about-step ${stepsVisible ? 'step-visible' : ''}`}
+                  style={{ transitionDelay: `${index * 0.3}s` }}
+                >
                   <div className="about-step-icon">
                     {step.icon}
                   </div>
                   <span className="about-step-label">{step.label}</span>
                 </div>
-                {index < steps.length - 1 && <span className="about-step-connector" />}
+                {index < steps.length - 1 && (
+                  <span
+                    className={`about-step-connector ${stepsVisible ? 'connector-visible' : ''}`}
+                    style={{ transitionDelay: `${index * 0.3 + 0.15}s` }}
+                  />
+                )}
               </React.Fragment>
             ))}
           </div>

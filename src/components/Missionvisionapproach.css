@@ -277,31 +277,3 @@
     transform: translateY(-4px);
   }
 }
-
-/* ==================== ANIMATIONS ==================== */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.mva-card {
-  animation: slideUp 0.6s ease-out forwards;
-}
-
-.mva-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.mva-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.mva-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
