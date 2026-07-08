@@ -1,0 +1,244 @@
+/* ==========================================================================
+   WhyChooseRecommerce — split section: intro + infinity art / feature rows
+   ========================================================================== */
+
+.why-choose {
+  position: relative;
+  display: flex;
+  gap: 56px;
+  background: radial-gradient(120% 140% at 8% 0%, #0c1836 0%, #060c22 55%, #05091b 100%);
+  padding: 72px 64px;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #ffffff;
+  align-items: stretch;
+}
+
+/* ---------- left column ---------- */
+
+.why-choose__left {
+  flex: 0 0 38%;
+  display: flex;
+  flex-direction: column;
+}
+
+.why-choose__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #4f8bff;
+  margin-bottom: 18px;
+}
+
+.why-choose__eyebrow-line {
+  width: 28px;
+  height: 2px;
+  background: #4f8bff;
+  display: inline-block;
+}
+
+.why-choose__heading {
+  font-size: 44px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: #ffffff;
+}
+
+.why-choose__heading-accent {
+  background: linear-gradient(90deg, #ffffff 0%, #2f7dff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.why-choose__heading-underline {
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, #2f7dff, #6ea3ff);
+  margin: 22px 0 20px;
+  border-radius: 2px;
+}
+
+.why-choose__desc {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #a6afc4;
+  max-width: 340px;
+  margin: 0 0 40px;
+}
+
+.why-choose__infinity {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.why-choose__infinity-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 30px rgba(47, 125, 255, 0.25));
+}
+
+.why-choose__badge {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.why-choose__badge--1 {
+  top: 66%;
+  left: 45%;
+  background: #2f9c4d;
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+
+.why-choose__badge--2 {
+  top: 70%;
+  left: 55%;
+  background: #1c5be0;
+  transform: translate(-50%, -50%) rotate(6deg);
+}
+
+/* ---------- right column ---------- */
+
+.why-choose__right {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.why-feature {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 26px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  min-height: 180px;
+}
+
+.why-feature__icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 1.5px solid #2f6bff;
+  background: rgba(47, 107, 255, 0.06);
+  box-shadow: 0 0 22px rgba(47, 125, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.why-feature__icon-star {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+}
+
+.why-feature__divider {
+  flex: 0 0 auto;
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(180deg, rgba(47, 125, 255, 0.5), rgba(47, 125, 255, 0.05));
+}
+
+.why-feature__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.why-feature__title {
+  font-size: 21px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.why-feature__underline {
+  display: block;
+  width: 34px;
+  height: 3px;
+  background: #2f7dff;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+.why-feature__desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #a6afc4;
+  margin: 0;
+  max-width: 420px;
+}
+
+.why-feature__media {
+  flex: 0 0 220px;
+  align-self: stretch;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.why-feature__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .why-choose {
+    flex-direction: column;
+    padding: 56px 32px;
+  }
+
+  .why-choose__left {
+    flex: 1 1 auto;
+  }
+
+  .why-feature__media {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .why-choose {
+    padding: 44px 20px;
+  }
+
+  .why-choose__heading {
+    font-size: 32px;
+  }
+
+  .why-feature {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .why-feature__divider {
+    display: none;
+  }
+}
