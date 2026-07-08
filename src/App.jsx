@@ -5,6 +5,7 @@ import './App.css'
 import About from './components/About'
 import MissionVisionApproach from './components/Missionvisionapproach'
 import OurServices from './components/Ourservices'
+import UpcomingEvents from './components/Upcomingevents'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <About />
       <MissionVisionApproach />
       <OurServices />
+      <UpcomingEvents />
     </div>
   )
 }
