@@ -8,6 +8,7 @@ import OurServices from './components/Ourservices'
 import UpcomingEvents from './components/Upcomingevents'
 import WhyChooseRecommerce from './components/WhyChooseRecommerce'
 import Testimonial from './components/Testimonial'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <UpcomingEvents />
       <WhyChooseRecommerce />
       <Testimonial />
+      <Footer />
     </div>
   )
 }
