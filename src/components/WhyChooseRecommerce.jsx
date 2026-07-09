@@ -1,6 +1,10 @@
 import React from "react";
 import { Globe2, Users, Star, Sprout, Recycle } from "lucide-react";
 import "./WhyChooseRecommerce.css";
+import Loop from "../assets/whyChooseLoop.png";
+import card1 from "../assets/WhyChooseCardImage.png";
+import card2 from "../assets/WhyChooseCradImage2.png";
+import card3 from "../assets/WhyChooseCardImage3.png";
 
 const FEATURES = [
   {
@@ -9,7 +13,7 @@ const FEATURES = [
     description:
       "Recommerce leads the charge in fostering a circular economy, transforming waste into valuable resources.",
     Icon: Globe2,
-    image: "/images/why-choose/circular-economy.jpg",
+    image: card1,
   },
   {
     id: 2,
@@ -18,7 +22,7 @@ const FEATURES = [
       "Recommerce leads the charge in fostering a circular economy, transforming waste into valuable resources.",
     Icon: Users,
     withStar: true,
-    image: "/images/why-choose/expertise-events.jpg",
+    image: card2,
   },
   {
     id: 3,
@@ -26,7 +30,7 @@ const FEATURES = [
     description:
       "Recommerce leads the charge in fostering a circular economy, transforming waste into valuable resources.",
     Icon: Sprout,
-    image: "/images/why-choose/positive-impact.jpg",
+    image: card3,
   },
 ];
 
@@ -80,75 +84,8 @@ export default function WhyChooseRecommerce() {
         </p>
 
         <div className="why-choose__infinity">
-          <svg
-            className="why-choose__infinity-svg"
-            viewBox="0 0 620 340"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <clipPath id="loopLeft">
-                <circle cx="185" cy="170" r="150" />
-              </clipPath>
-              <clipPath id="loopRight">
-                <circle cx="435" cy="170" r="150" />
-              </clipPath>
-              <radialGradient id="loopGlow" cx="50%" cy="50%" r="60%">
-                <stop offset="70%" stopColor="rgba(47,125,255,0)" />
-                <stop offset="100%" stopColor="rgba(47,125,255,0.35)" />
-              </radialGradient>
-            </defs>
+          <img src={Loop} alt="Recommerce Loop" className="why-choose__infinity-img" />
 
-            <g clipPath="url(#loopLeft)">
-              <image
-                href="/images/why-choose/infinity-nature.jpg"
-                x="35"
-                y="20"
-                width="300"
-                height="300"
-                preserveAspectRatio="xMidYMid slice"
-              />
-            </g>
-
-            <g clipPath="url(#loopRight)">
-              <image
-                href="/images/why-choose/infinity-turbines.jpg"
-                x="285"
-                y="20"
-                width="300"
-                height="300"
-                preserveAspectRatio="xMidYMid slice"
-              />
-            </g>
-
-            <circle
-              cx="185"
-              cy="170"
-              r="150"
-              fill="none"
-              stroke="#2f7dff"
-              strokeWidth="3"
-              opacity="0.9"
-            />
-            <circle
-              cx="435"
-              cy="170"
-              r="150"
-              fill="none"
-              stroke="#2f7dff"
-              strokeWidth="3"
-              opacity="0.9"
-            />
-
-            <circle cx="185" cy="170" r="150" fill="url(#loopGlow)" />
-            <circle cx="435" cy="170" r="150" fill="url(#loopGlow)" />
-          </svg>
-
-          <div className="why-choose__badge why-choose__badge--1">
-            <Recycle size={18} strokeWidth={2} />
-          </div>
-          <div className="why-choose__badge why-choose__badge--2">
-            <Recycle size={18} strokeWidth={2} />
-          </div>
         </div>
       </div>
 
