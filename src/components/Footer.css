@@ -169,8 +169,8 @@
 }
 
 .uf-logo-mark {
-  font-size: 44px;
-  font-weight: 900;
+  height: 55px;
+  width: 55px;
   font-style: italic;
   background: linear-gradient(180deg, #6fa8ff 0%, #2f5fbf 100%);
   -webkit-background-clip: text;

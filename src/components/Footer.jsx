@@ -171,7 +171,7 @@ const Footer = () => {
           {/* Brand column */}
           <div className="uf-col uf-brand-col">
             <div className="uf-logo">
-              <span className="uf-logo-mark">U</span>
+              <img src="https://dev.urdhvamanagement.com/wp-content/uploads/2026/05/urdhva-logo-hd-neo-scaled.png" alt="Urdhva Management Logo" className="uf-logo-mark" />
               <div className="uf-logo-text">
                 <span className="uf-logo-name">URDHVA</span>
                 <span className="uf-logo-tag">FUTURE-READY BUSINESS SOLUTIONS</span>
