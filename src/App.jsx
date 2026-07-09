@@ -10,6 +10,7 @@ import WhyChooseRecommerce from './components/WhyChooseRecommerce'
 import Testimonial from './components/Testimonial'
 import Footer from './components/Footer'
 import CareersPage from './pages/CareersPage'
+import GalleryPage from './pages/GalleryPage'
 
 function HomePage() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/careers" element={<CareersPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
     </Router>
   )

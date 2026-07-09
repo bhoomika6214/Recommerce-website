@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Careers from '../components/Careers';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const CareersPage = () => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const CareersPage = () => {
     <div className="careers-page-wrapper" style={{ paddingTop: '70px' }}>
       <Navbar />
       <Careers />
+      <Footer />
     </div>
   );
 };

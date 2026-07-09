@@ -35,14 +35,17 @@ const Navbar = () => {
         <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
           {isHomePage ? (
             <>
-              <a href="#events" className="nav-link">EVENTS</a>
               <a href="#services" className="nav-link">SERVICES</a>
-              <a href="#testimonial" className="nav-link">TESTIMONIALS</a>
               <a href="#about" className="nav-link">ABOUT US</a>
             </>
           ) : (
-            <Link to="/" className="nav-link">HOME</Link>
+            <>
+              <Link to="/" className="nav-link">HOME</Link>
+              <a href="/#services" className="nav-link">SERVICES</a>
+              <a href="/#about" className="nav-link">ABOUT US</a>
+            </>
           )}
+          <Link to="/gallery" className="nav-link">GALLERY</Link>
           <Link to="/careers" className="nav-link">CAREERS</Link>
         </div>
 
@@ -62,14 +65,17 @@ const Navbar = () => {
         <div className="navbar-mobile-menu">
           {isHomePage ? (
             <>
-              <a href="#events" className="mobile-nav-link" onClick={() => setIsOpen(false)}>EVENTS</a>
               <a href="#services" className="mobile-nav-link" onClick={() => setIsOpen(false)}>SERVICES</a>
-              <a href="#testimonial" className="mobile-nav-link" onClick={() => setIsOpen(false)}>TESTIMONIALS</a>
               <a href="#about" className="mobile-nav-link" onClick={() => setIsOpen(false)}>ABOUT US</a>
             </>
           ) : (
-            <Link to="/" className="mobile-nav-link" onClick={() => setIsOpen(false)}>HOME</Link>
+            <>
+              <Link to="/" className="mobile-nav-link" onClick={() => setIsOpen(false)}>HOME</Link>
+              <a href="/#services" className="mobile-nav-link" onClick={() => setIsOpen(false)}>SERVICES</a>
+              <a href="/#about" className="mobile-nav-link" onClick={() => setIsOpen(false)}>ABOUT US</a>
+            </>
           )}
+          <Link to="/gallery" className="mobile-nav-link" onClick={() => setIsOpen(false)}>GALLERY</Link>
           <Link to="/careers" className="mobile-nav-link" onClick={() => setIsOpen(false)}>CAREERS</Link>
           <button className="mobile-contact-btn">CONTACT US →</button>
         </div>
