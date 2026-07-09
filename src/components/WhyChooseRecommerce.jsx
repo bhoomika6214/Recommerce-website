@@ -38,7 +38,7 @@ function FeatureRow({ feature }) {
   const { title, description, Icon, withStar, image } = feature;
 
   return (
-    <div className="why-feature">
+    <div className="why-feature" style={{ backgroundImage: `url(${image})` }}>
       <div className="why-feature__icon">
         {withStar && (
           <Star className="why-feature__icon-star" size={14} fill="currentColor" />
@@ -52,10 +52,6 @@ function FeatureRow({ feature }) {
         <h3 className="why-feature__title">{title}</h3>
         <span className="why-feature__underline" />
         <p className="why-feature__desc">{description}</p>
-      </div>
-
-      <div className="why-feature__media">
-        <img src={image} alt={title} className="why-feature__img" />
       </div>
     </div>
   );
