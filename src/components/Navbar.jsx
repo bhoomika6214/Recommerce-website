@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import RecommerceLogo from '../assets/Logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,21 +22,28 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
+    <nav className={`navbar ${scrolled || !isHomePage ? 'navbar-scrolled' : 'navbar-transparent'}`}>
       <div className="navbar-container">
-        <div className="navbar-logo">
+        <Link to="/" className="navbar-logo">
           <img src={RecommerceLogo} alt="Recommerce Logo" className="logo-image" />
           <div className="logo-text-group">
             <span className="logo-text">RECOMMERCE</span>
             <span className="logo-subtitle">ECO | SUSTAINABILITY & BEYOND</span>
           </div>
-        </div>
+        </Link>
 
         <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-          <a href="#events" className="nav-link">EVENTS</a>
-          <a href="#services" className="nav-link">SERVICES</a>
-          <a href="#testimonial" className="nav-link">TESTIMONIALS</a>
-          <a href="#about" className="nav-link">ABOUT US</a>
+          {isHomePage ? (
+            <>
+              <a href="#events" className="nav-link">EVENTS</a>
+              <a href="#services" className="nav-link">SERVICES</a>
+              <a href="#testimonial" className="nav-link">TESTIMONIALS</a>
+              <a href="#about" className="nav-link">ABOUT US</a>
+            </>
+          ) : (
+            <Link to="/" className="nav-link">HOME</Link>
+          )}
+          <Link to="/careers" className="nav-link">CAREERS</Link>
         </div>
 
         <div className="navbar-actions">
@@ -50,10 +60,17 @@ const Navbar = () => {
       
       {isOpen && (
         <div className="navbar-mobile-menu">
-          <a href="#events" className="mobile-nav-link" onClick={() => setIsOpen(false)}>EVENTS</a>
-          <a href="#services" className="mobile-nav-link" onClick={() => setIsOpen(false)}>SERVICES</a>
-          <a href="#testimonial" className="mobile-nav-link" onClick={() => setIsOpen(false)}>TESTIMONIALS</a>
-          <a href="#about" className="mobile-nav-link" onClick={() => setIsOpen(false)}>ABOUT US</a>
+          {isHomePage ? (
+            <>
+              <a href="#events" className="mobile-nav-link" onClick={() => setIsOpen(false)}>EVENTS</a>
+              <a href="#services" className="mobile-nav-link" onClick={() => setIsOpen(false)}>SERVICES</a>
+              <a href="#testimonial" className="mobile-nav-link" onClick={() => setIsOpen(false)}>TESTIMONIALS</a>
+              <a href="#about" className="mobile-nav-link" onClick={() => setIsOpen(false)}>ABOUT US</a>
+            </>
+          ) : (
+            <Link to="/" className="mobile-nav-link" onClick={() => setIsOpen(false)}>HOME</Link>
+          )}
+          <Link to="/careers" className="mobile-nav-link" onClick={() => setIsOpen(false)}>CAREERS</Link>
           <button className="mobile-contact-btn">CONTACT US →</button>
         </div>
       )}
