@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import recommerceLogo from "../assets/Logo.png";
 
 /* ---------- inline icons (no external deps) ---------- */
 
@@ -141,7 +142,7 @@ const Footer = () => {
         <div className="uf-cta">
           <div className="uf-cta-left">
             <div className="uf-cta-icon">
-              <IconRecycleLeaf />
+              <img src={recommerceLogo} alt="Recommerce Logo" className="uf-cta-mark" />
             </div>
             <div className="uf-cta-text">
               <h2>
