@@ -85,6 +85,7 @@ const Testimonial = () => {
   return (
     <section
       className="testimonial-section"
+      id="testimonial"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

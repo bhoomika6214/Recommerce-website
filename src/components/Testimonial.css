@@ -50,11 +50,11 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #0066ff;
+  color: #3b6ef6;
   text-transform: uppercase;
   margin-bottom: 16px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #0066ff;
+  border-bottom: 2px solid #3b6ef6;
 }
 
 .testimonial-title {
@@ -66,7 +66,7 @@
 }
 
 .testimonial-title .highlight {
-  color: #0066ff;
+  color: #3b6ef6;
   position: relative;
 }
 
@@ -107,7 +107,7 @@
 .quote-icon-open {
   font-size: 48px;
   font-weight: 700;
-  color: #0066ff;
+  color: #3b6ef6;
   line-height: 0.6;
   margin-bottom: 16px;
 }
@@ -144,7 +144,7 @@
   position: relative;
   width: 72px;
   height: 72px;
-  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -201,7 +201,7 @@
 .author-name {
   font-size: 22px;
   font-weight: 700;
-  color: #0066ff;
+  color: #3b6ef6;
   margin: 0;
   line-height: 1.3;
 }
@@ -228,9 +228,9 @@
 .nav-button {
   width: 48px;
   height: 48px;
-  border: 2px solid #0066ff;
+  border: 2px solid #3b6ef6;
   background: transparent;
-  color: #0066ff;
+  color: #3b6ef6;
   border-radius: 50%;
   font-size: 24px;
   font-weight: bold;
@@ -242,7 +242,7 @@
 }
 
 .nav-button:hover {
-  background: #0066ff;
+  background: #3b6ef6;
   color: white;
   transform: scale(1.05);
 }
@@ -252,7 +252,7 @@
 }
 
 .nav-button:focus {
-  outline: 2px solid #0052cc;
+  outline: 2px solid #2f5fd4;
   outline-offset: 2px;
 }
 
@@ -274,17 +274,17 @@
 }
 
 .dot:hover {
-  background: #0066ff;
+  background: #3b6ef6;
   transform: scale(1.2);
 }
 
 .dot.active {
-  background: #0066ff;
+  background: #3b6ef6;
   transform: scale(1.2);
 }
 
 .dot:focus {
-  outline: 2px solid #0052cc;
+  outline: 2px solid #2f5fd4;
   outline-offset: 2px;
 }
 
@@ -469,7 +469,7 @@
 /* High contrast mode support */
 @media (prefers-contrast: more) {
   .testimonial-card {
-    border: 2px solid #0066ff;
+    border: 2px solid #3b6ef6;
     box-shadow: 0 0 0 1px #000;
   }
 

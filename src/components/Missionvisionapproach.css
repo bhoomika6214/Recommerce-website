@@ -49,7 +49,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #1572e6 0%, #1572e6 100%);
+  background: linear-gradient(90deg, #3b6ef6 0%, #3b6ef6 100%);
   transform: translateY(4px);
   transition: all 0.3s ease;
 }
@@ -77,7 +77,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1572e6 0%, #0d47a1 100%);
+  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +96,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.5px;
-  color: #1572e6;
+  color: #3b6ef6;
   text-transform: uppercase;
   margin: 0;
   line-height: 1.4;
@@ -114,7 +114,7 @@
 .mva-divider {
   width: 48px;
   height: 3px;
-  background: #1572e6;
+  background: #3b6ef6;
   margin-bottom: 24px;
   border-radius: 2px;
   transition: all 0.3s ease;

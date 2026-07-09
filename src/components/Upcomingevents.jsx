@@ -140,7 +140,7 @@ function BannerCarousel() {
 
 export default function Upcomingevents() {
   return (
-    <section className="upcoming-events">
+    <section className="upcoming-events" id="events">
       <div className="upcoming-events__header">
         <div className="upcoming-events__intro">
           <div className="upcoming-events__eyebrow">

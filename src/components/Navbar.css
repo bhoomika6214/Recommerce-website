@@ -17,12 +17,12 @@
 .navbar-scrolled {
   background: linear-gradient(
     180deg,
-    rgba(10, 20, 40, 0.95) 0%,
-    rgba(10, 20, 40, 0.8) 100%
+    rgba(5, 9, 27, 0.95) 0%,
+    rgba(5, 9, 27, 0.85) 100%
   );
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(0, 153, 255, 0.15);
+  border-bottom: 1px solid rgba(59, 110, 246, 0.2);
 }
 
 .navbar-container {
@@ -92,7 +92,7 @@
 
 .logo-subtitle {
   font-size: 8px;
-  color: #0099ff;
+  color: #3b6ef6;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 600;
@@ -131,12 +131,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #0099ff 0%, #00d4ff 100%);
+  background: linear-gradient(90deg, #3b6ef6 0%, #4f8bff 100%);
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #0099ff;
+  color: #3b6ef6;
 }
 
 .nav-link:hover::after {
@@ -152,7 +152,7 @@
 
 .nav-contact-btn {
   padding: 12px 28px;
-  background: linear-gradient(135deg, #0099ff 0%, #0077cc 100%);
+  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
   color: #ffffff;
   border: none;
   border-radius: 50px;
@@ -162,13 +162,13 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 153, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(59, 110, 246, 0.3);
 }
 
 .nav-contact-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 153, 255, 0.5);
-  background: linear-gradient(135deg, #00b3ff 0%, #0088dd 100%);
+  box-shadow: 0 8px 25px rgba(59, 110, 246, 0.5);
+  background: linear-gradient(135deg, #4f8bff 0%, #3b6ef6 100%);
 }
 
 .nav-contact-btn:active {
@@ -189,7 +189,7 @@
 .hamburger-line {
   width: 28px;
   height: 3px;
-  background: linear-gradient(90deg, #0099ff 0%, #00d4ff 100%);
+  background: linear-gradient(90deg, #3b6ef6 0%, #4f8bff 100%);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -215,14 +215,14 @@
   right: 0;
   background: linear-gradient(
     180deg,
-    rgba(10, 20, 40, 0.98) 0%,
-    rgba(10, 20, 40, 0.95) 100%
+    rgba(5, 9, 27, 0.98) 0%,
+    rgba(5, 9, 27, 0.95) 100%
   );
   backdrop-filter: blur(8px);
   flex-direction: column;
   gap: 0;
   padding: 0;
-  border-bottom: 1px solid rgba(0, 153, 255, 0.15);
+  border-bottom: 1px solid rgba(59, 110, 246, 0.2);
   z-index: 999;
   animation: slideDown 0.3s ease-out;
 }
@@ -250,20 +250,20 @@
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(0, 153, 255, 0.1);
+  border-bottom: 1px solid rgba(59, 110, 246, 0.1);
   transition: all 0.3s ease;
 }
 
 .mobile-nav-link:hover {
-  background: rgba(0, 153, 255, 0.1);
-  color: #0099ff;
+  background: rgba(59, 110, 246, 0.1);
+  color: #3b6ef6;
   padding-left: 50px;
 }
 
 .mobile-contact-btn {
   margin: 16px 40px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, #0099ff 0%, #0077cc 100%);
+  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
   color: #ffffff;
   border: none;
   border-radius: 50px;
@@ -273,12 +273,12 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 153, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(59, 110, 246, 0.3);
 }
 
 .mobile-contact-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 153, 255, 0.5);
+  box-shadow: 0 8px 25px rgba(59, 110, 246, 0.5);
 }
 
 .navbar-overlay {

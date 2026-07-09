@@ -133,7 +133,7 @@
   background-repeat: no-repeat;
   border: 1px solid #e5e9f2;
   overflow: hidden;
-  min-height: 180px;
+  min-height: 220px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -181,7 +181,7 @@
 }
 
 .why-feature__title {
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 800;
   color: #0a1029;
   margin: 0 0 12px;
@@ -197,7 +197,7 @@
 }
 
 .why-feature__desc {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: #5b6478;
   margin: 0;

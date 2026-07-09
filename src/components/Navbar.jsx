@@ -31,8 +31,8 @@ const Navbar = () => {
 
         <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
           <a href="#events" className="nav-link">EVENTS</a>
-          <a href="#industries" className="nav-link">INDUSTRIES</a>
-          <a href="#insights" className="nav-link">INSIGHTS</a>
+          <a href="#services" className="nav-link">SERVICES</a>
+          <a href="#testimonial" className="nav-link">TESTIMONIALS</a>
           <a href="#about" className="nav-link">ABOUT US</a>
         </div>
 
@@ -51,8 +51,8 @@ const Navbar = () => {
       {isOpen && (
         <div className="navbar-mobile-menu">
           <a href="#events" className="mobile-nav-link" onClick={() => setIsOpen(false)}>EVENTS</a>
-          <a href="#industries" className="mobile-nav-link" onClick={() => setIsOpen(false)}>INDUSTRIES</a>
-          <a href="#insights" className="mobile-nav-link" onClick={() => setIsOpen(false)}>INSIGHTS</a>
+          <a href="#services" className="mobile-nav-link" onClick={() => setIsOpen(false)}>SERVICES</a>
+          <a href="#testimonial" className="mobile-nav-link" onClick={() => setIsOpen(false)}>TESTIMONIALS</a>
           <a href="#about" className="mobile-nav-link" onClick={() => setIsOpen(false)}>ABOUT US</a>
           <button className="mobile-contact-btn">CONTACT US →</button>
         </div>

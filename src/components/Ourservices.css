@@ -80,7 +80,7 @@
 }
 
 .our-services__heading-accent {
-  color: #3b7dff;
+  color: #3b6ef6;
 }
 
 .our-services__subtext {
@@ -143,7 +143,7 @@
   position: absolute;
   top: 18px;
   right: 18px;
-  background: #2f6bff;
+  background: #3b6ef6;
   color: #ffffff;
   font-size: 11px;
   font-weight: 800;
@@ -180,7 +180,7 @@
   display: block;
   font-size: 15px;
   font-weight: 800;
-  color: #3b7dff;
+  color: #3b6ef6;
   margin-bottom: 6px;
 }
 
@@ -235,7 +235,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1.5px solid #3b7dff;
+  border: 1.5px solid #3b6ef6;
   color: #6ea3ff;
   display: flex;
   align-items: center;

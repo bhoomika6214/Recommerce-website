@@ -72,7 +72,7 @@
   gap: 10px;
   padding: 13px 20px;
   background: transparent;
-  border: 1.5px solid #2f6bff;
+  border: 1.5px solid #3b6ef6;
   border-radius: 10px;
   color: #ffffff;
   font-size: 14.5px;
@@ -172,7 +172,7 @@
   align-items: center;
   gap: 10px;
   padding: 14px 28px;
-  background: linear-gradient(135deg, #2f6bff 0%, #1a4fd9 100%);
+  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
   border: none;
   border-radius: 10px;
   color: #ffffff;
@@ -208,7 +208,7 @@
 
 .banner-nav:hover {
   background: rgba(47, 107, 255, 0.3);
-  border-color: #2f6bff;
+  border-color: #3b6ef6;
 }
 
 .banner-nav--prev {
@@ -280,7 +280,7 @@
 
 .banner-progress__bar {
   height: 100%;
-  background: linear-gradient(90deg, #2f6bff, #00d4ff);
+  background: linear-gradient(90deg, #3b6ef6, #4f8bff);
   animation: progressFill 5s linear infinite;
   width: 100%;
   transform-origin: left;

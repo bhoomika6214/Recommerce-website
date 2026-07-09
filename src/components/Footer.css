@@ -1,6 +1,6 @@
 /* ---------- base ---------- */
 .uf {
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
   width: 100%;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .uf-highlight {
-  color: #2f7dfa;
+  color: #3b6ef6;
 }
 
 .uf-cta-text p {
@@ -91,7 +91,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: linear-gradient(135deg, #2f7dfa 0%, #1c63e0 100%);
+  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
   border: none;
   color: #ffffff;
   font-size: 16px;
@@ -99,13 +99,13 @@
   padding: 8px 8px 8px 26px;
   border-radius: 40px;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(47, 125, 250, 0.35);
+  box-shadow: 0 8px 20px rgba(59, 110, 246, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .uf-cta-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(47, 125, 250, 0.45);
+  box-shadow: 0 10px 24px rgba(59, 110, 246, 0.45);
 }
 
 .uf-cta-btn-circle {
@@ -113,7 +113,7 @@
   height: 38px;
   border-radius: 50%;
   background: #ffffff;
-  color: #2f7dfa;
+  color: #3b6ef6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,8 +126,8 @@
 
 /* ---------- main dark footer ---------- */
 .uf-main {
-  background: #0b2148;
-  background: radial-gradient(circle at top left, #0e2a56 0%, #0a1f42 55%, #081a38 100%);
+  background: #05091b;
+  background: radial-gradient(circle at top left, #0c1836 0%, #060c22 55%, #05091b 100%);
   color: #cdd7e6;
   padding: 56px 48px 24px;
 }
@@ -157,7 +157,7 @@
   bottom: 0;
   width: 34px;
   height: 3px;
-  background: #2f7dfa;
+  background: #3b6ef6;
   border-radius: 2px;
 }
 
@@ -173,7 +173,7 @@
   height: 55px;
   width: 55px;
   font-style: italic;
-  background: linear-gradient(180deg, #6fa8ff 0%, #2f5fbf 100%);
+  background: linear-gradient(180deg, #6ea3ff 0%, #2f5fd4 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -230,7 +230,7 @@
 .uf-list a svg {
   width: 15px;
   height: 15px;
-  color: #4a7fd6;
+  color: #4f8bff;
   flex-shrink: 0;
 }
 
@@ -265,7 +265,7 @@
   height: 30px;
   border-radius: 50%;
   border: 1.5px solid #3a6fc4;
-  color: #4a90ff;
+  color: #6ea3ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -309,8 +309,8 @@
 }
 
 .uf-social-btn:hover {
-  background: #2f7dfa;
-  border-color: #2f7dfa;
+  background: #3b6ef6;
+  border-color: #3b6ef6;
   color: #ffffff;
 }
 
@@ -330,7 +330,7 @@
   height: 32px;
   border-radius: 8px;
   background: #1f3f78;
-  color: #6fa4ff;
+  color: #6ea3ff;
   display: flex;
   align-items: center;
   justify-content: center;

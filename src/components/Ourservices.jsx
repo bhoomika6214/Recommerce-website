@@ -127,7 +127,7 @@ function ServiceCard({ service, index }) {
 
 export default function Ourservices() {
   return (
-    <section className="our-services">
+    <section className="our-services" id="services">
       <div className="our-services__bg-glow" aria-hidden="true" />
       <div className="our-services__bg-dots" aria-hidden="true" />
 

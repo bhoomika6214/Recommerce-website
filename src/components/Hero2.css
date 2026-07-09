@@ -11,7 +11,7 @@
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background: #0a1428;
+  background: #05091b;
 }
 
 /* Background Video */
@@ -130,14 +130,14 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: linear-gradient(90deg, #0099ff 0%, #00d4ff 100%);
+  background: linear-gradient(90deg, #3b6ef6 0%, #4f8bff 100%);
 }
 
 .hero2-label-text {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 2px;
-  color: #0099ff;
+  color: #3b6ef6;
   text-transform: uppercase;
 }
 
@@ -153,7 +153,7 @@
 }
 
 .hero2-heading-highlight {
-  background: linear-gradient(135deg, #0099ff 0%, #00d4ff 100%);
+  background: linear-gradient(135deg, #3b6ef6 0%, #4f8bff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -176,7 +176,7 @@
   justify-content: center;
   width: 240px;
   height: 52px;
-  background: linear-gradient(135deg, #0099ff 0%, #0077cc 100%);
+  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
   color: #ffffff;
   border: none;
   border-radius: 50px;
@@ -186,15 +186,15 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 153, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(59, 110, 246, 0.4);
   opacity: 0;
   animation: fadeInUp 0.6s ease-out 7s forwards;
 }
 
 .hero2-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 153, 255, 0.6);
-  background: linear-gradient(135deg, #00b3ff 0%, #0088dd 100%);
+  box-shadow: 0 8px 25px rgba(59, 110, 246, 0.6);
+  background: linear-gradient(135deg, #4f8bff 0%, #3b6ef6 100%);
 }
 
 .hero2-btn:active {
