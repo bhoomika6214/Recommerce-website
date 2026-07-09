@@ -7,6 +7,7 @@ import MissionVisionApproach from './components/Missionvisionapproach'
 import OurServices from './components/Ourservices'
 import UpcomingEvents from './components/Upcomingevents'
 import WhyChooseRecommerce from './components/WhyChooseRecommerce'
+import Testimonial from './components/Testimonial'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <OurServices />
       <UpcomingEvents />
       <WhyChooseRecommerce />
+      <Testimonial />
     </div>
   )
 }

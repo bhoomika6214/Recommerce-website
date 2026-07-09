@@ -78,11 +78,35 @@ const SERVICES = [
 ];
 
 function ServiceCard({ service, index }) {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add("service-card--visible");
+            }, index * 150);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [index]);
+
   const { number, title, description, Icon, featured } = service;
   return (
     <div
+      ref={cardRef}
       className={`service-card${featured ? " service-card--featured" : ""}`}
-      style={{ animationDelay: `${0.8 + index * 0.1}s` }}
     >
       {featured && <span className="service-card__tag">FEATURED</span>}
 
@@ -102,38 +126,8 @@ function ServiceCard({ service, index }) {
 }
 
 export default function Ourservices() {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section className="our-services" ref={sectionRef}>
-      <div className="our-services__spark" aria-hidden="true">
-        <span className="spark-line spark-line--1" />
-        <span className="spark-line spark-line--2" />
-        <span className="spark-line spark-line--3" />
-      </div>
-
-      <div className="our-services__circle-reveal" aria-hidden="true" />
-
+    <section className="our-services">
       <div className="our-services__bg-glow" aria-hidden="true" />
       <div className="our-services__bg-dots" aria-hidden="true" />
 
