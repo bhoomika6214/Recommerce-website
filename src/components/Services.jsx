@@ -1,299 +1,293 @@
-import React, { useState } from 'react';
-import './Services.css';
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import {
+  FiArrowLeft,
+  FiArrowRight,
+  FiChevronRight,
+  FiBookOpen,
+  FiPackage,
+  FiMic,
+  FiBarChart2,
+  FiZap,
+  FiGitBranch,
+  FiFileText,
+  FiVideo,
+  FiUsers,
+} from "react-icons/fi";
+import { Leaf } from "lucide-react";
+import "./Services.css";
+
+const servicesData = [
+  {
+    id: "01",
+    title: "Training & Workshops",
+    description:
+      "Hands-on capability building programs that equip teams to implement circular economy principles at scale.",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=80",
+    icon: FiBookOpen,
+  },
+  {
+    id: "02",
+    title: "Expo",
+    description:
+      "Showcasing innovations and solutions driving circular progress.",
+    image:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1800&q=80",
+    icon: FiPackage,
+  },
+  {
+    id: "03",
+    title: "Conference",
+    description:
+      "Global thought-leadership forums connecting policymakers, industry experts, and sustainability innovators.",
+    image:
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1800&q=80",
+    icon: FiMic,
+  },
+  {
+    id: "04",
+    title: "Market Research & Analysis",
+    description:
+      "Data-backed market intelligence to uncover circular opportunities, trends, and strategic growth pathways.",
+    image:
+      "https://images.unsplash.com/photo-1551281044-8b1675d6d7b3?auto=format&fit=crop&w=1800&q=80",
+    icon: FiBarChart2,
+  },
+  {
+    id: "05",
+    title: "Product Launches",
+    description:
+      "End-to-end launch management for circular products that resonate with markets and stakeholders.",
+    image:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=80",
+    icon: FiZap,
+  },
+  {
+    id: "06",
+    title: "Supply Chain Project Management",
+    description:
+      "Cross-functional execution of sustainable supply chain transformations with measurable business outcomes.",
+    image:
+      "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1800&q=80",
+    icon: FiGitBranch,
+  },
+  {
+    id: "07",
+    title: "Green Reporting",
+    description:
+      "Transparent ESG and sustainability reporting frameworks aligned with global compliance and impact metrics.",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=80",
+    icon: FiFileText,
+  },
+  {
+    id: "08",
+    title: "Webinar & Seminar",
+    description:
+      "Engaging digital and in-person knowledge sessions to accelerate awareness, adoption, and innovation.",
+    image:
+      "https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=1800&q=80",
+    icon: FiVideo,
+  },
+  {
+    id: "09",
+    title: "Community Engagement",
+    description:
+      "Purpose-driven campaigns and partnerships that mobilize communities for long-term circular impact.",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=80",
+    icon: FiUsers,
+  },
+];
 
 const Services = () => {
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(1);
-  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
+  const [inView, setInView] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const sectionRef = useRef(null);
+  const swiperRef = useRef(null);
 
-  const services = [
-    {
-      id: '01',
-      number: '01',
-      title: 'Training and Workshops',
-      icon: '🎓',
-      color: 'gray'
-    },
-    {
-      id: '02',
-      number: '02',
-      title: 'Expo',
-      icon: '📊',
-      color: 'blue',
-      featured: true,
-      featuredTitle: 'Expo',
-      featuredDescription: 'Showcasing innovations and solutions driving circular progress.',
-      featuredImage: 'expo'
-    },
-    {
-      id: '03',
-      number: '03',
-      title: 'Conference',
-      icon: '👥',
-      color: 'gray'
-    },
-    {
-      id: '04',
-      number: '04',
-      title: 'Market Research and Analysis',
-      icon: '📋',
-      color: 'gray'
-    },
-    {
-      id: '05',
-      number: '05',
-      title: 'Product Launches',
-      icon: '🚀',
-      color: 'green'
-    },
-    {
-      id: '06',
-      number: '06',
-      title: 'Supply Chain Management',
-      icon: '📦',
-      color: 'gray'
-    },
-    {
-      id: '07',
-      number: '07',
-      title: 'Green Reporting',
-      icon: '🌍',
-      color: 'yellow'
-    },
-    {
-      id: '08',
-      number: '08',
-      title: 'Webinar and Seminar',
-      icon: '📹',
-      color: 'purple'
-    },
-    {
-      id: '09',
-      number: '09',
-      title: 'Community Engagement',
-      icon: '💬',
-      color: 'gray'
-    }
-  ];
+  const totalSlides = servicesData.length;
 
-  const nextService = () => {
-    setCurrentServiceIndex((prev) => (prev + 1) % services.length);
+  const progressWidth = useMemo(
+    () => `${((activeIndex + 1) / totalSlides) * 100}%`,
+    [activeIndex, totalSlides]
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting && setInView(true),
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const goPrev = () => swiperRef.current?.slidePrev();
+  const goNext = () => swiperRef.current?.slideNext();
+
+  const handleThumbClick = (index) => {
+    swiperRef.current?.slideTo(index);
   };
-
-  const prevService = () => {
-    setCurrentServiceIndex((prev) => (prev === 0 ? services.length - 1 : prev - 1));
-  };
-
-  const nextCarousel = () => {
-    setCurrentCarouselIndex((prev) => (prev + 1) % services.length);
-  };
-
-  const prevCarousel = () => {
-    setCurrentCarouselIndex((prev) => (prev === 0 ? services.length - 1 : prev - 1));
-  };
-
-  const goToService = (index) => {
-    setCurrentServiceIndex(index);
-  };
-
-  const featuredService = services[currentServiceIndex];
 
   return (
-    <div className="sv-page">
-      {/* Hero Section */}
-      <section className="sv-hero">
-        <div className="sv-hero-container">
-          {/* Left Content */}
-          <div className="sv-hero-left">
-            <span className="sv-hero-label">— OUR SERVICES</span>
-            <h1 className="sv-hero-title">
-              Comprehensive Solutions for a <span className="sv-highlight">Circular Economy</span> in Action
-            </h1>
-            <p className="sv-hero-description">
-              From knowledge to impact, we offer end-to-end services that empower industries, inspire action and drive sustainable transformation.
-            </p>
-            <div className="sv-progress-section">
-              <div className="sv-progress-label">
-                <span className="sv-progress-number">{String(currentServiceIndex + 1).padStart(2, '0')}</span>
-                <span className="sv-progress-total">/ {String(services.length).padStart(2, '0')}</span>
-              </div>
-              <div className="sv-progress-bar">
-                <div 
-                  className="sv-progress-fill" 
-                  style={{ width: `${((currentServiceIndex + 1) / services.length) * 100}%` }}
-                ></div>
-              </div>
+    <section
+      className={`sv-services-section ${inView ? "sv-in-view" : ""}`}
+      ref={sectionRef}
+      aria-label="Our services"
+    >
+      <div className="sv-services-particles" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+
+      <div className="sv-services-top">
+        {/* LEFT PANEL */}
+        <aside className="sv-services-left">
+          <p className="sv-services-label">OUR SERVICES</p>
+          <h2 className="sv-services-heading">
+            Comprehensive Solutions for a{" "}
+            <span className="sv-gradient-text">Circular Economy</span> in Action
+          </h2>
+          <p className="sv-services-description">
+            From knowledge to impact, we offer end-to-end services that empower
+            industries, inspire action and drive sustainable transformation.
+          </p>
+
+          <div className="sv-services-progress-wrap">
+            <div className="sv-services-count">
+              {String(activeIndex + 1).padStart(2, "0")} /{" "}
+              {String(totalSlides).padStart(2, "0")}
+            </div>
+            <div className="sv-services-progress-track" role="progressbar">
+              <span
+                className="sv-services-progress-fill"
+                style={{ width: progressWidth }}
+              />
             </div>
           </div>
+        </aside>
 
-          {/* Right Content - Featured Service Carousel */}
-          <div className="sv-hero-right">
-            <div className="sv-featured-card">
-              <div className="sv-featured-badge">FEATURED SERVICE</div>
-              
-              <div className="sv-featured-content">
-                <h2 className="sv-featured-number">{featuredService.id}</h2>
-                <h3 className="sv-featured-title">{featuredService.featuredTitle || featuredService.title}</h3>
-                <p className="sv-featured-description">
-                  {featuredService.featuredDescription || 'Delivering comprehensive solutions for your business needs.'}
-                </p>
-                <button className="sv-featured-button">
-                  Learn More
-                  <span className="sv-arrow">→</span>
-                </button>
-              </div>
-
-              <div className="sv-featured-image-area">
-                <div className="sv-image-placeholder">
-                  <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" className="sv-expo-illustration">
-                    {/* Background */}
-                    <rect width="400" height="300" fill="#1e3a5f" rx="16"/>
-                    
-                    {/* Ceiling lights */}
-                    <circle cx="80" cy="20" r="8" fill="#4a6fa5" opacity="0.6"/>
-                    <circle cx="200" cy="15" r="8" fill="#4a6fa5" opacity="0.6"/>
-                    <circle cx="320" cy="20" r="8" fill="#4a6fa5" opacity="0.6"/>
-                    
-                    {/* Hanging plants */}
-                    <path d="M 50 30 Q 45 50 50 70" stroke="#4ade80" strokeWidth="2" fill="none"/>
-                    <circle cx="45" cy="75" r="15" fill="#4ade80" opacity="0.7"/>
-                    <circle cx="370" cy="80" r="12" fill="#4ade80" opacity="0.7"/>
-                    
-                    {/* Recycling symbol - main */}
-                    <circle cx="200" cy="100" r="45" fill="none" stroke="#4ade80" strokeWidth="3"/>
-                    <path d="M 185 70 L 175 95 L 195 90 Z" fill="#4ade80"/>
-                    <path d="M 215 70 L 225 95 L 205 90 Z" fill="#4ade80"/>
-                    <path d="M 200 130 L 190 105 L 210 110 Z" fill="#4ade80"/>
-                    
-                    {/* Display board */}
-                    <rect x="250" y="60" width="120" height="80" fill="#2d5a8c" stroke="#4ade80" strokeWidth="2" rx="4"/>
-                    <rect x="260" y="70" width="100" height="20" fill="#1e3a5f"/>
-                    <text x="310" y="82" fontSize="12" fill="#4ade80" textAnchor="middle" fontWeight="bold">CIRCULAR</text>
-                    <text x="310" y="98" fontSize="10" fill="#4ade80" textAnchor="middle">SOLUTIONS</text>
-                    
-                    {/* Icons on board */}
-                    <circle cx="270" cy="110" r="4" fill="#4ade80"/>
-                    <circle cx="285" cy="110" r="4" fill="#4ade80"/>
-                    <circle cx="300" cy="110" r="4" fill="#4ade80"/>
-                    
-                    {/* Plants in pots */}
-                    <rect x="100" y="200" width="25" height="20" fill="#8b6f47" rx="2"/>
-                    <path d="M 112 200 L 108 180 L 116 180 Z" fill="#4ade80"/>
-                    <path d="M 112 200 L 105 170 L 120 175 Z" fill="#4ade80"/>
-                    
-                    <rect x="330" y="210" width="20" height="18" fill="#8b6f47" rx="2"/>
-                    <path d="M 340 210 L 336 190 L 344 192 Z" fill="#4ade80"/>
-                    
-                    {/* Ground elements */}
-                    <rect x="0" y="260" width="400" height="40" fill="#2d5a8c" opacity="0.3"/>
-                    
-                    {/* Text elements */}
-                    <text x="120" y="260" fontSize="12" fill="#4ade80" fontWeight="bold">RETHINK</text>
-                    <text x="110" y="278" fontSize="12" fill="#4ade80" fontWeight="bold">RECOVER</text>
-                    <text x="115" y="296" fontSize="12" fill="#4ade80" fontWeight="bold">REVERSE</text>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <div className="sv-featured-nav">
-              <button className="sv-nav-arrow sv-prev" onClick={prevService} aria-label="Previous service">
-                ‹
-              </button>
-              <button className="sv-nav-arrow sv-next" onClick={nextService} aria-label="Next service">
-                ›
-              </button>
-            </div>
-
-            {/* Carousel Dots */}
-            <div className="sv-carousel-dots">
-              {services.map((_, index) => (
-                <button
-                  key={index}
-                  className={`sv-dot ${index === currentServiceIndex ? 'sv-active' : ''}`}
-                  onClick={() => goToService(index)}
-                  aria-label={`Go to service ${index + 1}`}
-                ></button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid Carousel */}
-      <section className="sv-grid-section">
-        <div className="sv-grid-carousel-container">
-          {/* Left Navigation */}
-          <button className="sv-grid-nav-arrow sv-prev" onClick={prevCarousel} aria-label="Previous services">
-            ‹
+        {/* RIGHT PANEL */}
+        <div
+          className="sv-services-right"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <button className="sv-nav-btn sv-nav-prev" onClick={goPrev} aria-label="Previous service">
+            <FiArrowLeft />
           </button>
 
-          {/* Services Grid */}
-          <div className="sv-services-grid">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className={`sv-service-card ${service.featured ? 'sv-featured-card-main' : ''} ${
-                  index >= currentCarouselIndex && index < currentCarouselIndex + 3 ? 'sv-visible' : 'sv-hidden'
-                }`}
-              >
-                <div className={`sv-card-icon sv-color-${service.color}`}>
-                  {service.icon}
-                </div>
-                <div className="sv-card-number">{service.number}</div>
-                <h3 className="sv-card-title">{service.title}</h3>
-              </div>
+          <Swiper
+            modules={[EffectFade, Autoplay]}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+            slidesPerView={1}
+            speed={700}
+            loop={true}
+            initialSlide={1}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            onSlideChange={(swiper) => {
+              setActiveIndex(swiper.realIndex);
+              if (isHovered) swiper.autoplay.stop();
+            }}
+            className="sv-services-swiper"
+          >
+            {servicesData.map((item) => (
+              <SwiperSlide key={item.id}>
+                <article
+                  className="sv-service-card"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                >
+                  <div className="sv-service-overlay" />
+                  <div className="sv-service-glass" />
+                  <div className="sv-service-content">
+                    <span className="sv-service-no">{item.id}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <button className="sv-learn-btn">
+                      Learn More <FiChevronRight />
+                    </button>
+                  </div>
+                </article>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <button className="sv-nav-btn sv-nav-next" onClick={goNext} aria-label="Next service">
+            <FiArrowRight />
+          </button>
+
+          <div className="sv-dots-wrap" aria-label="Slide indicators">
+            {servicesData.map((_, i) => (
+              <button
+                key={i}
+                className={`sv-dot ${activeIndex === i ? "active" : ""}`}
+                onClick={() => handleThumbClick(i)}
+                aria-label={`Go to service ${i + 1}`}
+              />
             ))}
           </div>
-
-          {/* Right Navigation */}
-          <button className="sv-grid-nav-arrow sv-next" onClick={nextCarousel} aria-label="Next services">
-            ›
-          </button>
         </div>
-      </section>
+      </div>
 
-      {/* Bottom CTA Section */}
-      <section className="sv-cta-section">
-        <div className="sv-cta-container">
-          <div className="sv-cta-leaf">🍃</div>
-          <h2 className="sv-cta-title">
-            Let's build a <span className="sv-highlight">sustainable future</span> together.
-          </h2>
-
-          <div className="sv-cta-features">
-            <div className="sv-cta-feature">
-              <span className="sv-feature-icon">👥</span>
-              <div className="sv-feature-text">
-                <span className="sv-feature-highlight">Collaborate</span>
-                <span className="sv-feature-label">for Impact</span>
+      {/* THUMBNAILS */}
+      <div className="sv-services-thumbs" role="tablist" aria-label="Service thumbnails">
+        {servicesData.map((item, index) => {
+          const Icon = item.icon;
+          const active = activeIndex === index;
+          return (
+            <button
+              key={item.id}
+              className={`sv-thumb-card ${active ? "active" : ""}`}
+              onClick={() => handleThumbClick(index)}
+              role="tab"
+              aria-selected={active}
+            >
+              <span className="sv-thumb-icon">
+                <Icon />
+              </span>
+              <div className="sv-thumb-meta">
+                <small>{item.id}</small>
+                <h4>{item.title}</h4>
               </div>
-            </div>
+            </button>
+          );
+        })}
+      </div>
 
-            <div className="sv-cta-feature">
-              <span className="sv-feature-icon">💡</span>
-              <div className="sv-feature-text">
-                <span className="sv-feature-highlight">Innovate</span>
-                <span className="sv-feature-label">for Change</span>
-              </div>
-            </div>
-
-            <div className="sv-cta-feature">
-              <span className="sv-feature-icon">🌍</span>
-              <div className="sv-feature-text">
-                <span className="sv-feature-highlight">Sustain</span>
-                <span className="sv-feature-label">for Tomorrow</span>
-              </div>
-            </div>
-          </div>
-
-          <button className="sv-cta-button">
-            Connect with us
-            <span className="sv-arrow">→</span>
-          </button>
+      {/* BOTTOM CTA STRIP */}
+      <div className="sv-services-cta-strip">
+        <div className="sv-cta-left">
+          <span className="sv-leaf-icon">
+            <Leaf size={24} />
+          </span>
+          <p>Let&apos;s build a sustainable future together.</p>
         </div>
-      </section>
-    </div>
+
+        <ul className="sv-cta-points">
+          <li>Collaborate for Impact</li>
+          <li>Innovate for Change</li>
+          <li>Sustain for Tomorrow</li>
+        </ul>
+
+        <button className="sv-cta-btn">Connect with us</button>
+      </div>
+    </section>
   );
 };
 
