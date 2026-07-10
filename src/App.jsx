@@ -11,6 +11,7 @@ import Testimonial from './components/Testimonial'
 import Footer from './components/Footer'
 import CareersPage from './pages/CareersPage'
 import GalleryPage from './pages/GalleryPage'
+import Services from './components/Services';
 
 function HomePage() {
   return (
@@ -20,6 +21,7 @@ function HomePage() {
       <About />
       <MissionVisionApproach />
       <OurServices />
+      <Services />
       <UpcomingEvents />
       <WhyChooseRecommerce />
       <Testimonial />
