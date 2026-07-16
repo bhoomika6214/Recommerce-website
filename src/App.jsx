@@ -13,6 +13,7 @@ import CareersPage from './pages/CareersPage'
 import GalleryPage from './pages/GalleryPage'
 import Services from './components/Services';
 import PosterReport from './components/PosterReport';
+import Pastevents from './components/Pastevents';
 
 function HomePage() {
   return (
@@ -25,6 +26,7 @@ function HomePage() {
       <Services />
       <UpcomingEvents />
       <PosterReport />
+      <Pastevents />
       <WhyChooseRecommerce />
       <Testimonial />
       <Footer />
