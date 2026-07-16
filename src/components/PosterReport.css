@@ -1,0 +1,226 @@
+.poster-report-section {
+  padding: 100px 0;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.carousel-header {
+  margin-bottom: 50px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-header h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Arrows */
+.carousel-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 2;
+}
+
+.carousel-arrow:hover {
+  border-color: #0056b3;
+  color: #0056b3;
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.15);
+}
+
+.carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Scrollable Wrapper */
+.carousel-wrapper {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 30px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+}
+
+/* Premium Card Layout */
+.poster-card {
+  flex: 0 0 320px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.poster-card:hover {
+  transform: translateY(-8px); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Container */
+.image-container {
+  width: 100%;
+  aspect-ratio: 1 / 1.35; 
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+
+.poster-card:hover .poster-image {
+  transform: scale(1.05);
+}
+
+/* Content Area */
+.card-content {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: #ffffff;
+  z-index: 2;
+}
+
+.report-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  line-height: 1.3;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* View Report Button */
+.view-report-btn {
+  background-color: transparent;
+  color: #0056b3;
+  border: 2px solid #0056b3;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.view-report-btn:hover {
+  background-color: #0056b3;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.2);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .poster-report-section {
+    padding: 70px 0;
+  }
+
+  .carousel-header {
+    margin-bottom: 25px;
+    padding: 0 15px;
+  }
+
+  .carousel-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-container {
+    padding: 0 10px;
+    gap: 0;
+  }
+
+  .carousel-arrow {
+    display: none;
+  }
+
+  .poster-card {
+    flex: 0 0 260px;
+  }
+
+  .card-content {
+    padding: 12px 15px;
+    gap: 10px;
+  }
+
+  .report-title {
+    font-size: 1rem;
+  }
+
+  .view-report-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .view-report-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .poster-card {
+    flex: 0 0 220px;
+  }
+  
+  .carousel-track {
+    gap: 15px;
+  }
+}

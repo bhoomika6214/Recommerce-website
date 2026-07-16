@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import CareersPage from './pages/CareersPage'
 import GalleryPage from './pages/GalleryPage'
 import Services from './components/Services';
+import PosterReport from './components/PosterReport';
 
 function HomePage() {
   return (
@@ -23,6 +24,7 @@ function HomePage() {
       <OurServices />
       <Services />
       <UpcomingEvents />
+      <PosterReport />
       <WhyChooseRecommerce />
       <Testimonial />
       <Footer />
