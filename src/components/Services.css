@@ -35,6 +35,7 @@
   transform: translateY(30px);
   opacity: 0;
   transition: 0.9s var(--sv-ease);
+  min-width: 0;
 }
 
 .sv-services-section.sv-in-view .sv-services-left {
@@ -96,6 +97,7 @@
 /* Right / Carousel */
 .sv-services-right {
   position: relative;
+  min-width: 0;
 }
 
 .sv-services-swiper {
@@ -103,6 +105,21 @@
   height: 520px;
   border-radius: var(--sv-radius-xl);
   overflow: hidden;
+}
+
+.sv-services-swiper .swiper-slide {
+  visibility: visible;
+}
+
+.sv-services-swiper .swiper-slide:not(.swiper-slide-active) {
+  visibility: hidden;
+  transition: visibility 0s linear 0.7s;
+  pointer-events: none;
+}
+
+.sv-services-swiper .swiper-slide-active {
+  visibility: visible;
+  transition: none;
 }
 
 .sv-service-card {
@@ -113,6 +130,7 @@
   background-position: center;
   border-radius: var(--sv-radius-xl);
   overflow: hidden;
+  background-color: var(--sv-dark-blue);
 }
 
 .sv-service-overlay {
@@ -478,19 +496,32 @@
   }
 
   .sv-services-swiper {
-    height: 400px;
+    height: 480px;
   }
 
   .sv-service-content {
-    padding: 32px;
+    padding: 32px 24px;
   }
 
   .sv-service-no {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 4px;
   }
 
   .sv-service-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+  }
+
+  .sv-service-content p {
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+
+  .sv-learn-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
   }
 
   .sv-nav-btn {
@@ -508,6 +539,8 @@
 
   .sv-cta-points {
     flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
     gap: 12px;
   }
 }

@@ -72,16 +72,12 @@ const PAST_EVENTS = [
 ];
 
 const CATEGORIES = ["All", "Expo", "Summit", "Conclave", "Forum"];
-const YEARS = ["All", "2025", "2024"];
 
 export default function Pastevents() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedYear, setSelectedYear] = useState("All");
 
   const filteredEvents = PAST_EVENTS.filter((event) => {
-    const matchCategory = selectedCategory === "All" || event.category === selectedCategory;
-    const matchYear = selectedYear === "All" || event.year === selectedYear;
-    return matchCategory && matchYear;
+    return selectedCategory === "All" || event.category === selectedCategory;
   });
 
   return (
@@ -116,24 +112,6 @@ export default function Pastevents() {
                     onClick={() => setSelectedCategory(cat)}
                   >
                     {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="past-events__filter-group">
-              <span className="past-events__filter-label">Year:</span>
-              <div className="past-events__filter-tabs">
-                {YEARS.map((y) => (
-                  <button
-                    key={y}
-                    type="button"
-                    className={`past-events__filter-tab ${
-                      selectedYear === y ? "past-events__filter-tab--active" : ""
-                    }`}
-                    onClick={() => setSelectedYear(y)}
-                  >
-                    {y}
                   </button>
                 ))}
               </div>

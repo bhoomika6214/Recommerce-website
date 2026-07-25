@@ -346,7 +346,31 @@
   .past-events {
     padding: 60px 24px;
   }
+
   .past-events__heading {
     font-size: 32px;
+  }
+
+  .past-events__filter-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .past-events__filter-tabs {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .past-events__filter-tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .past-events__filter-tab {
+    flex-shrink: 0;
   }
 }

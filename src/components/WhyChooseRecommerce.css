@@ -230,17 +230,52 @@
 
   .why-feature {
     flex-wrap: wrap;
+    background-image: none !important;
   }
 
   .why-feature__icon {
-    margin: 16px;
+    margin: 16px 12px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .why-feature__icon svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .why-feature__icon-star {
+    top: 4px;
   }
 
   .why-feature__text {
     padding: 0 16px 16px;
+    background: transparent;
+    z-index: auto;
+  }
+
+  .why-feature__title {
+    font-size: 16px;
+  }
+
+  .why-feature__desc {
+    font-size: 13px;
+    line-height: 1.5;
   }
 
   .why-feature__divider {
     display: none;
+  }
+
+  .why-choose__infinity {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 32px;
+  }
+
+  .why-choose__infinity-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
   }
 }
