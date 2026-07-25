@@ -250,7 +250,10 @@
   }
 
   .hero2-left-section {
+    width: 100%;
     max-width: 100%;
+    align-self: flex-start;
+    flex: none;
   }
 
   .hero2-right-section {
@@ -266,6 +269,8 @@
   .hero2-content {
     padding: 40px 20px;
     min-height: 100vh;
+    height: auto;
+    justify-content: flex-end;
   }
 
   .hero2-card {

@@ -130,6 +130,8 @@
 .about-steps {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
+  width: 100%;
 }
 
 .about-step {
@@ -199,6 +201,7 @@
 
 .about-step-connector {
   flex-grow: 1;
+  max-width: 90px;
   height: 0;
   min-width: 20px;
   margin-top: 46px;
@@ -304,12 +307,6 @@
 
   .about-steps {
     justify-content: center;
-    flex-wrap: wrap;
-    row-gap: 24px;
-  }
-
-  .about-step-connector {
-    display: none;
   }
 }
 
@@ -344,14 +341,20 @@
   }
 
   .about-step-icon {
-    width: 68px;
-    height: 68px;
-    min-width: 68px;
-    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    font-size: 20px;
   }
 
   .about-step-label {
-    font-size: 12px;
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
+  .about-step-connector {
+    margin-top: 30px;
+    min-width: 10px;
   }
 }
 
@@ -372,20 +375,22 @@
     font-size: 13.5px;
   }
 
-  .about-steps {
-    gap: 18px;
-  }
-
   .about-step-icon {
-    width: 58px;
-    height: 58px;
-    min-width: 58px;
-    font-size: 20px;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    font-size: 16px;
     box-shadow: 0 0 0 6px rgba(59, 110, 246, 0.06);
   }
 
   .about-step-label {
-    font-size: 11px;
+    font-size: 9px;
+    letter-spacing: -0.5px;
+  }
+
+  .about-step-connector {
+    margin-top: 23px;
+    min-width: 6px;
   }
 
   .about-brand-name {
