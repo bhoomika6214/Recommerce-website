@@ -205,11 +205,18 @@
   }
 
   .mva-card-header {
-    gap: 12px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 0 16px;
     margin-bottom: 16px;
   }
 
   .mva-icon-circle {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin: 0;
     width: 64px;
     height: 64px;
   }
@@ -220,12 +227,20 @@
   }
 
   .mva-label {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
     font-size: 10px;
     letter-spacing: 1px;
+    align-self: end;
   }
 
   .mva-title {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 2px 0 0 0;
     font-size: 20px;
+    align-self: start;
   }
 
   .mva-divider {

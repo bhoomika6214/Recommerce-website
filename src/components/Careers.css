@@ -580,8 +580,13 @@
     font-size: 30px;
   }
   .cr-features {
-    flex-direction: column;
-    gap: 14px;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .cr-feature {
+    align-items: center;
+    text-align: center;
   }
   .cr-value {
     flex: 1 1 100%;

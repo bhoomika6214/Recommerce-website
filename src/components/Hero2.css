@@ -274,15 +274,24 @@
   }
 
   .hero2-card {
-    padding: 30px 20px;
+    padding: 24px 20px;
+    min-height: auto;
+  }
+
+  .hero2-label {
+    margin-bottom: 14px;
   }
 
   .hero2-heading {
     font-size: 32px;
+    margin-bottom: 12px;
+    min-height: auto;
   }
 
   .hero2-description {
     font-size: 14px;
+    margin-bottom: 20px;
+    min-height: auto;
   }
 
   .hero2-btn {
@@ -296,17 +305,17 @@
   }
 
   .hero2-card {
-    padding: 30px 20px;
+    padding: 20px 16px;
   }
 
   .hero2-heading {
     font-size: 26px;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .hero2-description {
     font-size: 13px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
 }
 

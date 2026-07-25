@@ -229,14 +229,21 @@
   }
 
   .why-feature {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 24px;
+    gap: 0;
     background-image: none !important;
   }
 
   .why-feature__icon {
-    margin: 16px 12px;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 16px 0 0;
     width: 54px;
     height: 54px;
+    flex-shrink: 0;
   }
 
   .why-feature__icon svg {
@@ -249,18 +256,29 @@
   }
 
   .why-feature__text {
-    padding: 0 16px 16px;
-    background: transparent;
-    z-index: auto;
+    display: contents;
   }
 
   .why-feature__title {
-    font-size: 16px;
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 17px;
+    margin: 0;
+    align-self: center;
+  }
+
+  .why-feature__underline {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin: 16px 0 12px 0;
   }
 
   .why-feature__desc {
+    grid-column: 1 / span 2;
+    grid-row: 3;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.55;
+    margin: 0;
   }
 
   .why-feature__divider {
