@@ -1,5 +1,5 @@
 :root {
-  --sv-primary: #3b6ef6;
+  --sv-primary: #2C62D4;
   --sv-dark-blue: #0c1836;
   --sv-text: #0a1029;
   --sv-muted: #5b6478;
@@ -59,7 +59,7 @@
 }
 
 .sv-gradient-text {
-  background: linear-gradient(100deg, #3b6ef6, #4f8bff);
+  background: linear-gradient(100deg, #2C62D4, #4f8bff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -90,7 +90,7 @@
   display: block;
   height: 100%;
   border-radius: 100px;
-  background: linear-gradient(90deg, #3b6ef6, #4f8bff);
+  background: linear-gradient(90deg, #2C62D4, #4f8bff);
   transition: width 700ms var(--sv-ease);
 }
 
@@ -272,7 +272,7 @@
   align-items: center;
   gap: 12px;
   padding: 16px 20px;
-  background: var(--sv-bg);
+  background: #ffffff;
   border: 2px solid transparent;
   border-radius: 14px;
   cursor: pointer;
@@ -286,7 +286,7 @@
 
 .sv-thumb-card.active {
   border-color: var(--sv-primary);
-  background: rgba(59, 110, 246, 0.05);
+  background: rgba(45, 105, 216, 0.05);
 }
 
 .sv-thumb-icon {

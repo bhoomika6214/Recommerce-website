@@ -1,0 +1,75 @@
+:root {
+  --theme-btn-bg: #009BFF;
+  --theme-btn-hover: #0085db;
+}
+
+/* Apply button color to #009BFF everywhere a button is found in any section */
+button,
+input[type="submit"],
+.hero2-btn,
+.nav-contact-btn,
+.mobile-contact-btn,
+.uf-cta-btn,
+.cr-hero-btn,
+.view-all-link,
+.upcoming-events__view-all,
+.view-report-btn,
+.about-step-icon,
+.mission-vision__tab,
+.past-events__filter-tab--active,
+.btn,
+.btn-primary,
+.control-btn,
+.explore-btn,
+.sv-nav-btn,
+.sv-learn-btn,
+.sv-cta-btn,
+.banner-slide__cta,
+.carousel-arrow,
+.nav-button,
+.prev-button,
+.next-button,
+.uf-social-btn {
+  background: var(--theme-btn-bg) !important;
+  background-color: var(--theme-btn-bg) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  border: 1px solid var(--theme-btn-bg) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Keep hamburger transparent */
+.hamburger {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Hover effects for buttons/interactive items */
+button:hover,
+.hero2-btn:hover,
+.nav-contact-btn:hover,
+.mobile-contact-btn:hover,
+.uf-cta-btn:hover,
+.cr-hero-btn:hover,
+.upcoming-events__view-all:hover,
+.view-report-btn:hover,
+.past-events__filter-tab:hover,
+.control-btn:hover,
+.explore-btn:hover,
+.sv-nav-btn:hover,
+.sv-learn-btn:hover,
+.sv-cta-btn:hover,
+.banner-slide__cta:hover,
+.carousel-arrow:hover,
+.nav-button:hover,
+.uf-social-btn:hover {
+  background: var(--theme-btn-hover) !important;
+  background-color: var(--theme-btn-hover) !important;
+  border-color: var(--theme-btn-hover) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  transform: translateY(-2px);
+  transition: all 0.2s ease-in-out;
+}

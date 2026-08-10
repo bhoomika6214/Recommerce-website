@@ -83,7 +83,7 @@
 
 .logo-subtitle {
   font-size: 8px;
-  color: #3b6ef6;
+  color: #2C62D4;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 600;
@@ -122,12 +122,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #3b6ef6 0%, #4f8bff 100%);
+  background: linear-gradient(90deg, #2C62D4 0%, #4f8bff 100%);
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #3b6ef6;
+  color: #2C62D4;
 }
 
 .nav-link:hover::after {
@@ -143,7 +143,7 @@
 
 .nav-contact-btn {
   padding: 12px 28px;
-  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
+  background: #009BFF;
   color: #ffffff;
   border: none;
   border-radius: 50px;
@@ -153,13 +153,13 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(59, 110, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 155, 255, 0.3);
 }
 
 .nav-contact-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 110, 246, 0.5);
-  background: linear-gradient(135deg, #4f8bff 0%, #3b6ef6 100%);
+  box-shadow: 0 8px 25px rgba(0, 155, 255, 0.5);
+  background: #0085db;
 }
 
 .nav-contact-btn:active {
@@ -180,7 +180,7 @@
 .hamburger-line {
   width: 28px;
   height: 3px;
-  background: linear-gradient(90deg, #3b6ef6 0%, #4f8bff 100%);
+  background: linear-gradient(90deg, #2C62D4 0%, #4f8bff 100%);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -247,14 +247,14 @@
 
 .mobile-nav-link:hover {
   background: rgba(59, 110, 246, 0.1);
-  color: #3b6ef6;
+  color: #2C62D4;
   padding-left: 50px;
 }
 
 .mobile-contact-btn {
   margin: 16px 40px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
+  background: #009BFF;
   color: #ffffff;
   border: none;
   border-radius: 50px;
@@ -264,12 +264,13 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(59, 110, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 155, 255, 0.3);
 }
 
 .mobile-contact-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 110, 246, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 155, 255, 0.5);
+  background: #0085db;
 }
 
 .navbar-overlay {

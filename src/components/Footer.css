@@ -75,7 +75,7 @@
 }
 
 .uf-highlight {
-  color: #3b6ef6;
+  color: #2C62D4;
 }
 
 .uf-cta-text p {
@@ -91,7 +91,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: linear-gradient(135deg, #3b6ef6 0%, #2f5fd4 100%);
+  background: #009BFF;
   border: none;
   color: #ffffff;
   font-size: 16px;
@@ -99,13 +99,14 @@
   padding: 8px 8px 8px 26px;
   border-radius: 40px;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(59, 110, 246, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 155, 255, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .uf-cta-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(59, 110, 246, 0.45);
+  box-shadow: 0 10px 24px rgba(0, 155, 255, 0.45);
+  background: #0085db;
 }
 
 .uf-cta-btn-circle {
@@ -113,7 +114,7 @@
   height: 38px;
   border-radius: 50%;
   background: #ffffff;
-  color: #3b6ef6;
+  color: #2C62D4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,7 +158,7 @@
   bottom: 0;
   width: 34px;
   height: 3px;
-  background: #3b6ef6;
+  background: #2C62D4;
   border-radius: 2px;
 }
 
@@ -309,8 +310,8 @@
 }
 
 .uf-social-btn:hover {
-  background: #3b6ef6;
-  border-color: #3b6ef6;
+  background: #2C62D4;
+  border-color: #2C62D4;
   color: #ffffff;
 }
 

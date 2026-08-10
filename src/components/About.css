@@ -75,7 +75,7 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 56px;
   font-weight: 700;
-  color: #3b6ef6;
+  color: #2C62D4;
   line-height: 1;
   margin-bottom: -10px;
 }
@@ -90,14 +90,14 @@
 
 .about-quote-mark-end {
   font-family: Georgia, 'Times New Roman', serif;
-  color: #3b6ef6;
+  color: #2C62D4;
   font-size: 30px;
 }
 
 .about-underline {
   width: 56px;
   height: 3px;
-  background: #3b6ef6;
+  background: #2C62D4;
   border-radius: 2px;
   margin: 22px 0 26px 0;
 }
@@ -161,7 +161,7 @@
   align-items: center;
   justify-content: center;
   font-size: 34px;
-  color: #3b6ef6;
+  color: #2C62D4;
   box-shadow: 0 0 0 10px rgba(59, 110, 246, 0.06);
   transition: box-shadow 0.4s ease, border-color 0.4s ease;
 }
@@ -176,7 +176,7 @@
   }
   50% {
     box-shadow: 0 0 0 20px rgba(59, 110, 246, 0.15), 0 0 20px rgba(59, 110, 246, 0.2);
-    border-color: #3b6ef6;
+    border-color: #2C62D4;
   }
   100% {
     box-shadow: 0 0 0 10px rgba(59, 110, 246, 0.06);
@@ -187,7 +187,7 @@
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #3b6ef6;
+  color: #2C62D4;
   white-space: nowrap;
   opacity: 0;
   transform: translateY(10px);
