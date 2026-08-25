@@ -1,17 +1,18 @@
 import React from 'react';
 import ScrollExpandMedia from './ui/scroll-expansion-hero';
-import background_video from '../assets/background_video.mp4';
 import './Hero2.css';
 
 const Hero2 = () => {
-  // A beautiful nature/forestry/ecological background image
-  const bgImage = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1920&auto=format&fit=crop";
+  const bgImage = "https://me7aitdbxq.ufs.sh/f/2wsMIGDMQRdYMNjMlBUYHaeYpxduXPVNwf8mnFA61L7rkcoS";
+  const promptVideo = "https://me7aitdbxq.ufs.sh/f/2wsMIGDMQRdYuZ5R8ahEEZ4aQK56LizRdfBSqeDMsmUIrJN1";
+  const posterImage = "https://images.pexels.com/videos/5752729/space-earth-universe-cosmos-5752729.jpeg";
 
   return (
     <div className="hero-scroll-container">
       <ScrollExpandMedia
         mediaType="video"
-        mediaSrc={background_video}
+        mediaSrc={promptVideo}
+        posterSrc={posterImage}
         bgImageSrc={bgImage}
         title="RECOMMERCE ECOSYSTEM"
         date="Circular Economy Starts Here"
@@ -37,24 +38,28 @@ const Hero2 = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 pt-4">
-                <button 
-                  onClick={() => {
+                <a 
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
                     const el = document.getElementById('events');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-8 py-4 bg-[#009BFF] hover:bg-[#0085db] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wider uppercase"
+                  className="px-8 py-4 bg-[#009BFF] hover:bg-[#0085db] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wider uppercase inline-block text-center cursor-pointer no-underline"
                 >
                   EXPLORE EVENTS →
-                </button>
-                <button 
-                  onClick={() => {
+                </a>
+                <a 
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
                     const el = document.getElementById('services');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-8 py-4 bg-transparent border-2 border-white/30 hover:border-white hover:bg-white/10 text-white font-semibold rounded-full transition-all duration-200 text-sm tracking-wider uppercase"
+                  className="px-8 py-4 bg-transparent border-2 border-white/30 hover:border-white hover:bg-white/10 text-white font-semibold rounded-full transition-all duration-200 text-sm tracking-wider uppercase inline-block text-center cursor-pointer no-underline"
                 >
                   OUR SERVICES
-                </button>
+                </a>
               </div>
             </div>
 
