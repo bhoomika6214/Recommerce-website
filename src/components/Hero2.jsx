@@ -1,68 +1,86 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import ScrollExpandMedia from './ui/scroll-expansion-hero';
 import background_video from '../assets/background_video.mp4';
 import './Hero2.css';
 
-const Typewriter = ({ text, speed = 50, delay = 0, onComplete }) => {
-  const [displayed, setDisplayed] = useState('');
-  const [started, setStarted] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setStarted(true), delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
-
-  useEffect(() => {
-    if (!started) return;
-    let i = 0;
-    const interval = setInterval(() => {
-      i++;
-      setDisplayed(text.slice(0, i));
-      if (i >= text.length) {
-        clearInterval(interval);
-        onComplete?.();
-      }
-    }, speed);
-    return () => clearInterval(interval);
-  }, [started, text, speed, onComplete]);
-
-  return <>{displayed}</>;
-};
-
 const Hero2 = () => {
+  // A beautiful nature/forestry/ecological background image
+  const bgImage = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1920&auto=format&fit=crop";
+
   return (
-    <div className="hero2-container">
-      <video autoPlay muted loop className="hero2-background-video">
-        <source src={background_video} type="video/mp4"/>
-        Your browser does not support the video tag.
-      </video>
-
-      <div className="hero2-overlay"></div>
-
-      <div className="hero2-content">
-        <div className="hero2-left-section">
-          <div className="hero2-card">
-            <div className="hero2-label">
-              <span className="hero2-label-line"></span>
-              <span className="hero2-label-text">RECOMMERCE ECOSYSTEM</span>
+    <div className="hero-scroll-container">
+      <ScrollExpandMedia
+        mediaType="video"
+        mediaSrc={background_video}
+        bgImageSrc={bgImage}
+        title="RECOMMERCE ECOSYSTEM"
+        date="Circular Economy Starts Here"
+        scrollToExpand="Scroll to Explore"
+        textBlend={false}
+      >
+        <div className="max-w-6xl mx-auto px-4 py-8 text-white">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+            
+            {/* Text description section */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-0.5 bg-blue-500"></span>
+                <span className="text-sm font-semibold tracking-wider text-blue-400 uppercase">OUR MISSION</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+                Building a Sustainable Future <span className="text-blue-400">Together.</span>
+              </h2>
+              
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Connecting industries, innovators, and sustainability leaders to drive meaningful change. Recommerce is at the forefront of the circular economy transition, empowering organizations to eliminate waste and optimize resource recovery.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 pt-4">
+                <button 
+                  onClick={() => {
+                    const el = document.getElementById('events');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-4 bg-[#009BFF] hover:bg-[#0085db] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wider uppercase"
+                >
+                  EXPLORE EVENTS →
+                </button>
+                <button 
+                  onClick={() => {
+                    const el = document.getElementById('services');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-4 bg-transparent border-2 border-white/30 hover:border-white hover:bg-white/10 text-white font-semibold rounded-full transition-all duration-200 text-sm tracking-wider uppercase"
+                >
+                  OUR SERVICES
+                </button>
+              </div>
             </div>
 
-            <h1 className="hero2-heading">
-              <Typewriter text="Building a Sustainable Future" speed={60} delay={500} />
-              <span className="hero2-heading-highlight"> <Typewriter text="Together." speed={60} delay={2200} /></span>
-            </h1>
+            {/* Quick stats section */}
+            <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/30 transition-all duration-300">
+                <h3 className="text-3xl font-extrabold text-blue-400 mb-1">500+</h3>
+                <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Partners Connected</p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/30 transition-all duration-300">
+                <h3 className="text-3xl font-extrabold text-blue-400 mb-1">10K+</h3>
+                <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Tons Diverted</p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/30 transition-all duration-300">
+                <h3 className="text-3xl font-extrabold text-blue-400 mb-1">50+</h3>
+                <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Eco Projects</p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/30 transition-all duration-300">
+                <h3 className="text-3xl font-extrabold text-blue-400 mb-1">99%</h3>
+                <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Client Rating</p>
+              </div>
+            </div>
 
-            <p className="hero2-description">
-              <Typewriter text="Connecting industries, innovators and sustainability leaders to drive meaningful change." speed={30} delay={3800} />
-            </p>
-
-            <button className="hero2-btn">
-              EXPLORE EVENTS →
-            </button>
           </div>
         </div>
-
-        <div className="hero2-right-section"></div>
-      </div>
+      </ScrollExpandMedia>
     </div>
   );
 };
