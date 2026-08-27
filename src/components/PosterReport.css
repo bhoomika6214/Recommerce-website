@@ -1,8 +1,8 @@
 .poster-report-section {
-  padding: 100px 0;
+  padding: 120px 0; /* Generous spacing matching other sections */
   max-width: 100%;
   margin: 0 auto;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -17,43 +17,47 @@
 
 .carousel-header h2 {
   margin: 0;
-  font-size: 2.5rem;
-  color: #333;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 42px;
+  color: #111A38; /* Black / Dark Navy */
+  font-weight: 800;
+  letter-spacing: -1px;
   text-align: center;
+  line-height: 1.2;
 }
 
 .carousel-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 40px;
   box-sizing: border-box;
 }
 
 /* Arrows */
 .carousel-arrow {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 2px solid #ddd;
-  background: #fff;
-  color: #333;
+  border: 1.5px solid rgba(17, 26, 56, 0.12) !important;
+  background: #ffffff !important;
+  color: #111A38 !important;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   z-index: 2;
+  box-shadow: none !important;
 }
 
 .carousel-arrow:hover {
-  border-color: #0056b3;
-  color: #0056b3;
-  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.15);
+  border-color: #009BFF !important;
+  color: #009BFF !important;
+  box-shadow: 0 4px 12px rgba(0, 155, 255, 0.15) !important;
+  transform: scale(1.05);
 }
 
 .carousel-arrow svg {
@@ -78,27 +82,28 @@
 
 .carousel-track {
   display: flex;
-  gap: 40px;
+  gap: 32px;
   width: max-content;
 }
 
 /* Premium Card Layout */
 .poster-card {
   flex: 0 0 320px;
-  background: #fff;
-  border-radius: 12px;
+  background: #ffffff;
+  border-radius: 20px; /* Aligned rounding */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f0f0f0;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 15px 40px rgba(17, 26, 56, 0.06); /* Clean black shadow */
+  border: 1px solid rgba(17, 26, 56, 0.12) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .poster-card:hover {
   transform: translateY(-8px); 
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 50px rgba(17, 26, 56, 0.12);
 }
 
 /* Image Container */
@@ -114,29 +119,32 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
-  transition: transform 0.5s ease;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .poster-card:hover .poster-image {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 /* Content Area */
 .card-content {
-  padding: 16px 20px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
   background-color: #ffffff;
   z-index: 2;
 }
 
 .report-title {
   margin: 0;
-  font-size: 1.1rem;
-  color: #1a1a1a;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.15rem;
+  color: #111A38; /* Black / Dark Navy */
   line-height: 1.3;
   font-weight: 700;
   text-align: left;
@@ -144,32 +152,39 @@
 
 /* View Report Button */
 .view-report-btn {
-  background-color: transparent;
-  color: #009BFF;
-  border: 2px solid #009BFF;
+  background-color: #FFFFFF !important;
+  color: #009BFF !important;
+  -webkit-text-fill-color: #009BFF !important;
+  border: 1.5px solid #009BFF !important;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 50px; /* Pill shape */
   text-decoration: none;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   white-space: nowrap;
+  box-shadow: none !important;
 }
 
 .view-report-btn:hover {
-  background-color: #009BFF;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 155, 255, 0.2);
+  background-color: #009BFF !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 155, 255, 0.25) !important;
+  transform: translateY(-1px);
 }
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   .poster-report-section {
-    padding: 70px 0;
+    padding: 80px 0;
   }
 
   .carousel-header {
@@ -178,11 +193,11 @@
   }
 
   .carousel-header h2 {
-    font-size: 1.5rem;
+    font-size: 28px;
   }
 
   .carousel-container {
-    padding: 0 10px;
+    padding: 0 15px;
     gap: 0;
   }
 
@@ -192,11 +207,17 @@
 
   .poster-card {
     flex: 0 0 260px;
+    border-radius: 16px;
+  }
+
+  .poster-image {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
   }
 
   .card-content {
-    padding: 12px 15px;
-    gap: 10px;
+    padding: 16px 15px;
+    gap: 12px;
   }
 
   .report-title {
@@ -205,7 +226,7 @@
 
   .view-report-btn {
     padding: 8px 16px;
-    font-size: 0.85rem;
+    font-size: 12px;
     gap: 8px;
   }
 
@@ -221,6 +242,6 @@
   }
   
   .carousel-track {
-    gap: 15px;
+    gap: 20px;
   }
 }

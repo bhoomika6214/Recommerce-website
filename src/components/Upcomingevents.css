@@ -1,14 +1,14 @@
 /* ==========================================================================
-   UpcomingEvents — dark navy events banner
+   UpcomingEvents — clean white events banner with black/blue accents
    ========================================================================== */
 
 .upcoming-events {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(120% 140% at 8% 0%, #0c1836 0%, #060c22 55%, #05091b 100%);
-  padding: 64px 64px;
+  background-color: #FFFFFF; /* Pure White background */
+  padding: 120px 6%; /* Generous spacing matching other sections */
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  color: #ffffff;
+  color: #111A38; /* Black / Dark Navy text color */
   isolation: isolate;
 }
 
@@ -29,40 +29,43 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: #4f8bff;
-  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #009BFF; /* Brand Blue */
+  margin-bottom: 18px;
+  text-transform: uppercase;
 }
 
 .upcoming-events__eyebrow-line {
   width: 28px;
   height: 2px;
-  background: #4f8bff;
+  background-color: #009BFF; /* Brand Blue */
   display: inline-block;
 }
 
 .upcoming-events__heading {
+  font-family: 'Manrope', sans-serif;
   font-size: 42px;
-  line-height: 1.15;
+  line-height: 1.2;
   font-weight: 800;
-  letter-spacing: -0.01em;
-  margin: 0 0 4px;
-  color: #ffffff;
-  white-space: nowrap;
+  letter-spacing: -1px;
+  margin: 0 0 18px;
+  color: #111A38; /* Black / Dark Navy */
 }
 
 .upcoming-events__heading-accent {
-  color: #2f7dff;
+  color: #009BFF; /* Brand Blue solid instead of light blue */
 }
 
 .upcoming-events__desc {
   max-width: 100%;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
-  line-height: 1.7;
-  color: #a6afc4;
-  margin: 0 0 12px;
+  line-height: 1.75;
+  color: rgba(17, 26, 56, 0.70); /* Dark Navy with 70% opacity */
+  margin: 0 0 24px;
 }
 
 .upcoming-events__view-all {
@@ -70,21 +73,30 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 20px;
-  background: transparent;
-  border: 1.5px solid #009BFF;
-  border-radius: 10px;
-  color: #ffffff;
-  font-size: 14.5px;
-  font-weight: 700;
+  padding: 12px 28px;
+  background-color: #FFFFFF !important;
+  border: 1.5px solid #009BFF !important;
+  border-radius: 50px; /* Clean pill-shape */
+  color: #009BFF !important;
+  -webkit-text-fill-color: #009BFF !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
   align-self: flex-start;
-  transition: background 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: none !important;
 }
 
 .upcoming-events__view-all:hover {
-  background: rgba(0, 155, 255, 0.15);
+  background-color: #009BFF !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 155, 255, 0.25) !important;
+  transform: translateY(-2px);
 }
 
 /* ---------- banner carousel ---------- */
@@ -93,15 +105,17 @@
   position: relative;
   width: 100%;
   height: 560px;
-  border-radius: 16px;
+  border-radius: 20px; /* Aligned card rounding */
   overflow: hidden;
+  box-shadow: 0 15px 40px rgba(17, 26, 56, 0.06); /* Clean black shadow */
+  border: 1px solid rgba(17, 26, 56, 0.08);
 }
 
 .banner-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .banner-slide--active {
@@ -117,7 +131,7 @@
 .banner-slide__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(5, 10, 28, 0.92) 0%, rgba(5, 10, 28, 0.5) 50%, rgba(5, 10, 28, 0.2) 100%);
+  background: linear-gradient(90deg, rgba(17, 26, 56, 0.95) 0%, rgba(17, 26, 56, 0.5) 50%, rgba(17, 26, 56, 0.2) 100%);
 }
 
 .banner-slide__content {
@@ -134,26 +148,30 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(47, 107, 255, 0.2);
-  border: 1px solid rgba(47, 107, 255, 0.4);
+  background-color: rgba(0, 155, 255, 0.15) !important; /* Brand Blue opacity */
+  border: 1px solid rgba(0, 155, 255, 0.3) !important;
   border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #6ea3ff;
+  color: #FFFFFF !important; /* Premium White on dark background */
   margin-bottom: 20px;
 }
 
 .banner-slide__title {
+  font-family: 'Manrope', sans-serif;
   font-size: 48px;
   font-weight: 800;
   line-height: 1.1;
   margin: 0 0 12px;
   color: #ffffff;
+  letter-spacing: -0.8px;
 }
 
 .banner-slide__subtitle {
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
-  color: #a6afc4;
+  color: rgba(255, 255, 255, 0.8);
   margin: 0 0 16px;
   line-height: 1.5;
 }
@@ -162,8 +180,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: #7a849c;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 28px;
 }
 
@@ -172,19 +191,27 @@
   align-items: center;
   gap: 10px;
   padding: 14px 28px;
-  background: linear-gradient(135deg, #2C62D4 0%, #2f5fd4 100%);
-  border: none;
-  border-radius: 10px;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 700;
+  background-color: #009BFF !important; /* Brand Blue CTA */
+  border: none !important;
+  border-radius: 50px; /* Pill-shaped button */
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 155, 255, 0.25);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .banner-slide__cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(47, 107, 255, 0.4);
+  background-color: #0085db !important;
+  box-shadow: 0 6px 20px rgba(0, 155, 255, 0.4) !important;
 }
 
 .banner-nav {
@@ -194,21 +221,21 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(8, 16, 40, 0.7);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: rgba(17, 26, 56, 0.7) !important; /* Black / Navy opacity */
+  border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 5;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(8px);
 }
 
 .banner-nav:hover {
-  background: rgba(47, 107, 255, 0.3);
-  border-color: #2C62D4;
+  background: #009BFF !important; /* Brand Blue */
+  border-color: #009BFF !important;
 }
 
 .banner-nav--prev {
@@ -242,21 +269,21 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: width 0.3s ease, background 0.3s ease;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .banner-dot--active {
   width: 28px;
-  background: #2f7dff;
+  background: #009BFF; /* Brand Blue */
 }
 
 .banner-pause {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,7 +292,7 @@
 }
 
 .banner-pause:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2) !important;
 }
 
 .banner-progress {
@@ -280,7 +307,8 @@
 
 .banner-progress__bar {
   height: 100%;
-  background: linear-gradient(90deg, #2C62D4, #4f8bff);
+  background-color: #009BFF; /* Brand Blue indicator */
+  background: #009BFF;
   animation: progressFill 5s linear infinite;
   width: 100%;
   transform-origin: left;
@@ -301,7 +329,7 @@
 
 @media (max-width: 980px) {
   .upcoming-events {
-    padding: 48px 32px;
+    padding: 80px 32px;
   }
 
   .banner-carousel {
@@ -332,7 +360,7 @@
 
 @media (max-width: 620px) {
   .upcoming-events {
-    padding: 32px 20px;
+    padding: 60px 20px;
   }
 
   .banner-carousel {

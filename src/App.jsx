@@ -21,7 +21,7 @@ function HomePage() {
       <Navbar />
       <Hero2 />
       <About />
-      <MissionVisionApproach />
+      {/*<MissionVisionApproach />*/}
       {/*<OurServices />*/}
       <Services />
       <UpcomingEvents />
