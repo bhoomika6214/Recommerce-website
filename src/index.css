@@ -35,8 +35,6 @@ body {
    GLOBAL BUTTON COLOR THEME OVERRIDES (#009BFF)
    ========================================== */
 .hero2-btn,
-.nav-contact-btn,
-.mobile-contact-btn,
 .uf-cta-btn,
 .cr-hero-btn,
 .view-all-link,
@@ -67,8 +65,6 @@ body {
 
 /* Hover effects for buttons/interactive items */
 .hero2-btn:hover,
-.nav-contact-btn:hover,
-.mobile-contact-btn:hover,
 .uf-cta-btn:hover,
 .cr-hero-btn:hover,
 .upcoming-events__view-all:hover,
@@ -85,6 +81,17 @@ body {
   -webkit-text-fill-color: #FFFFFF !important;
   transform: translateY(-2px);
   transition: all 0.2s ease-in-out;
+}
+
+/* ==========================================
+   FONT SYSTEM UTILITIES
+   ========================================== */
+.font-manrope {
+  font-family: 'Manrope', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
 }
 
 /* ==========================================
