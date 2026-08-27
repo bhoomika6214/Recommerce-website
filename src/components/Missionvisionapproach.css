@@ -1,7 +1,7 @@
 .mva-container {
   width: 100%;
-  background: #f8fafc;
-  padding: 60px 40px;
+  background-color: #FFFFFF; /* Pure White background */
+  padding: 80px 40px 120px 40px; /* Generous spacing */
   min-height: 600px;
   display: flex;
   align-items: center;
@@ -18,21 +18,24 @@
 
 /* ==================== CARD STYLES ==================== */
 .mva-card {
-  background: #ffffff;
-  border-radius: 12px;
+  background-color: #FFFFFF;
+  border-radius: 20px; /* Aligned with About brand card */
   padding: 40px 32px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 40px rgba(17, 26, 56, 0.06); /* Strict black shadow */
+  border: 1px solid rgba(17, 26, 56, 0.12); /* Subtle dark border */
   border-top: 4px solid transparent;
   position: relative;
   overflow: hidden;
   opacity: 0;
   transform: translateY(80px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mva-card.show {
-  animation: cardSlideUp 0.6s ease forwards;
+  animation: cardSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes cardSlideUp {
@@ -49,14 +52,14 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #2C62D4 0%, #2C62D4 100%);
+  background-color: #009BFF; /* Brand Blue bottom highlight */
   transform: translateY(4px);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mva-card.show:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 50px rgba(17, 26, 56, 0.1);
 }
 
 .mva-card.show:hover::before {
@@ -77,51 +80,59 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2C62D4 0%, #2f5fd4 100%);
+  background-color: #FFFFFF;
+  border: 2px solid #009BFF; /* Brand Blue outline */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: #009BFF; /* Brand Blue icon */
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(21, 114, 230, 0.3);
-  transition: all 0.3s ease;
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mva-card.show:hover .mva-icon-circle {
+  background-color: #009BFF; /* Fills with Brand Blue on hover */
+  color: #FFFFFF; /* Inverts icon to white */
   transform: scale(1.05);
-  box-shadow: 0 6px 24px rgba(21, 114, 230, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 155, 255, 0.25);
 }
 
 .mva-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #2C62D4;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #009BFF; /* Brand Blue */
   text-transform: uppercase;
   margin: 0;
   line-height: 1.4;
 }
 
 .mva-title {
-  font-size: 28px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 30px;
   font-weight: 800;
-  color: #0f1419;
+  color: #111A38; /* Black / Dark Navy */
   margin: 0;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
 }
 
 /* Divider */
 .mva-divider {
-  width: 48px;
+  width: 55px; /* Minimal width matching About */
   height: 3px;
-  background: #2C62D4;
+  background-color: #009BFF; /* Brand Blue */
   margin-bottom: 24px;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mva-card.show:hover .mva-divider {
-  width: 64px;
+  width: 75px;
 }
 
 /* Card Body */
@@ -133,18 +144,18 @@
 }
 
 .mva-description {
-  font-size: 14px;
-  line-height: 1.8;
-  color: #536878;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(17, 26, 56, 0.70); /* Dark Navy with 70% opacity */
   margin: 0;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+  font-weight: 400;
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 1200px) {
   .mva-container {
-    padding: 50px 32px;
+    padding: 60px 32px 100px 32px;
   }
 
   .mva-grid {
@@ -156,11 +167,11 @@
   }
 
   .mva-title {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .mva-description {
-    font-size: 13px;
+    font-size: 14.5px;
   }
 }
 
@@ -180,28 +191,28 @@
   }
 
   .mva-title {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .mva-description {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.7;
   }
 }
 
 @media (max-width: 768px) {
   .mva-container {
-    padding: 40px 20px;
+    padding: 60px 20px 80px 20px;
     min-height: auto;
   }
 
   .mva-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
 
   .mva-card {
-    padding: 24px 20px;
+    padding: 28px 24px;
   }
 
   .mva-card-header {
@@ -230,7 +241,7 @@
     grid-column: 2;
     grid-row: 1;
     margin: 0;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 1px;
     align-self: end;
   }
@@ -239,7 +250,7 @@
     grid-column: 2;
     grid-row: 2;
     margin: 2px 0 0 0;
-    font-size: 20px;
+    font-size: 22px;
     align-self: start;
   }
 
@@ -248,14 +259,14 @@
   }
 
   .mva-description {
-    font-size: 12px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.75;
   }
 }
 
 @media (max-width: 480px) {
   .mva-container {
-    padding: 30px 16px;
+    padding: 40px 16px 60px 16px;
   }
 
   .mva-grid {
@@ -263,11 +274,11 @@
   }
 
   .mva-card {
-    padding: 20px 16px;
+    padding: 24px 20px;
   }
 
   .mva-card-header {
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 12px;
   }
 
@@ -282,12 +293,12 @@
   }
 
   .mva-label {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.8px;
   }
 
   .mva-title {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .mva-divider {
@@ -296,8 +307,8 @@
   }
 
   .mva-description {
-    font-size: 11px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.6;
   }
 
   .mva-card.show:hover {
