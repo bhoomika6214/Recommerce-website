@@ -22,7 +22,7 @@ function HomePage() {
       <Hero2 />
       <About />
       <MissionVisionApproach />
-      <OurServices />
+      {/*<OurServices />*/}
       <Services />
       <UpcomingEvents />
       <PosterReport />
