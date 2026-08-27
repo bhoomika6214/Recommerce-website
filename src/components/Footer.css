@@ -15,7 +15,7 @@
 
 /* ---------- CTA banner ---------- */
 .uf-cta-wrap {
-  background: #ffffff;
+  background-color: #ffffff;
   padding: 28px 40px;
 }
 
@@ -26,10 +26,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  background: linear-gradient(120deg, #eaf1fb 0%, #f4f8fd 55%, #eef4fb 100%);
+  background: #ffffff !important; /* Pure white background */
   border-radius: 20px;
   padding: 34px 48px;
-  border: 1px solid #e3ecf7;
+  border: 1px solid rgba(17, 26, 56, 0.12) !important; /* Subtle dark border */
+  box-shadow: 0 15px 40px rgba(17, 26, 56, 0.06); /* Clean black shadow */
 }
 
 .uf-cta-left {
@@ -44,12 +45,13 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #ffffff;
+  background: #ffffff !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(20, 50, 100, 0.12);
-  margin: 40px;
+  border: 2px solid #009BFF !important; /* Brand Blue outline */
+  box-shadow: 0 4px 12px rgba(17, 26, 56, 0.03) !important;
+  margin: 0; /* Clear excessive margin */
 }
 
 .uf-cta-icon::before {
@@ -57,30 +59,30 @@
   position: absolute;
 }
 
-.uf-cta-icon svg {
-  width: 60px;
-  height: 60px;
-  padding: 16px;
-  border-radius: 50%;
-  background: linear-gradient(160deg, #0e2a52 0%, #16457e 100%);
-  color: #ffffff;
+.uf-cta-mark {
+  max-width: 36px;
+  max-height: 36px;
+  object-fit: contain;
 }
 
 .uf-cta-text h2 {
   margin: 0 0 10px 0;
+  font-family: 'Manrope', sans-serif;
   font-size: 34px;
   line-height: 1.2;
   font-weight: 800;
-  color: #0d1f3c;
+  color: #111A38; /* Black / Dark Navy */
+  letter-spacing: -0.8px;
 }
 
 .uf-highlight {
-  color: #2C62D4;
+  color: #009BFF !important; /* Solid Brand Blue */
 }
 
 .uf-cta-text p {
   margin: 0;
-  color: #5c6b82;
+  font-family: 'Inter', sans-serif;
+  color: rgba(17, 26, 56, 0.70); /* Dark Navy with 70% opacity */
   font-size: 15px;
   line-height: 1.6;
 }
@@ -91,33 +93,38 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: #009BFF;
-  border: none;
-  color: #ffffff;
-  font-size: 16px;
+  background-color: #009BFF !important; /* Brand Blue button */
+  border: none !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
   font-weight: 600;
-  padding: 8px 8px 8px 26px;
+  padding: 8px 8px 8px 24px;
   border-radius: 40px;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 155, 255, 0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 155, 255, 0.25) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .uf-cta-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(0, 155, 255, 0.45);
-  background: #0085db;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 155, 255, 0.4) !important;
+  background-color: #0085db !important;
 }
 
 .uf-cta-btn-circle {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #ffffff;
-  color: #2C62D4;
+  background: #ffffff !important;
+  color: #009BFF !important; /* Brand Blue arrow */
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .uf-cta-btn-circle svg {
@@ -125,28 +132,33 @@
   height: 18px;
 }
 
+.uf-cta-btn:hover .uf-cta-btn-circle {
+  transform: scale(1.05);
+}
+
 /* ---------- main dark footer ---------- */
 .uf-main {
-  background: #05091b;
-  background: radial-gradient(circle at top left, #0c1836 0%, #060c22 55%, #05091b 100%);
-  color: #cdd7e6;
-  padding: 56px 48px 24px;
+  background: #111A38 !important; /* Strict Dark Navy background */
+  background: radial-gradient(circle at top left, #111A38 0%, #0A0F24 55%, #050814 100%) !important;
+  color: rgba(255, 255, 255, 0.70) !important;
+  padding: 80px 48px 24px; /* Generous top padding */
 }
 
 .uf-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1.2fr 1.3fr 1.1fr;
   gap: 32px;
-  padding-bottom: 36px;
+  padding-bottom: 48px; /* Clean gap before bottom bar */
 }
 
 .uf-col h4,
 .uf-heading {
-  color: #ffffff;
-  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff !important;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.4px;
-  margin: 0 0 14px 0;
+  letter-spacing: 0.08em;
+  margin: 0 0 20px 0;
   position: relative;
   padding-bottom: 12px;
 }
@@ -158,7 +170,7 @@
   bottom: 0;
   width: 34px;
   height: 3px;
-  background: #2C62D4;
+  background-color: #009BFF !important; /* Brand Blue accent line */
   border-radius: 2px;
 }
 
@@ -166,19 +178,18 @@
 .uf-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 18px;
 }
 
 .uf-logo-mark {
   height: 55px;
   width: 55px;
-  font-style: italic;
-  background: linear-gradient(180deg, #6ea3ff 0%, #2f5fd4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  line-height: 1;
+  object-fit: contain;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  color: unset !important;
 }
 
 .uf-logo-text {
@@ -188,23 +199,26 @@
 }
 
 .uf-logo-name {
+  font-family: 'Manrope', sans-serif;
   font-size: 20px;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .uf-logo-tag {
+  font-family: 'Inter', sans-serif;
   font-size: 9px;
   letter-spacing: 1.2px;
-  color: #7f93b5;
+  color: rgba(255, 255, 255, 0.5) !important;
   margin-top: 2px;
 }
 
 .uf-brand-desc {
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 1.7;
-  color: #9aabc7;
+  color: rgba(255, 255, 255, 0.70) !important;
   max-width: 260px;
 }
 
@@ -223,20 +237,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 14.5px;
-  color: #d7deea;
-  transition: color 0.15s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.80) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .uf-list a svg {
   width: 15px;
   height: 15px;
-  color: #4f8bff;
+  color: #009BFF !important; /* Brand Blue chevron */
   flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .uf-list a:hover {
-  color: #ffffff;
+  color: #009BFF !important;
+  padding-left: 4px;
+}
+
+.uf-list a:hover svg {
+  transform: translateX(3px);
 }
 
 /* contact list */
@@ -251,13 +272,14 @@
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 18px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 1.6;
-  color: #c3cee3;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .uf-contact-list li strong {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .uf-contact-icon {
@@ -265,8 +287,9 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1.5px solid #3a6fc4;
-  color: #6ea3ff;
+  border: 1.5px solid rgba(0, 155, 255, 0.4) !important; /* Brand Blue outlines */
+  background: rgba(0, 155, 255, 0.1) !important;
+  color: #009BFF !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -279,8 +302,9 @@
 
 /* stay connected */
 .uf-connect-desc {
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: #9aabc7;
+  color: rgba(255, 255, 255, 0.70) !important;
   line-height: 1.6;
   margin: 0 0 18px 0;
   max-width: 220px;
@@ -296,12 +320,12 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid #3a6fc4;
-  color: #dce6f7;
+  border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .uf-social-btn svg {
@@ -310,19 +334,20 @@
 }
 
 .uf-social-btn:hover {
-  background: #2C62D4;
-  border-color: #2C62D4;
-  color: #ffffff;
+  background-color: #009BFF !important; /* Fills blue on hover */
+  border-color: #009BFF !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
 }
 
 .uf-hq-card {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: #142c58;
-  border: 1px solid #2b4d8c;
-  border-radius: 12px;
-  padding: 14px;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px; /* Aligned rounding */
+  padding: 16px;
 }
 
 .uf-hq-icon {
@@ -330,8 +355,8 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: #1f3f78;
-  color: #6ea3ff;
+  background: rgba(0, 155, 255, 0.15) !important;
+  color: #009BFF !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -344,16 +369,18 @@
 
 .uf-hq-card strong {
   display: block;
-  color: #ffffff;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif;
   font-size: 13.5px;
   margin-bottom: 3px;
 }
 
 .uf-hq-card p {
   margin: 0;
+  font-family: 'Inter', sans-serif;
   font-size: 12.5px;
   line-height: 1.5;
-  color: #a9b8d4;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* bottom bar */
@@ -361,10 +388,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #223f6f;
-  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding-top: 24px;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
-  color: #93a3c2;
+  color: rgba(255, 255, 255, 0.60) !important;
 }
 
 .uf-bottom-links {
@@ -374,18 +402,18 @@
 }
 
 .uf-bottom-links a {
-  color: #c3cee3;
+  color: rgba(255, 255, 255, 0.80) !important;
   transition: color 0.15s ease;
 }
 
 .uf-bottom-links a:hover {
-  color: #ffffff;
+  color: #009BFF !important;
 }
 
 .uf-divider {
   width: 1px;
   height: 14px;
-  background: #3a4f75;
+  background: rgba(255, 255, 255, 0.2) !important;
   display: inline-block;
 }
 
