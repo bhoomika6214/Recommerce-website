@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import recommerceLogo from "../assets/Logo.png";
+import urdhvaLogo from "../assets/urdhva-logo.webp";
 
 /* ---------- inline icons (no external deps) ---------- */
 
@@ -172,7 +173,7 @@ const Footer = () => {
           {/* Brand column */}
           <div className="uf-col uf-brand-col">
             <div className="uf-logo">
-              <img src="https://dev.urdhvamanagement.com/wp-content/uploads/2026/05/urdhva-logo-hd-neo-scaled.png" alt="Urdhva Management Logo" className="uf-logo-mark" />
+              <img src={urdhvaLogo} alt="Urdhva Management Logo" className="uf-logo-mark" />
               <div className="uf-logo-text">
                 <span className="uf-logo-name">URDHVA</span>
                 <span className="uf-logo-tag">FUTURE-READY BUSINESS SOLUTIONS</span>
