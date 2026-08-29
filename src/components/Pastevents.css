@@ -4,7 +4,7 @@
 
 .past-events {
   padding: 120px 64px; /* Generous spacing matching other sections */
-  background-color: #ffffff; /* Solid White background */
+  background-color: #F2F6F9; /* Alternate Light Grey-Blue background */
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   position: relative;
   overflow: hidden;

@@ -1,6 +1,6 @@
 .about {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #F2F6F9;
   padding: 120px 0;
   overflow: hidden;
 }
@@ -29,6 +29,32 @@
 .about-left {
   display: flex;
   flex-direction: column;
+}
+
+.about-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #009BFF; /* Brand Blue */
+  text-transform: uppercase;
+}
+
+.about-eyebrow-line {
+  width: 36px;
+  height: 2.5px;
+  background: #009BFF; /* Brand Blue */
+  display: inline-block;
 }
 
 .about-quote-mark {
@@ -295,6 +321,20 @@
     padding: 80px 0;
   }
 
+  .about-header {
+    margin-bottom: 35px;
+  }
+
+  .about-eyebrow {
+    font-size: 16px;
+    gap: 12px;
+  }
+
+  .about-eyebrow-line {
+    width: 30px;
+    height: 2px;
+  }
+
   .about-container {
     padding: 0 24px;
     gap: 48px;
@@ -373,6 +413,20 @@
 @media (max-width: 480px) {
   .about {
     padding: 60px 0;
+  }
+
+  .about-header {
+    margin-bottom: 25px;
+  }
+
+  .about-eyebrow {
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .about-eyebrow-line {
+    width: 24px;
+    height: 1.5px;
   }
 
   .about-container {

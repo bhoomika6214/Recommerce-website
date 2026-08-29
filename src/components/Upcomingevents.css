@@ -5,7 +5,7 @@
 .upcoming-events {
   position: relative;
   overflow: hidden;
-  background-color: #FFFFFF; /* Pure White background */
+  background-color: #F2F6F9; /* Alternate Light Grey-Blue background */
   padding: 120px 6%; /* Generous spacing matching other sections */
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   color: #111A38; /* Black / Dark Navy text color */

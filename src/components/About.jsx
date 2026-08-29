@@ -50,6 +50,14 @@ const About = () => {
       <div className="about-bg-arcs" />
       <div className="about-bg-dots" />
 
+      <div className="about-header animate-on-scroll">
+        <div className="about-eyebrow">
+          <span className="about-eyebrow-line" />
+          ABOUT
+          <span className="about-eyebrow-line" />
+        </div>
+      </div>
+
       <div className="about-container">
         {/* Left Column - Quote & Description */}
         <div className="about-left animate-on-scroll">
