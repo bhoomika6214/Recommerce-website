@@ -7,6 +7,9 @@ import {
   FiChevronRight,
   FiPlay,
   FiGrid,
+  FiMail,
+  FiPhone,
+  FiMapPin,
 } from 'react-icons/fi';
 import { FaHandshake, FaHandRock } from 'react-icons/fa';
 import './AboutShowcase.css';
@@ -129,12 +132,30 @@ const AboutShowcase = () => {
             {/* Both texts share one grid cell, so the card keeps the height of the
                 taller one and nothing jumps when the tab changes. */}
             <div className="asc-card-texts">
-              <p className={`asc-card-text ${tab === 'overview' ? 'active' : ''}`} aria-hidden={tab !== 'overview'}>
-                Recommerce, is a brand of <mark className="asc-hl">Urdhva Management</mark> and the pioneering force in leading the charge towards a brighter future for the industries, A category-defining company dedicated to building a <mark className="asc-hl">sustainable reverse commerce ecosystem</mark>
-              </p>
-              <p className={`asc-card-text ${tab === 'mission' ? 'active' : ''}`} aria-hidden={tab !== 'mission'}>
-                At Recommerce, we embody the ideals of <mark className="asc-hl">Engage, Educate, Exchange, Empower, and Enable</mark>, propelling industries and individuals towards a brighter future. Our tagline, <em>&ldquo;Unlocking Infinite Possibilities, Connecting Industries: Pioneering Sustainability for a Thriving Tomorrow!&rdquo;</em> encapsulates our mission to revolutionize India&rsquo;s business landscape through Recommerce, our pioneering brand dedicated to driving a <mark className="asc-hl">circular economy</mark>.
-              </p>
+              <div className={`asc-pane ${tab === 'overview' ? 'active' : ''}`} aria-hidden={tab !== 'overview'}>
+                <p className="asc-card-text">
+                  Recommerce, is a brand of <mark className="asc-hl">Urdhva Management</mark> and the pioneering force in leading the charge towards a brighter future for the industries, A category-defining company dedicated to building a <mark className="asc-hl">sustainable reverse commerce ecosystem</mark>
+                </p>
+                <ul className="asc-contact">
+                  <li>
+                    <FiMail />
+                    <a href="mailto:info@recommerceeco.com">info@recommerceeco.com</a>
+                  </li>
+                  <li>
+                    <FiPhone />
+                    <a href="tel:+919731775124">+91 97317 75124</a>
+                  </li>
+                  <li>
+                    <FiMapPin />
+                    <span>Bengaluru, Karnataka</span>
+                  </li>
+                </ul>
+              </div>
+              <div className={`asc-pane ${tab === 'mission' ? 'active' : ''}`} aria-hidden={tab !== 'mission'}>
+                <p className="asc-card-text">
+                  At Recommerce, we embody the ideals of <mark className="asc-hl">Engage, Educate, Exchange, Empower, and Enable</mark>, propelling industries and individuals towards a brighter future. Our tagline, <em>&ldquo;Unlocking Infinite Possibilities, Connecting Industries: Pioneering Sustainability for a Thriving Tomorrow!&rdquo;</em> encapsulates our mission to revolutionize India&rsquo;s business landscape through Recommerce, our pioneering brand dedicated to driving a <mark className="asc-hl">circular economy</mark>.
+                </p>
+              </div>
             </div>
 
             <a className="btn-primary asc-card-btn" href="mailto:info@recommerceeco.com">

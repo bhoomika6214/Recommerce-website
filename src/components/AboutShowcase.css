@@ -365,19 +365,56 @@
   margin: 16px 0 22px;
 }
 
-.asc-card-text {
+.asc-pane {
   grid-area: 1 / 1;
-  font-size: 15.5px;
-  line-height: 1.75;
-  color: #2a3550;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.asc-card-text.active {
+.asc-pane.active {
   opacity: 1;
   visibility: visible;
+}
+
+.asc-card-text {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #2a3550;
+}
+
+.asc-contact {
+  list-style: none;
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid #e6edf4;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.asc-contact li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #2a3550;
+}
+
+.asc-contact svg {
+  flex-shrink: 0;
+  font-size: 17px;
+  color: #009bff;
+}
+
+.asc-contact a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.asc-contact a:hover {
+  color: #009bff;
 }
 
 .asc-hl {
@@ -595,7 +632,7 @@
   .asc-copy {
     animation: none;
   }
-  .asc-card-text {
+  .asc-pane {
     transition: none;
   }
 }
