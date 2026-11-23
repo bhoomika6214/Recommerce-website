@@ -1,94 +1,49 @@
-import React from "react";
-import { Globe2, Users, Star, Sprout, Recycle } from "lucide-react";
-import "./WhyChooseRecommerce.css";
-import Loop from "../assets/whyChooseLoop.png";
-import card1 from "../assets/WhyChooseCardImage.png";
-import card2 from "../assets/WhyChooseCradImage2.png";
-import card3 from "../assets/WhyChooseCardImage3.png";
-
-const FEATURES = [
-  {
-    id: 1,
-    title: "Circular Economy Pioneers",
-    description:
-      "Recommerce leads the charge in fostering a circular economy, transforming waste into valuable resources.",
-    Icon: Globe2,
-    image: card1,
-  },
-  {
-    id: 2,
-    title: "Expertise-Driven Events",
-    description:
-      "Recommerce leads the charge in fostering a circular economy, transforming waste into valuable resources.",
-    Icon: Users,
-    withStar: true,
-    image: card2,
-  },
-  {
-    id: 3,
-    title: "Positive Impact",
-    description:
-      "Recommerce leads the charge in fostering a circular economy, transforming waste into valuable resources.",
-    Icon: Sprout,
-    image: card3,
-  },
-];
-
-function FeatureRow({ feature }) {
-  const { title, description, Icon, withStar, image } = feature;
-
-  return (
-    <div className="why-feature" style={{ backgroundImage: `url(${image})` }}>
-      <div className="why-feature__icon">
-        {withStar && (
-          <Star className="why-feature__icon-star" size={14} fill="currentColor" />
-        )}
-        <Icon size={28} strokeWidth={1.6} />
-      </div>
-
-      <span className="why-feature__divider" />
-
-      <div className="why-feature__text">
-        <h3 className="why-feature__title">{title}</h3>
-        <span className="why-feature__underline" />
-        <p className="why-feature__desc">{description}</p>
-      </div>
-    </div>
-  );
-}
+import { Star } from 'lucide-react';
+import './WhyChooseRecommerce.css';
+import Loop from '../assets/whyChooseLoop.png';
+import { features } from './whyData';
 
 export default function WhyChooseRecommerce() {
   return (
-    <section className="why-choose">
-      <div className="why-choose__left">
-        <div className="why-choose__eyebrow">
-          <span className="why-choose__eyebrow-line" />
-          WHY CHOOSE
+    <section className="wx" id="why">
+      <div className="wx-wrap wx-grid">
+        {/* Heading and loop stay in view while the cards slide over each other. */}
+        <div className="wx-left">
+          <div className="wx-eyebrow">
+            <span className="wx-eyebrow-line" />
+            WHY CHOOSE
+          </div>
+          <h2 className="wx-heading">
+            Why Choose <span className="wx-accent">Recommerce</span>
+          </h2>
+          <p className="wx-sub">
+            Driving change. Creating impact. Empowering industries for a sustainable tomorrow.
+          </p>
+          <img src={Loop} alt="Recommerce circular loop" className="wx-loop" />
         </div>
 
-        <h2 className="why-choose__heading">
-          Why Choose
-          <br />
-          <span className="why-choose__heading-accent">Recommerce</span>
-        </h2>
-
-        <span className="why-choose__heading-underline" />
-
-        <p className="why-choose__desc">
-          Driving change. Creating impact. Empowering industries for a
-          sustainable tomorrow.
-        </p>
-
-        <div className="why-choose__infinity">
-          <img src={Loop} alt="Recommerce Loop" className="why-choose__infinity-img" />
-
+        <div className="wx-stack">
+          {features.map((f, i) => (
+            <article className="wx-card" key={f.id} style={{ '--i': i }}>
+              <div className="wx-text">
+                <span className="wx-no">{f.no}</span>
+                <span className="wx-icon">
+                  {f.star && <Star className="wx-icon-star" size={12} fill="currentColor" />}
+                  <f.Icon size={26} strokeWidth={1.7} />
+                </span>
+                <h3>{f.title}</h3>
+                <span className="wx-rule" />
+                <p>{f.description}</p>
+              </div>
+              <div
+                className={`wx-photo wx-photo--${f.id}`}
+                style={{ '--img': `url(${f.image})` }}
+                role="img"
+                aria-label={f.title}
+              />
+            </article>
+          ))}
         </div>
-      </div>
-
-      <div className="why-choose__right">
-        {FEATURES.map((feature) => (
-          <FeatureRow key={feature.id} feature={feature} />
-        ))}
       </div>
     </section>
   );
