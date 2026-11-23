@@ -56,13 +56,6 @@ body {
   text-shadow: none !important;
 }
 
-/* Active Filter Tabs in Past Events */
-.past-events__filter-tab--active {
-  background-color: #009BFF !important;
-  color: #FFFFFF !important;
-  -webkit-text-fill-color: #FFFFFF !important;
-}
-
 /* Hover effects for buttons/interactive items */
 .hero2-btn:hover,
 .uf-cta-btn:hover,
