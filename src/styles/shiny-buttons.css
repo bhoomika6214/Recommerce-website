@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Shiny button effect, applied to every button on the site.
+
+   Same effect as the ShinyButton component (a light arc that circles the
+   edge, a faint speckle, and a brighter arc plus inner glow on hover), but
+   built so it keeps each button's OWN colours: the fill and text are left
+   alone and only a ring is drawn on top.
+   ========================================================================== */
+
+@property --sb-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --sb-offset {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --sb-percent {
+  syntax: '<percentage>';
+  initial-value: 5%;
+  inherits: false;
+}
+@property --sb-shine {
+  syntax: '<color>';
+  initial-value: #ffffff;
+  inherits: false;
+}
+
+/* Base: zero specificity, so a button's own `position` (some are absolutely
+   positioned) and `overflow` rules always win. */
+:where(
+  .nav-contact-btn,
+  .mobile-contact-btn,
+  .uf-cta-btn,
+  .uf-social-btn,
+  .cr-hero-btn,
+  .view-all-link,
+  .upcoming-events__view-all,
+  .view-report-btn,
+  .explore-btn,
+  .sv-learn-btn,
+  .sv-cta-btn,
+  .sv-nav-btn,
+  .banner-slide__cta,
+  .banner-nav,
+  .banner-pause,
+  .carousel-arrow,
+  .control-btn,
+  .nav-button,
+  .past-events__filter-tab,
+  .btn,
+  .btn-primary
+) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  --sb-c1: #bfe6ff; /* arc colour */
+  --sb-rest-shine: #ffffff; /* arc highlight at rest */
+  --sb-hover-shine: #ffffff; /* arc highlight on hover */
+}
+
+/* Filter tabs are light (the active one is white), so use a blue arc on them */
+.past-events__filter-tab {
+  --sb-c1: #009bff;
+  --sb-rest-shine: #009bff;
+  --sb-hover-shine: #7fd0ff;
+}
+
+/* ---- speckle ---- */
+:is(
+  .nav-contact-btn,
+  .mobile-contact-btn,
+  .uf-cta-btn,
+  .uf-social-btn,
+  .cr-hero-btn,
+  .view-all-link,
+  .upcoming-events__view-all,
+  .view-report-btn,
+  .explore-btn,
+  .sv-learn-btn,
+  .sv-cta-btn,
+  .sv-nav-btn,
+  .banner-slide__cta,
+  .banner-nav,
+  .banner-pause,
+  .carousel-arrow,
+  .control-btn,
+  .nav-button,
+  .past-events__filter-tab,
+  .btn,
+  .btn-primary
+)::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 2px 2px, #ffffff 0.5px, transparent 0) 0 0 / 4px 4px;
+  -webkit-mask-image: conic-gradient(from calc(var(--sb-angle) + 45deg), #000, transparent 10% 90%, #000);
+  mask-image: conic-gradient(from calc(var(--sb-angle) + 45deg), #000, transparent 10% 90%, #000);
+  opacity: 0.35;
+  animation: sb-angle 3s linear infinite;
+}
+
+/* ---- light arc travelling round the edge ---- */
+:is(
+  .nav-contact-btn,
+  .mobile-contact-btn,
+  .uf-cta-btn,
+  .uf-social-btn,
+  .cr-hero-btn,
+  .view-all-link,
+  .upcoming-events__view-all,
+  .view-report-btn,
+  .explore-btn,
+  .sv-learn-btn,
+  .sv-cta-btn,
+  .sv-nav-btn,
+  .banner-slide__cta,
+  .banner-nav,
+  .banner-pause,
+  .carousel-arrow,
+  .control-btn,
+  .nav-button,
+  .past-events__filter-tab,
+  .btn,
+  .btn-primary
+)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 1.5px;
+  border-radius: inherit;
+  pointer-events: none;
+  --sb-shine: var(--sb-rest-shine);
+  background: conic-gradient(
+    from calc(var(--sb-angle) - var(--sb-offset)),
+    transparent,
+    var(--sb-c1) var(--sb-percent),
+    var(--sb-shine) calc(var(--sb-percent) * 2),
+    var(--sb-c1) calc(var(--sb-percent) * 3),
+    transparent calc(var(--sb-percent) * 4)
+  );
+  /* keep only the 1.5px edge of the gradient */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: sb-angle 3s linear infinite;
+  transition:
+    --sb-percent 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    --sb-offset 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    --sb-shine 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ---- hover / keyboard focus: wider, brighter arc and an inner glow ---- */
+:is(
+  .nav-contact-btn,
+  .mobile-contact-btn,
+  .uf-cta-btn,
+  .uf-social-btn,
+  .cr-hero-btn,
+  .view-all-link,
+  .upcoming-events__view-all,
+  .view-report-btn,
+  .explore-btn,
+  .sv-learn-btn,
+  .sv-cta-btn,
+  .sv-nav-btn,
+  .banner-slide__cta,
+  .banner-nav,
+  .banner-pause,
+  .carousel-arrow,
+  .control-btn,
+  .nav-button,
+  .past-events__filter-tab,
+  .btn,
+  .btn-primary
+):is(:hover, :focus-visible)::after {
+  --sb-percent: 20%;
+  --sb-offset: 95deg;
+  --sb-shine: var(--sb-hover-shine);
+}
+
+:is(
+  .nav-contact-btn,
+  .mobile-contact-btn,
+  .uf-cta-btn,
+  .uf-social-btn,
+  .cr-hero-btn,
+  .view-all-link,
+  .upcoming-events__view-all,
+  .view-report-btn,
+  .explore-btn,
+  .sv-learn-btn,
+  .sv-cta-btn,
+  .sv-nav-btn,
+  .banner-slide__cta,
+  .banner-nav,
+  .banner-pause,
+  .carousel-arrow,
+  .control-btn,
+  .nav-button,
+  .past-events__filter-tab,
+  .btn,
+  .btn-primary
+):is(:hover, :focus-visible) {
+  box-shadow: inset 0 -0.5em 1.3rem 1px rgba(127, 208, 255, 0.5) !important;
+}
+
+/* small press effect */
+:is(
+  .nav-contact-btn,
+  .mobile-contact-btn,
+  .uf-cta-btn,
+  .cr-hero-btn,
+  .view-all-link,
+  .upcoming-events__view-all,
+  .view-report-btn,
+  .sv-learn-btn,
+  .sv-cta-btn,
+  .banner-slide__cta,
+  .btn,
+  .btn-primary
+):active {
+  translate: 0 1px;
+}
+
+@keyframes sb-angle {
+  to {
+    --sb-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    .nav-contact-btn,
+    .mobile-contact-btn,
+    .uf-cta-btn,
+    .uf-social-btn,
+    .cr-hero-btn,
+    .view-all-link,
+    .upcoming-events__view-all,
+    .view-report-btn,
+    .explore-btn,
+    .sv-learn-btn,
+    .sv-cta-btn,
+    .sv-nav-btn,
+    .banner-slide__cta,
+    .banner-nav,
+    .banner-pause,
+    .carousel-arrow,
+    .control-btn,
+    .nav-button,
+    .past-events__filter-tab,
+    .btn,
+    .btn-primary
+  )::before,
+  :is(
+    .nav-contact-btn,
+    .mobile-contact-btn,
+    .uf-cta-btn,
+    .uf-social-btn,
+    .cr-hero-btn,
+    .view-all-link,
+    .upcoming-events__view-all,
+    .view-report-btn,
+    .explore-btn,
+    .sv-learn-btn,
+    .sv-cta-btn,
+    .sv-nav-btn,
+    .banner-slide__cta,
+    .banner-nav,
+    .banner-pause,
+    .carousel-arrow,
+    .control-btn,
+    .nav-button,
+    .past-events__filter-tab,
+    .btn,
+    .btn-primary
+  )::after {
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,8 +1,8 @@
-/* Scroll Expansion Hero Wrapper Styles */
+/* Scroll Expansion Hero Wrapper Styles.
+   No overflow:hidden here: it would stop the hero's sticky pinning from working. */
 .hero-scroll-container {
   width: 100%;
-  min-height: 100vh;
   background-color: #05091b;
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
 }

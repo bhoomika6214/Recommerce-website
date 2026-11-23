@@ -132,6 +132,7 @@
 .past-events__filter-tab--active {
   background-color: #ffffff !important;
   color: #009BFF !important; /* Brand Blue active color */
+  -webkit-text-fill-color: #009BFF !important; /* global button theme forces white text, which was invisible on this white tab */
   box-shadow: 0 2px 8px rgba(17, 26, 56, 0.06);
 }
 

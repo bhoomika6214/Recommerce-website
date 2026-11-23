@@ -1,0 +1,65 @@
+/* The track is tall; the stage inside it stays pinned while the page scrolls
+   through the track. Scroll position drives --p (0 to 1) which grows the media. */
+.seh-track {
+  position: relative;
+  width: 100%;
+  height: 240vh;
+  height: 240svh;
+}
+
+.seh-stage {
+  --p: 0;
+  --tx: 150;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.seh-media {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: calc(300px + var(--p) * (100vw - 300px));
+  height: calc(400px + var(--p) * (100vh - 400px));
+  max-width: 100vw;
+  max-height: 100vh;
+  translate: -50% -50%;
+  overflow: hidden;
+  border-radius: calc((1 - var(--p)) * 24px);
+  border: 1px solid rgba(255, 255, 255, calc(0.15 * (1 - var(--p))));
+  box-shadow:
+    0 25px 50px -12px rgba(5, 25, 30, calc(0.5 * (1 - var(--p)))),
+    0 0 40px rgba(143, 227, 192, calc(0.15 * (1 - var(--p))));
+  will-change: width, height;
+}
+
+@supports (height: 100svh) {
+  .seh-media {
+    height: calc(400px + var(--p) * (100svh - 400px));
+    max-height: 100svh;
+  }
+}
+
+.seh-bg {
+  opacity: calc(1 - var(--p));
+}
+
+.seh-shade {
+  opacity: calc(0.6 - var(--p) * 0.4);
+}
+
+.seh-hint {
+  opacity: calc(1 - var(--p));
+}
+
+.seh-move-left {
+  transform: translateX(calc(var(--p) * var(--tx) * -1vw));
+}
+
+.seh-move-right {
+  transform: translateX(calc(var(--p) * var(--tx) * 1vw));
+}
