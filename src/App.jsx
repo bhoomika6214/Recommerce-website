@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Hero2 from './components/Hero2'
 import './App.css'
-import About from './components/About'
+import About from './components/AboutShowcase'
 import MissionVisionApproach from './components/Missionvisionapproach'
 import OurServices from './components/Ourservices'
 import UpcomingEvents from './components/Upcomingevents'

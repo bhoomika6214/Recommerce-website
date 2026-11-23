@@ -1,0 +1,698 @@
+/* ============ ABOUT SHOWCASE: medallion, headline, info card, value switcher ============ */
+
+.asc {
+  background: #f2f6f9;
+  padding: 100px 0 90px;
+  color: #0e1630;
+}
+
+.asc-wrap {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.asc-head {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.asc-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #009bff;
+}
+
+.asc-eyebrow-line {
+  width: 36px;
+  height: 2.5px;
+  background: #009bff;
+}
+
+/* ---------- quote ---------- */
+
+.asc-intro {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.asc-quote-mark {
+  display: block;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: -16px;
+  color: #009bff;
+}
+
+.asc-quote {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 2.7vw, 36px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.asc-quote-end {
+  color: #009bff;
+}
+
+/* ---------- panel ---------- */
+
+.asc-panel {
+  position: relative;
+  margin-top: 52px;
+  padding: 48px 44px 36px 36px;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) 340px;
+  grid-template-areas:
+    'dots main card'
+    'dots rail card';
+  column-gap: 34px;
+  row-gap: 30px;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 34px;
+  border: 1px solid #e3eaf2;
+  background: linear-gradient(135deg, #fbfcfe 0%, #eef3f8 100%);
+  box-shadow: 0 24px 60px rgba(14, 22, 48, 0.07);
+}
+
+/* soft brush shape behind the headline */
+.asc-blob {
+  position: absolute;
+  top: 8%;
+  left: 36%;
+  width: 46%;
+  height: 46%;
+  border-radius: 62% 38% 55% 45% / 55% 62% 38% 45%;
+  background: linear-gradient(120deg, rgba(0, 155, 255, 0.16), rgba(0, 155, 255, 0.07));
+  transform: rotate(-16deg);
+  pointer-events: none;
+}
+
+.asc-dots {
+  grid-area: dots;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  align-self: center;
+  position: relative;
+}
+
+.asc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background: #b8c3d3;
+  transition: height 0.3s ease, background 0.3s ease;
+}
+
+.asc-dot.active {
+  height: 34px;
+  background: #0e1630;
+}
+
+/* ---------- medallion + headline ---------- */
+
+.asc-main {
+  grid-area: main;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(190px, 300px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.asc-plate-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.asc-plate {
+  position: absolute;
+  inset: 0;
+  animation: asc-pop 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.asc-plate-ring {
+  position: absolute;
+  inset: -1%;
+  border-radius: 50%;
+  border: 2px dashed rgba(0, 155, 255, 0.4);
+  animation: asc-spin 50s linear infinite;
+}
+
+.asc-plate-disc {
+  position: absolute;
+  inset: 5%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 34% 28%, #2a3f82 0%, #111b44 45%, #070c22 100%);
+  box-shadow:
+    0 30px 50px rgba(5, 9, 27, 0.3),
+    inset 0 0 0 10px rgba(255, 255, 255, 0.04),
+    inset 0 0 70px rgba(0, 155, 255, 0.28);
+}
+
+.asc-plate-inner {
+  position: absolute;
+  inset: 13%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.asc-plate-icon {
+  position: relative;
+  display: flex;
+  font-size: clamp(84px, 9vw, 126px);
+  color: #fff;
+  filter: drop-shadow(0 0 22px rgba(0, 155, 255, 0.85));
+}
+
+.asc-plate-badge {
+  position: absolute;
+  right: 4%;
+  bottom: 12%;
+  width: 26%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(18px, 2vw, 28px);
+  color: #fff;
+  background: linear-gradient(145deg, #27b0ff, #009bff);
+  border: 6px solid #0b1330;
+  box-shadow: 0 12px 24px rgba(0, 155, 255, 0.35);
+}
+
+.asc-copy {
+  position: relative;
+  animation: asc-rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.asc-step {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #0e1630;
+}
+
+.asc-title {
+  margin-top: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(36px, 4.2vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.asc-title-thin,
+.asc-title-bold {
+  display: block;
+}
+
+.asc-title-thin {
+  font-weight: 300;
+}
+
+.asc-title-bold {
+  font-weight: 800;
+}
+
+.asc-lead {
+  margin-top: 20px;
+  max-width: 420px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #3b4660;
+}
+
+.asc-links {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 34px;
+}
+
+.asc-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0e1630;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.asc-links a:hover {
+  color: #009bff;
+}
+
+/* ---------- info card ---------- */
+
+.asc-card {
+  grid-area: card;
+  align-self: stretch;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 28px 28px;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 22px 50px rgba(14, 22, 48, 0.1);
+}
+
+.asc-tabs {
+  display: flex;
+  border-bottom: 1px solid #e6edf4;
+}
+
+.asc-tab {
+  flex: 1;
+  padding: 4px 0 14px;
+  margin-bottom: -1px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #8793a8;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.asc-tab:hover {
+  color: #0e1630;
+}
+
+.asc-tab.active {
+  color: #0e1630;
+  border-bottom-color: #009bff;
+}
+
+.asc-card-top {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.asc-badge {
+  width: 82px;
+  height: 82px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(145deg, #27b0ff, #009bff);
+  box-shadow: 0 12px 24px rgba(0, 155, 255, 0.3);
+}
+
+.asc-badge strong {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.asc-badge span {
+  margin-top: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.asc-card-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.asc-card-title {
+  margin-top: 20px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+}
+
+.asc-card-sub {
+  margin-top: 2px;
+  font-size: 13.5px;
+  color: #7a869b;
+}
+
+.asc-card-texts {
+  display: grid;
+  margin: 16px 0 22px;
+}
+
+.asc-card-text {
+  grid-area: 1 / 1;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #2a3550;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.asc-card-text.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.asc-hl {
+  padding: 0 2px;
+  font-weight: 600;
+  color: #0e1630;
+  background: linear-gradient(transparent 55%, rgba(0, 155, 255, 0.25) 55%);
+}
+
+.asc-card-text em {
+  font-weight: 700;
+  color: #0a56c8;
+}
+
+.asc-card-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+/* ---------- value switcher ---------- */
+
+.asc-rail {
+  grid-area: rail;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.asc-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #0e1630;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.asc-arrow:hover {
+  background: #fff;
+  color: #009bff;
+}
+
+.asc-thumbs {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.asc-thumb {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 8px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.asc-thumb:hover {
+  transform: translateY(-3px);
+}
+
+.asc-thumb.active {
+  background: #fff;
+  box-shadow: 0 16px 34px rgba(14, 22, 48, 0.12);
+}
+
+.asc-thumb-disc {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  background: radial-gradient(circle at 34% 28%, #2a3f82, #0b1330);
+  box-shadow: 0 10px 20px rgba(5, 9, 27, 0.25);
+  transition: transform 0.25s ease;
+}
+
+.asc-thumb.active .asc-thumb-disc {
+  transform: scale(1.1);
+  background: radial-gradient(circle at 34% 28%, #27b0ff, #006fd0);
+}
+
+.asc-thumb-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #566078;
+}
+
+.asc-thumb.active .asc-thumb-label {
+  color: #0e1630;
+}
+
+/* ---------- brand statement ---------- */
+
+.asc-brand {
+  margin-top: 56px;
+  padding: 32px 44px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #0e1c4a, #0a2d6e);
+  color: #fff;
+}
+
+.asc-brand-logo-col {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.asc-brand-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.asc-brand-name {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+}
+
+.asc-brand-tag {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.asc-brand-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.asc-brand-desc {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- motion ---------- */
+
+@keyframes asc-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.86) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes asc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes asc-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes asc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asc-plate,
+  .asc-plate-ring,
+  .asc-copy {
+    animation: none;
+  }
+  .asc-card-text {
+    transition: none;
+  }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1180px) {
+  .asc-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'main'
+      'rail'
+      'card';
+    padding: 40px 32px 32px;
+    row-gap: 28px;
+  }
+  .asc-dots {
+    display: none;
+  }
+  .asc-card {
+    align-self: auto;
+  }
+  .asc-card-btn {
+    margin-top: 6px;
+  }
+  .asc-blob {
+    left: 30%;
+    width: 60%;
+    height: 38%;
+  }
+}
+
+@media (max-width: 760px) {
+  .asc {
+    padding: 80px 0 70px;
+  }
+  .asc-wrap {
+    padding: 0 20px;
+  }
+  .asc-panel {
+    padding: 28px 18px 22px;
+    border-radius: 26px;
+  }
+  .asc-main {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    justify-items: center;
+    text-align: center;
+  }
+  .asc-plate-wrap {
+    max-width: 260px;
+  }
+  .asc-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .asc-links {
+    justify-content: center;
+  }
+  .asc-blob {
+    top: 4%;
+    left: 15%;
+    width: 70%;
+    height: 34%;
+  }
+  .asc-rail {
+    gap: 2px;
+  }
+  .asc-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
+  }
+  .asc-thumb {
+    padding: 12px 2px 10px;
+  }
+  .asc-thumb-disc {
+    width: 46px;
+    height: 46px;
+    font-size: 19px;
+  }
+  .asc-thumb-label {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+  }
+  .asc-card {
+    padding: 22px 20px 24px;
+  }
+  .asc-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 28px 24px;
+  }
+  .asc-brand-divider {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+  }
+}
