@@ -1,41 +1,21 @@
+/* ============ ABOUT: quote + highlighted text, five-step timeline ============ */
+
 .about {
   position: relative;
-  background-color: #F2F6F9;
-  padding: 120px 0;
-  overflow: hidden;
+  background-color: #f2f6f9;
+  padding: 100px 0 90px;
 }
 
-/* ============ DECORATIVE BACKGROUND ============ */
-/* Removed decorative background shapes to ensure strict white background */
-.about-bg-arcs,
-.about-bg-dots {
-  display: none !important;
-}
-
-.about-container {
-  position: relative;
-  z-index: 2;
-  max-width: 1400px;
+.about-wrap {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 60px;
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr; /* Improved left-right balance */
-  gap: 80px; /* Generous spacing */
-  align-items: center;
-}
-
-/* ============ LEFT COLUMN ============ */
-
-.about-left {
-  display: flex;
-  flex-direction: column;
+  padding: 0 40px;
 }
 
 .about-header {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
-  width: 100%;
+  margin-bottom: 54px;
 }
 
 .about-eyebrow {
@@ -46,417 +26,257 @@
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: #009BFF; /* Brand Blue */
+  color: #009bff;
   text-transform: uppercase;
 }
 
 .about-eyebrow-line {
   width: 36px;
   height: 2.5px;
-  background: #009BFF; /* Brand Blue */
+  background: #009bff;
   display: inline-block;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ---------- left column ---------- */
+
 .about-quote-mark {
+  display: block;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 64px;
   font-weight: 700;
-  color: #009BFF; /* Brand Blue */
+  color: #009bff;
   line-height: 1;
   margin-bottom: -15px;
 }
 
 .about-quote {
   font-family: 'Manrope', sans-serif;
-  font-size: 32px;
   font-weight: 800;
-  color: #111A38; /* Black / Dark Navy */
-  line-height: 1.2;
-  letter-spacing: -0.8px;
-  margin: 0;
+  font-size: clamp(26px, 2.8vw, 38px);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: #0e1630;
 }
 
 .about-quote-mark-end {
-  font-family: Georgia, 'Times New Roman', serif;
-  color: #009BFF; /* Brand Blue */
-  font-size: 32px;
+  color: #009bff;
 }
 
 .about-underline {
-  width: 55px;
+  display: block;
+  width: 64px;
   height: 3px;
-  background-color: #009BFF; /* Brand Blue */
-  border-radius: 2px;
-  margin: 24px 0 28px 0;
+  margin: 26px 0 30px;
+  background: #009bff;
+  border-radius: 3px;
+}
+
+/* highlighted about text */
+.about-text-card {
+  padding: 30px 32px 14px;
+  background: #fff;
+  border-radius: 18px;
+  border-left: 5px solid #009bff;
+  box-shadow: 0 14px 40px rgba(0, 155, 255, 0.12);
 }
 
 .about-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  line-height: 1.75;
-  color: rgba(17, 26, 56, 0.70); /* Dark Navy with 70% opacity */
-  margin: 0 0 20px 0;
+  font-size: 17px;
+  line-height: 1.85;
+  color: #3b4660;
+  margin-bottom: 18px;
 }
 
-.about-desc:last-child {
-  margin-bottom: 0;
+.about-hl {
+  padding: 0 3px;
+  font-weight: 600;
+  color: #0e1630;
+  background: linear-gradient(transparent 55%, rgba(0, 155, 255, 0.25) 55%);
+  border-radius: 2px;
 }
 
 .about-desc em {
-  color: #111A38;
-  font-style: italic;
-  font-weight: 600;
-  transition: color 0.25s ease;
+  font-weight: 700;
+  color: #0a56c8;
 }
 
-.about-desc em:hover {
-  color: #009BFF; /* Link/accent hover color */
+/* ---------- timeline ---------- */
+
+.about-timeline {
+  list-style: none;
+  position: relative;
+  padding-top: 8px;
 }
 
-/* ============ RIGHT COLUMN - STEPS ============ */
-
-.about-right {
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-}
-
-.about-steps {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
+.about-timeline::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 30px;
+  bottom: 60px;
+  width: 2px;
+  background: linear-gradient(#009bff, #bfe3ff);
 }
 
 .about-step {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  gap: 26px;
+  padding-bottom: 38px;
+}
+
+.about-step-node {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
-  opacity: 0;
-  transform: scale(0.9) translateY(15px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-step.step-visible {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-.about-step-icon {
-  width: 84px;
-  height: 84px;
-  min-width: 84px;
   border-radius: 50%;
-  background-color: #FFFFFF;
-  border: 2px solid #009BFF; /* Brand Blue */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  color: #009BFF;
-  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: none;
-  cursor: pointer;
+  font-size: 22px;
+  color: #009bff;
+  background: #fff;
+  border: 2px solid #009bff;
+  box-shadow: 0 0 0 6px #f2f6f9;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.about-step-icon:hover {
-  background-color: #009BFF; /* Brand Blue */
-  color: #FFFFFF;
-  transform: translateY(-4px) scale(1.05);
+.about-step:hover .about-step-node {
+  background: #009bff;
+  color: #fff;
+  transform: scale(1.08);
 }
 
-/* Replaced pulse animation with simple, elegant entrance trigger */
-.about-step.step-visible .about-step-icon {
-  animation: none;
+.about-step-body {
+  padding-top: 4px;
+}
+
+.about-step-no {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #009bff;
 }
 
 .about-step-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: #009BFF;
-  text-transform: uppercase;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, 
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+  margin-top: 6px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  color: #0e1630;
 }
 
-.about-step.step-visible .about-step-label {
-  opacity: 1;
-  transform: translateY(0);
+.about-step-text {
+  margin-top: 8px;
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #566078;
 }
 
-.about-step-connector {
-  flex-grow: 1;
-  height: 0;
-  min-width: 10px;
-  margin-top: 42px;
-  border-top: 2px dashed rgba(0, 155, 255, 0.35); /* Brand Blue with 35% opacity */
-  opacity: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
+/* ---------- brand statement ---------- */
 
-.about-step-connector.connector-visible {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-/* ============ RIGHT COLUMN - BRAND CARD ============ */
-
-.about-brand-card {
+.about-brand {
+  margin-top: 60px;
+  padding: 32px 44px;
   display: flex;
   align-items: center;
-  gap: 36px;
-  background-color: #FFFFFF;
+  gap: 40px;
   border-radius: 20px;
-  padding: 36px 44px;
-  box-shadow: 0 15px 40px rgba(17, 26, 56, 0.06); /* Strict black shadow */
-  border: 1px solid rgba(17, 26, 56, 0.12); /* Subtle dark border */
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-brand-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 50px rgba(17, 26, 56, 0.09);
+  background: linear-gradient(120deg, #0e1c4a, #0a2d6e);
+  color: #fff;
 }
 
 .about-brand-logo-col {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 18px;
   flex-shrink: 0;
-  min-width: 200px;
 }
 
 .about-brand-logo {
-  width: 52px;
-  height: 52px;
-  margin-bottom: 16px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
 }
 
 .about-brand-name {
   font-family: 'Manrope', sans-serif;
+  font-weight: 800;
   font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #111A38;
-  margin: 0 0 4px 0;
+  letter-spacing: 0.04em;
 }
 
 .about-brand-tag {
-  font-family: 'Inter', sans-serif;
+  display: block;
+  margin-top: 4px;
   font-size: 13px;
-  color: rgba(17, 26, 56, 0.70);
-  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .about-brand-divider {
   width: 1px;
   align-self: stretch;
-  background-color: rgba(17, 26, 56, 0.12); /* Subtle divider */
-  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .about-brand-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 14.5px;
+  font-size: 15.5px;
   line-height: 1.75;
-  color: rgba(17, 26, 56, 0.70);
-  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
 }
 
-/* ============ RESPONSIVE ============ */
+/* ---------- responsive ---------- */
 
-@media (max-width: 1200px) {
-  .about-container {
-    gap: 50px;
-    padding: 0 40px;
-  }
-
-  .about-step-icon {
-    width: 72px;
-    height: 72px;
-    min-width: 72px;
-    font-size: 26px;
-  }
-
-  .about-step-label {
-    font-size: 12px;
-  }
-
-  .about-step-connector {
-    margin-top: 36px;
+/* keep the left column pinned only when the screen is tall enough to show it all */
+@media (min-width: 1001px) and (min-height: 880px) {
+  .about-left {
+    position: sticky;
+    top: 110px;
   }
 }
 
-@media (max-width: 1024px) {
-  .about-container {
+@media (max-width: 1000px) {
+  .about-grid {
     grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .about-quote {
-    font-size: 30px;
-  }
-
-  .about-steps {
-    justify-content: center;
+    gap: 50px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   .about {
-    padding: 80px 0;
+    padding: 80px 0 70px;
   }
-
-  .about-header {
-    margin-bottom: 35px;
+  .about-wrap {
+    padding: 0 22px;
   }
-
-  .about-eyebrow {
+  .about-text-card {
+    padding: 24px 22px 8px;
+  }
+  .about-desc {
     font-size: 16px;
-    gap: 12px;
   }
-
-  .about-eyebrow-line {
-    width: 30px;
-    height: 2px;
-  }
-
-  .about-container {
-    padding: 0 24px;
-    gap: 48px;
-  }
-
-  .about-quote-mark {
-    font-size: 48px;
-  }
-
-  .about-quote {
-    font-size: 26px;
-  }
-
-  .about-brand-card {
+  .about-brand {
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
-    padding: 28px;
+    gap: 22px;
+    padding: 28px 26px;
   }
-
-  .about-brand-logo-col {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: 0 16px;
-    min-width: 100%;
-  }
-
-  .about-brand-logo {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    margin-bottom: 0;
-    width: 48px;
-    height: 48px;
-  }
-
-  .about-brand-name {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0;
-    font-size: 20px;
-  }
-
-  .about-brand-tag {
-    grid-column: 2;
-    grid-row: 2;
-    font-size: 12px;
-    margin: 0;
-  }
-
   .about-brand-divider {
     width: 100%;
     height: 1px;
-    margin: 8px 0;
-  }
-
-  .about-step-icon {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
-    font-size: 22px;
-  }
-
-  .about-step-label {
-    font-size: 11px;
-    letter-spacing: 0;
-  }
-
-  .about-step-connector {
-    margin-top: 32px;
-    min-width: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about {
-    padding: 60px 0;
-  }
-
-  .about-header {
-    margin-bottom: 25px;
-  }
-
-  .about-eyebrow {
-    font-size: 14px;
-    gap: 10px;
-  }
-
-  .about-eyebrow-line {
-    width: 24px;
-    height: 1.5px;
-  }
-
-  .about-container {
-    padding: 0 16px;
-    gap: 40px;
-  }
-
-  .about-quote {
-    font-size: 22px;
-  }
-
-  .about-desc {
-    font-size: 14px;
-  }
-
-  .about-step-icon {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    font-size: 18px;
-  }
-
-  .about-step-label {
-    font-size: 9px;
-    letter-spacing: -0.5px;
-  }
-
-  .about-step-connector {
-    margin-top: 24px;
-    min-width: 4px;
+    align-self: auto;
   }
 }
 
@@ -470,7 +290,7 @@
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
