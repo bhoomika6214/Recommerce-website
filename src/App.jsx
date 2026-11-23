@@ -14,6 +14,7 @@ import GalleryPage from './pages/GalleryPage'
 import Services from './components/Services';
 import PosterReport from './components/PosterReport';
 import Pastevents from './components/Pastevents';
+import Loader from './components/Loader';
 
 function HomePage() {
   return (
@@ -37,6 +38,7 @@ function HomePage() {
 function App() {
   return (
     <Router>
+      <Loader />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/careers" element={<CareersPage />} />
