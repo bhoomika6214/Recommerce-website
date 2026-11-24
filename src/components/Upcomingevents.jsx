@@ -9,6 +9,8 @@ import {
   Play,
 } from "lucide-react";
 import "./Upcomingevents.css";
+import expoBanner from "../assets/gallery-web/banners/expo-banner.webp";
+import itadBanner from "../assets/gallery-web/banners/itad-banner.webp";
 
 const BANNERS = [
   {
@@ -17,7 +19,7 @@ const BANNERS = [
     subtitle: "Building the World's Most Green and Circular Economy: 8 co-located conferences and an expo floor.",
     date: "3 – 4 Mar, 2027",
     location: "The LaLiT Ashok, Bengaluru",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200",
+    image: expoBanner,
     link: "https://expo.recommerceeco.com/",
   },
   {
@@ -26,7 +28,7 @@ const BANNERS = [
     subtitle: "The world's largest gathering for circular electronics, IT asset disposition and e-waste management.",
     date: "See event website for dates",
     location: "New Delhi, India",
-    image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1200",
+    image: itadBanner,
     link: "https://itad.recommerceeco.com/",
   },
 ];
