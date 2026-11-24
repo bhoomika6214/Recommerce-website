@@ -119,11 +119,11 @@ const IconYoutube = () => (
 const quickLinks = ["About Us", "Our Services", "Events", "Resources", "Contact Us"];
 
 const solutions = [
-  "Recommerce Expo",
-  "ITAD & WEEE",
-  "Biomedical Waste",
-  "Solid Waste Management",
-  "Research & Reporting",
+  { label: "Recommerce Expo", href: "https://expo.recommerceeco.com/" },
+  { label: "ITAD & WEEE", href: "https://itad.recommerceeco.com/" },
+  { label: "Biomedical Waste" },
+  { label: "Solid Waste Management" },
+  { label: "Research & Reporting" },
 ];
 
 const socials = [
@@ -205,9 +205,12 @@ const Footer = () => {
             <h4 className="uf-heading">OUR SOLUTIONS</h4>
             <ul className="uf-list">
               {solutions.map((item) => (
-                <li key={item}>
-                  <a href="#!">
-                    <span>{item}</span>
+                <li key={item.label}>
+                  <a
+                    href={item.href || "#!"}
+                    {...(item.href ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    <span>{item.label}</span>
                     <IconChevron />
                   </a>
                 </li>

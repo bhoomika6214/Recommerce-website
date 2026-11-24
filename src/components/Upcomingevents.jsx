@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import {
   Calendar,
   MapPin,
@@ -13,27 +13,21 @@ import "./Upcomingevents.css";
 const BANNERS = [
   {
     id: 1,
-    title: "Recommerce 2026 Expo",
-    subtitle: "India's Largest Circular Economy Exhibition",
-    date: "29 – 30 Apr, 2026",
-    location: "Bangalore, India",
+    title: "7th Recommerce Expo 2027",
+    subtitle: "Building the World's Most Green and Circular Economy: 8 co-located conferences and an expo floor.",
+    date: "3 – 4 Mar, 2027",
+    location: "The LaLiT Ashok, Bengaluru",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200",
+    link: "https://expo.recommerceeco.com/",
   },
   {
     id: 2,
-    title: "Bio-Medical Waste Conclave",
-    subtitle: "Advancing Healthcare Waste Management Practices",
-    date: "12 – 13 Jun, 2026",
-    location: "Shangri-la, Bengaluru",
+    title: "ITAD & WEEE Global Leaders Meet 2026",
+    subtitle: "The world's largest gathering for circular electronics, IT asset disposition and e-waste management.",
+    date: "See event website for dates",
+    location: "New Delhi, India",
     image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1200",
-  },
-  {
-    id: 3,
-    title: "Circular Economy Summit",
-    subtitle: "Driving Sustainable Solutions for Tomorrow",
-    date: "05 – 06 Sep, 2026",
-    location: "Chennai, India",
-    image: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&q=80&w=1200",
+    link: "https://itad.recommerceeco.com/",
   },
 ];
 
@@ -80,10 +74,16 @@ function BannerCarousel() {
               <MapPin size={14} strokeWidth={2} />
               {banner.location}
             </div>
-            <button type="button" className="banner-slide__cta">
-              Register Now
+            <a
+              className="banner-slide__cta"
+              href={banner.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={index === activeBanner ? 0 : -1}
+            >
+              Know More
               <ArrowRight size={16} strokeWidth={2.2} />
-            </button>
+            </a>
           </div>
         </div>
       ))}
@@ -154,19 +154,12 @@ export default function Upcomingevents() {
         </div>
 
         <p className="upcoming-events__desc">
-          Explore our flagship sustainability-focused events that bring
-          together global thought leaders, innovators, policymakers, and
-          industry experts. <br></br>These events are designed for professionals in
-          circular economy, e-waste, IT asset disposition, healthcare waste,
-          and other key environmental sectors. Join us in shaping a cleaner,
-          greener future.
+          Two flagship events bringing together global thought leaders,
+          innovators, policymakers and industry experts: the 7th Recommerce
+          Expo for the whole circular economy, and the ITAD &amp; WEEE Global
+          Leaders Meet for circular electronics and e-waste. Join us in
+          shaping a cleaner, greener future.
         </p>
-
-        <button type="button" className="upcoming-events__view-all">
-          <Calendar size={16} strokeWidth={2} />
-          View All Events
-          <ArrowRight size={16} strokeWidth={2.2} />
-        </button>
       </div>
 
       <BannerCarousel />
