@@ -70,6 +70,20 @@
 .gl .ias {
   position: relative;
   padding: 18px 0;
+  --ias-ratio: 1.5; /* landscape tiles: the event photos are 3:2 */
+  --ias-size: 300px;
+}
+
+@media (max-width: 900px) {
+  .gl .ias {
+    --ias-size: 230px;
+  }
+}
+
+@media (max-width: 560px) {
+  .gl .ias {
+    --ias-size: 190px;
+  }
 }
 
 @media (max-width: 900px) {

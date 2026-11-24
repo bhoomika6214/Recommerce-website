@@ -1,7 +1,8 @@
 /* Auto-scrolling image slider */
 
 .ias {
-  --ias-size: 320px;
+  --ias-size: 320px; /* tile height */
+  --ias-ratio: 1; /* tile width / height; 1 = square */
   --ias-gap: 24px;
   width: 100%;
   overflow: hidden;
@@ -35,7 +36,7 @@
 .ias-item {
   position: relative;
   flex: 0 0 auto;
-  width: var(--ias-size);
+  width: calc(var(--ias-size) * var(--ias-ratio));
   height: var(--ias-size);
   margin: 0 var(--ias-gap) 0 0;
   overflow: hidden;
