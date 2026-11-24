@@ -1,121 +1,194 @@
-import { useRef, useState } from 'react';
-import {
-  Award,
-  Calendar,
-  MapPin,
-  Users,
-  Mic,
-  Globe,
-  ArrowUpRight,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-react';
+import { useState } from 'react';
+import { Award, Calendar, MapPin, Folder, ArrowUpRight, Hourglass } from 'lucide-react';
 import './Pastevents.css';
-import { pastEvents, categories } from './pastData';
+
+// Web-sized event photos (see src/assets/gallery-web).
+const expoPhotos = import.meta.glob('../assets/gallery-web/6thRecommerce/*.webp', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
+const itadPhotos = import.meta.glob('../assets/gallery-web/itad/*.webp', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
+const photo = (files, name) => files[`../assets/gallery-web/${name}.webp`];
+
+/*
+ * One entry per event series. To add Textile or C&D later, add an object here:
+ *   - held:     how many editions have been held (number), or null if not known yet
+ *   - editions: the editions you have real details for
+ * Only facts from the event websites and event photos are filled in below.
+ */
+const SERIES = [
+  {
+    id: 'expo',
+    name: 'Recommerce Expo',
+    blurb: "India's circular economy trade floor: conferences, an expo floor, awards and networking.",
+    held: 6, // the 7th edition is the upcoming one
+    upcoming: { label: '7th edition · 3 – 4 Mar, 2027 · The LaLiT Ashok, Bengaluru', href: 'https://expo.recommerceeco.com/' },
+    editions: [
+      {
+        no: 6,
+        title: '6th Recommerce Expo',
+        date: '29 – 30 Apr, 2026',
+        venue: 'The LaLiT Ashok, Bengaluru',
+        image: photo(expoPhotos, '6thRecommerce/urs_4274'),
+      },
+    ],
+  },
+  {
+    id: 'itad',
+    name: 'ITAD & WEEE',
+    blurb: 'Global Leaders Meet for circular electronics, IT asset disposition and e-waste management.',
+    held: null, // edition count not confirmed yet
+    editions: [
+      {
+        no: null,
+        title: 'ITAD & WEEE Global Leaders Meet 2026',
+        date: '5 – 6 Oct, 2026',
+        venue: 'The LaLiT, New Delhi',
+        image: photo(itadPhotos, 'itad/6k4a4743'),
+      },
+    ],
+  },
+];
+
+const ordinal = (n) => {
+  const s = ['th', 'st', 'nd', 'rd'];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+};
 
 export default function Pastevents() {
-  const [cat, setCat] = useState('All');
-  const trackRef = useRef(null);
-  const events = cat === 'All' ? pastEvents : pastEvents.filter((e) => e.category === cat);
+  const [seriesId, setSeriesId] = useState(SERIES[0].id);
+  const [editionNo, setEditionNo] = useState(null); // which numbered dot is selected
+  const series = SERIES.find((s) => s.id === seriesId);
 
-  // Step the row by one poster (plus its gap).
-  const scrollByCard = (dir) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const card = track.querySelector('.pvc-card');
-    const step = card ? card.getBoundingClientRect().width + 22 : 320;
-    track.scrollBy({ left: dir * step, behavior: 'smooth' });
+  const pick = (id) => {
+    setSeriesId(id);
+    setEditionNo(null);
   };
+
+  // The edition shown below: the picked dot if there is one, else the latest we have details for.
+  const known = series.editions;
+  const shown =
+    (editionNo && known.find((e) => e.no === editionNo)) || (editionNo ? null : known[known.length - 1]);
 
   return (
     <section className="pv" id="past-events">
       <div className="pv-wrap">
-        <div className="pv-top">
-          <div className="pv-head">
-            <div className="pv-eyebrow">
-              <Award size={16} />
-              OUR COMPLETED CHAPTERS
-            </div>
-            <h2 className="pv-heading">
-              Our Past <span className="pv-accent">Events</span>
-            </h2>
-            <p className="pv-sub">
-              Take a look back at our successful gatherings, high-impact panels, and exhibition milestones that
-              shaped circular policies and green technology.
-            </p>
+        <div className="pv-head">
+          <div className="pv-eyebrow">
+            <Award size={16} />
+            OUR COMPLETED CHAPTERS
           </div>
-
-          <div className="pvc-controls">
-            <div className="pv-chips" role="tablist" aria-label="Event type">
-              {categories.map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  role="tab"
-                  aria-selected={cat === c}
-                  className={`pv-chip ${cat === c ? 'active' : ''}`}
-                  onClick={() => setCat(c)}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-            <div className="pvc-arrows">
-              <button type="button" onClick={() => scrollByCard(-1)} aria-label="Previous events">
-                <ChevronLeft size={22} />
-              </button>
-              <button type="button" onClick={() => scrollByCard(1)} aria-label="Next events">
-                <ChevronRight size={22} />
-              </button>
-            </div>
-          </div>
+          <h2 className="pv-heading">
+            Our Past <span className="pv-accent">Events</span>
+          </h2>
+          <p className="pv-sub">
+            Choose an event to see how many editions we have hosted and a look back at the latest one.
+          </p>
         </div>
-      </div>
 
-      {/* Tall photo posters: swipe, use the arrows, or hover one for the details. */}
-      <div className="pvc-track" ref={trackRef}>
-        {events.map((e) => (
-          <article className="pvc-card" key={e.id} style={{ backgroundImage: `url(${e.image})` }}>
-            <span className="pvc-shade" />
-            <div className="pvc-tags">
-              <span className="pv-badge">{e.category}</span>
-              <span className="pv-year">{e.year}</span>
-            </div>
-            <div className="pvc-body">
-              <h3>{e.title}</h3>
-              <div className="pv-meta">
-                <span>
-                  <Calendar size={14} />
-                  {e.date}
-                </span>
-                <span>
-                  <MapPin size={14} />
-                  {e.location}
-                </span>
+        {/* event folders */}
+        <div className="pv-folders" role="tablist" aria-label="Past events">
+          {SERIES.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              role="tab"
+              aria-selected={s.id === seriesId}
+              className={`pv-folder ${s.id === seriesId ? 'active' : ''}`}
+              onClick={() => pick(s.id)}
+            >
+              <Folder size={22} fill="currentColor" strokeWidth={1.5} />
+              <span>{s.name}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="pv-panel" key={series.id} role="tabpanel">
+          {/* how many editions */}
+          <div className="pv-count">
+            {series.held ? (
+              <>
+                <span className="pv-count-num">{String(series.held).padStart(2, '0')}</span>
+                <span className="pv-count-label">Editions held</span>
+              </>
+            ) : (
+              <>
+                <span className="pv-count-num pv-count-num--year">{known[known.length - 1].date.slice(-4)}</span>
+                <span className="pv-count-label">Latest edition</span>
+              </>
+            )}
+            <p className="pv-count-blurb">{series.blurb}</p>
+
+            {series.held && (
+              <ol className="pv-dots" aria-label={`${series.held} past editions`}>
+                {Array.from({ length: series.held }, (_, i) => i + 1).map((n) => (
+                  <li key={n}>
+                    <button
+                      type="button"
+                      className={`pv-dot ${(editionNo ?? known[known.length - 1].no) === n ? 'active' : ''} ${known.some((e) => e.no === n) ? '' : 'pv-dot--empty'}`}
+                      onClick={() => setEditionNo(n)}
+                      aria-label={`${ordinal(n)} edition`}
+                    >
+                      {n}
+                    </button>
+                  </li>
+                ))}
+                {series.upcoming && (
+                  <li>
+                    <a
+                      className="pv-dot pv-dot--next"
+                      href={series.upcoming.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Upcoming edition"
+                      title="Upcoming edition"
+                    >
+                      {series.held + 1}
+                    </a>
+                  </li>
+                )}
+              </ol>
+            )}
+            {series.upcoming && <p className="pv-next">Next: {series.upcoming.label}</p>}
+          </div>
+
+          {/* the edition */}
+          {shown ? (
+            <article className="pv-edition">
+              <div className="pv-edition-photo" style={{ backgroundImage: `url(${shown.image})` }}>
+                <span className="pv-edition-badge">{shown.no ? `${ordinal(shown.no)} edition` : 'Latest edition'}</span>
               </div>
-              <div className="pvc-more">
-                <p>{e.subtitle}</p>
-                <div className="pv-stats">
-                  <span title="Attendees">
-                    <Users size={16} />
-                    <b>{e.stats.attendees}</b>
+              <div className="pv-edition-body">
+                <h3>{shown.title}</h3>
+                <div className="pv-meta">
+                  <span>
+                    <Calendar size={15} />
+                    {shown.date}
                   </span>
-                  <span title="Speakers">
-                    <Mic size={16} />
-                    <b>{e.stats.speakers}</b>
-                  </span>
-                  <span title="Countries">
-                    <Globe size={16} />
-                    <b>{e.stats.countries}</b>
+                  <span>
+                    <MapPin size={15} />
+                    {shown.venue}
                   </span>
                 </div>
-                <a href="#gallery" className="pv-recap" aria-label={`View recap of ${e.title}`}>
-                  Recap <ArrowUpRight size={16} />
+                <a href="#gallery" className="pv-recap">
+                  See photos <ArrowUpRight size={16} />
                 </a>
               </div>
+            </article>
+          ) : (
+            <div className="pv-edition pv-edition--soon">
+              <Hourglass size={30} />
+              <h3>{ordinal(editionNo)} edition</h3>
+              <p>Photos and details for this edition will be added soon.</p>
             </div>
-          </article>
-        ))}
+          )}
+        </div>
       </div>
     </section>
   );
