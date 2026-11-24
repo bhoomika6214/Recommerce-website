@@ -1,0 +1,82 @@
+/* ============ Gallery section: auto-scrolling photo strip ============ */
+
+.gl {
+  position: relative;
+  padding: 100px 0 110px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #05091b 0%, #0a1330 55%, #05091b 100%);
+  color: #fff;
+}
+
+/* soft blue glow behind the strip */
+.gl::before {
+  content: '';
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: 900px;
+  height: 500px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(0, 155, 255, 0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.gl-head {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.gl-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: #6fc6ff;
+}
+
+.gl-eyebrow-line {
+  width: 36px;
+  height: 2px;
+  background: #009bff;
+}
+
+.gl-heading {
+  margin-top: 16px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.gl-accent {
+  color: #009bff;
+}
+
+.gl-sub {
+  max-width: 640px;
+  margin: 16px auto 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.gl .ias {
+  position: relative;
+  padding: 18px 0;
+}
+
+@media (max-width: 900px) {
+  .gl {
+    padding: 80px 0 90px;
+  }
+  .gl-head {
+    margin-bottom: 40px;
+  }
+}

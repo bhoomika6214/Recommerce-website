@@ -1,0 +1,139 @@
+/* Auto-scrolling image slider */
+
+.ias {
+  --ias-size: 320px;
+  --ias-gap: 24px;
+  width: 100%;
+  overflow: hidden;
+  /* soft fade at both edges */
+  -webkit-mask: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.ias-track {
+  display: flex;
+  width: max-content;
+  animation: ias-scroll 40s linear infinite;
+}
+
+/* the whole track moves left by exactly one copy of the list */
+@keyframes ias-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ias:hover .ias-track,
+.ias:focus-within .ias-track {
+  animation-play-state: paused;
+}
+
+/* spacing is a right margin on every item (not flex gap), so both copies are exactly the same width */
+.ias-item {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--ias-size);
+  height: var(--ias-size);
+  margin: 0 var(--ias-gap) 0 0;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #16204a;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.ias-item:hover {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
+
+.ias-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.ias-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 56px 18px 18px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(5, 9, 27, 0.88));
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ias-item:hover .ias-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ias-tag {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: #fff;
+  color: #009bff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ias-caption h3 {
+  margin-top: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+/* touch screens can't hover, so keep the captions visible */
+@media (hover: none) {
+  .ias-caption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .ias {
+    --ias-size: 260px;
+    --ias-gap: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ias {
+    --ias-size: 210px;
+    --ias-gap: 14px;
+  }
+}
+
+/* No motion: a normal row you swipe or scroll by hand, with only the first copy shown */
+@media (prefers-reduced-motion: reduce) {
+  .ias {
+    overflow-x: auto;
+    -webkit-mask: none;
+    mask: none;
+    scrollbar-width: thin;
+  }
+  .ias-track {
+    animation: none;
+    padding: 0 24px 16px;
+  }
+  .ias-item[aria-hidden='true'] {
+    display: none;
+  }
+  .ias-item,
+  .ias-caption {
+    transition: none;
+  }
+}

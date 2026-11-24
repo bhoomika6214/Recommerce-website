@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Hero2 from './components/Hero2'
 import './App.css'
@@ -10,7 +10,7 @@ import WhyChooseRecommerce from './components/WhyChooseRecommerce'
 import Testimonial from './components/Testimonial'
 import Footer from './components/Footer'
 import CareersPage from './pages/CareersPage'
-import GalleryPage from './pages/GalleryPage'
+import Gallery from './components/Gallery'
 import Services from './components/Services';
 import PosterReport from './components/PosterReport';
 import Pastevents from './components/Pastevents';
@@ -28,6 +28,7 @@ function HomePage() {
       <UpcomingEvents />
       <PosterReport />
       <Pastevents />
+      <Gallery />
       <WhyChooseRecommerce />
       <Testimonial />
       <Footer />
@@ -42,7 +43,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/careers" element={<CareersPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
+        {/* the gallery is a section on the home page now; send old links there */}
+        <Route path="/gallery" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   )
