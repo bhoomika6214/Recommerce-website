@@ -1,8 +1,111 @@
-/* Scroll Expansion Hero Wrapper Styles.
-   No overflow:hidden here: it would stop the hero's sticky pinning from working. */
-.hero-scroll-container {
-  width: 100%;
-  background-color: #05091b;
+/* Hero: full-screen background video (no tint) with the tagline and one button in the centre */
+
+.hero {
   position: relative;
-  overflow-x: clip;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  background: #05091b; /* shown while the video loads */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: 100px 24px 40px; /* top space clears the fixed navbar */
+  text-align: center;
+}
+
+.hero__title {
+  width: 100%;
+  margin: 0;
+  font-size: 1rem; /* the liquid text sizes itself; this just resets the h1 default */
+  animation: hero-rise 0.9s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* With no tint over the video, a soft dark halo keeps the white letters readable on bright frames. */
+.hero__liquid {
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+.hero__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: hero-rise 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero__line {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.9vw, 1.55rem);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.55);
+}
+
+.hero__cta {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 16px 38px;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  animation: hero-rise 0.9s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero__content {
+    gap: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .hero__line {
+    font-size: 1rem;
+  }
+  .hero__cta {
+    padding: 14px 30px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title,
+  .hero__lines,
+  .hero__cta {
+    animation: none;
+  }
 }
