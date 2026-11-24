@@ -1,0 +1,54 @@
+/* Site-wide cursor */
+
+.mc-root {
+  position: fixed;
+  inset: 0;
+  z-index: 100001; /* above the navbar and the loader */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  /* a faint dark edge keeps the rings readable on both light and blue backgrounds */
+  filter: drop-shadow(0 0 1.5px rgba(5, 9, 27, 0.45));
+}
+
+.mc-root--visible {
+  opacity: 1;
+}
+
+.mc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mc-dot {
+  background: #009bff;
+  box-shadow: 0 0 0 1.5px #fff;
+}
+
+.mc-ring {
+  border: 2px solid;
+  background: transparent;
+}
+
+.mc-ring--1 {
+  border-color: #009bff;
+}
+
+.mc-ring--2 {
+  border-color: #4db8ff;
+  opacity: 0.85;
+}
+
+.mc-ring--3 {
+  border-color: #8fd3ff;
+  opacity: 0.7;
+}
+
+/* The dot replaces the system arrow, so hide it (a real mouse only). */
+html.mc-on,
+html.mc-on * {
+  cursor: none !important;
+}

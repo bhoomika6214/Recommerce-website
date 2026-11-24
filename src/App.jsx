@@ -15,6 +15,7 @@ import Services from './components/Services';
 import PosterReport from './components/PosterReport';
 import Pastevents from './components/Pastevents';
 import Loader from './components/Loader';
+import CursorMultifollow from './components/ui/motion-cursor-multifollow';
 
 function HomePage() {
   return (
@@ -40,6 +41,7 @@ function App() {
   return (
     <Router>
       <Loader />
+      <CursorMultifollow />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/careers" element={<CareersPage />} />
