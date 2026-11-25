@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Leaf } from 'lucide-react';
 import './Services.css';
-import { services, enquiryLink } from './servicesData';
+import { services } from './servicesData';
 
 const Services = () => {
   const [active, setActive] = useState(0);
@@ -42,9 +42,6 @@ const Services = () => {
                 <span className="sve-no">{s.id}</span>
                 <h3>{s.title}</h3>
                 <p>{s.description}</p>
-                <a className="btn-primary sve-btn" href={enquiryLink(s.title)}>
-                  Learn More <FiArrowRight />
-                </a>
               </div>
             </article>
           ))}

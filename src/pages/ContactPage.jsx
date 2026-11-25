@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import { FiPhone, FiMail, FiMapPin, FiSend, FiArrowRight, FiCalendar } from 'react-icons/fi';
+import { useEffect, useRef } from 'react';
+import { FiPhone, FiMail, FiMapPin, FiArrowRight, FiCalendar } from 'react-icons/fi';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import NetworkBackground from '../components/NetworkBackground';
 import './AboutPage.css'; // shared reveal-on-scroll styles
 import './ContactPage.css';
-import { ENQUIRY_URL, GENERAL_EMAIL, TEAM, buildMailto } from './contactMail';
+import { ENQUIRY_URL, GENERAL_EMAIL, TEAM } from './contactMail';
 
 const PHONE = '+919731775124';
 const PHONE_LABEL = '+91 97317 75124';
@@ -35,10 +35,6 @@ const initials = (name) =>
 
 export default function ContactPage() {
   const ref = useRef(null);
-  const formRef = useRef(null);
-  const [topic, setTopic] = useState('');
-  const [sent, setSent] = useState(null); // the email address the message was addressed to
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -60,27 +56,6 @@ export default function ContactPage() {
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    formRef.current?.querySelector('input')?.focus({ preventScroll: true });
-  };
-
-  // "Talk to ..." takes the visitor to the form with that team member already chosen.
-  const enquire = (e, member) => {
-    e.preventDefault();
-    setTopic(member.topic);
-    scrollToForm();
-  };
-
-  // No server receives this form: it opens the visitor's email app with the message filled in.
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    const { to, url } = buildMailto(data);
-    window.location.href = url;
-    setSent(to);
-  };
 
   return (
     <div className="ab ct" ref={ref}>
@@ -131,7 +106,7 @@ export default function ContactPage() {
                       <FiMail /> Email
                     </a>
                   </div>
-                  <a className="ct2-talk" href="#message" onClick={(e) => enquire(e, t)}>
+                  <a className="ct2-talk" href={`mailto:${t.email}`}>
                     Talk to {t.first} <FiArrowRight />
                   </a>
                 </div>
@@ -141,66 +116,10 @@ export default function ContactPage() {
         </div>
       </header>
 
-      {/* ---------- message + details ---------- */}
+      {/* ---------- general contact details ---------- */}
       <section className="ct-main">
-        <div className="ab-wrap ct-grid">
-          <form className="ct-form ab-reveal" ref={formRef} onSubmit={onSubmit} id="message">
-            <h2 className="ct-title">
-              Send Us <span>Message</span>
-            </h2>
-            <p className="ct-form-sub">Tell us how we can help and we will get back to you.</p>
-
-            <div className="ct-row">
-              <label className="ct-field">
-                <span>Your name *</span>
-                <input name="name" type="text" required autoComplete="name" placeholder="Full name" />
-              </label>
-              <label className="ct-field">
-                <span>Email *</span>
-                <input name="email" type="email" required autoComplete="email" placeholder="you@company.com" />
-              </label>
-            </div>
-
-            <div className="ct-row">
-              <label className="ct-field">
-                <span>Phone</span>
-                <input name="phone" type="tel" autoComplete="tel" placeholder="+91" />
-              </label>
-              <label className="ct-field">
-                <span>Organisation</span>
-                <input name="company" type="text" autoComplete="organization" placeholder="Company or association" />
-              </label>
-            </div>
-
-            <label className="ct-field">
-              <span>I am enquiring as</span>
-              <select name="topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
-                <option value="">General enquiry</option>
-                {TEAM.map((t) => (
-                  <option key={t.topic} value={t.topic}>
-                    {t.topic}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <label className="ct-field">
-              <span>Message *</span>
-              <textarea name="message" required rows={5} placeholder="Write your message here" />
-            </label>
-
-            <button type="submit" className="ct-submit">
-              Send Message <FiSend />
-            </button>
-
-            <p className="ct-note" role="status" aria-live="polite">
-              {sent
-                ? `Your email app should now open with the message addressed to ${sent}. Press send there to finish. If nothing opened, write to us directly at ${sent}.`
-                : 'This opens your email app with your message ready to send.'}
-            </p>
-          </form>
-
-          <aside className="ct-info">
+        <div className="ab-wrap">
+          <aside className="ct-info" aria-label="Contact details">
             <a className="ct-card ab-reveal" href={tel(PHONE)}>
               <span className="ct-card-icon">
                 <FiPhone />

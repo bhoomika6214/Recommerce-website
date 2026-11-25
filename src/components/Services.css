@@ -167,18 +167,6 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-.sve-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 20px;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
 /* ---------- call-to-action strip ---------- */
 
 .svx-cta {

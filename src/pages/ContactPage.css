@@ -276,142 +276,30 @@
   color: #006fd6;
 }
 
-/* ---------- message + details ---------- */
+/* ---------- general contact details ---------- */
 
 .ct-main {
-  padding: 100px 0 100px;
+  padding: 90px 0 100px;
   background: linear-gradient(180deg, #fff 0%, #f2f6f9 100%);
-}
-
-.ct-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.ct-form {
-  padding: 46px 44px 40px;
-  border-radius: 30px;
-  background: #fff;
-  border: 1px solid #e3eaf2;
-  box-shadow: 0 22px 54px rgba(14, 22, 48, 0.09);
-}
-
-.ct-title {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-  color: #0e1630;
-}
-
-.ct-title span {
-  color: #009bff;
-}
-
-.ct-form-sub {
-  margin: 10px 0 28px;
-  font-size: 16px;
-  color: #566078;
-}
-
-.ct-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-.ct-field {
-  display: block;
-  margin-bottom: 18px;
-}
-
-.ct-field > span {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #3b4660;
-}
-
-.ct-field input,
-.ct-field select,
-.ct-field textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1.5px solid #d9e3ee;
-  background: #f7fafd;
-  font-family: 'Inter', sans-serif;
-  font-size: 15.5px;
-  color: #0e1630;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.ct-field textarea {
-  resize: vertical;
-  min-height: 130px;
-}
-
-.ct-field input::placeholder,
-.ct-field textarea::placeholder {
-  color: #9aa6ba;
-}
-
-.ct-field input:focus,
-.ct-field select:focus,
-.ct-field textarea:focus {
-  outline: none;
-  border-color: #009bff;
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(0, 155, 255, 0.14);
-}
-
-.ct-submit {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 6px;
-  padding: 16px 36px;
-  border: none;
-  border-radius: 999px;
-  background: #009bff;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 10px 26px rgba(0, 155, 255, 0.32);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.ct-submit:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 34px rgba(0, 155, 255, 0.42);
-}
-
-.ct-note {
-  margin-top: 16px;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: #6b7790;
 }
 
 /* phone / email / address */
 .ct-info {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* the long address sits on its own full-width row */
+.ct-info .ct-card:last-child {
+  grid-column: 1 / -1;
 }
 
 .ct-card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 18px;
   padding: 26px;
   border-radius: 24px;
@@ -489,8 +377,7 @@
   .ct2-pill,
   .ct2-talk,
   .ct2-chips a,
-  .ct-card,
-  .ct-submit {
+  .ct-card {
     transition: none;
   }
 }
@@ -511,9 +398,9 @@
   .ct-main {
     padding: 70px 0;
   }
-  .ct-grid {
+  .ct-info {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 18px;
   }
 }
 
@@ -554,19 +441,11 @@
     padding: 11px 14px;
     font-size: 13.5px;
   }
-  .ct-form {
-    padding: 32px 22px 28px;
-    border-radius: 24px;
-  }
-  .ct-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .ct-submit {
-    width: 100%;
-    justify-content: center;
-  }
   .ct-card {
-    padding: 22px 20px;
+    padding: 22px 18px;
+    gap: 14px;
+  }
+  .ct-card-body strong {
+    font-size: clamp(0.88rem, 4.2vw, 1.05rem);
   }
 }
