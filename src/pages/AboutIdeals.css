@@ -1,0 +1,143 @@
+/* The five ideals (Engage, Educate, Exchange, Empower, Enable): a connected path of milestones. */
+.ab-ideals {
+  list-style: none;
+  margin: 80px 0 0;
+  padding: 4px 0 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+}
+
+/* the line joining the five milestones */
+.ab-ideals::before {
+  content: '';
+  position: absolute;
+  top: 46px;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(0, 155, 255, 0.15), #009bff 20%, #7fd0ff 80%, rgba(0, 155, 255, 0.15));
+}
+
+.ab-ideal {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 14px;
+}
+
+.ab-ideal-icon {
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #009bff;
+  background: #fff;
+  border: 3px solid #009bff;
+  box-shadow: 0 0 0 8px #f2f6f9, 0 14px 30px rgba(0, 155, 255, 0.22);
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.ab-ideal:hover .ab-ideal-icon {
+  background: #009bff;
+  color: #fff;
+  transform: translateY(-6px);
+}
+
+.ab-ideal-no {
+  order: 2;
+  margin-top: 22px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  color: #0a56c8;
+  background: #e3f2ff;
+}
+
+.ab-ideal-label {
+  order: 3;
+  display: block;
+  margin-top: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #0e1630;
+}
+
+.ab-ideal-desc {
+  order: 4;
+  max-width: 200px;
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #566078;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .ab-ideals {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 36px;
+  }
+  .ab-ideals::before {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .ab-ideals {
+    margin-top: 56px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ab-ideal:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .ab-ideals {
+    grid-template-columns: 1fr;
+  }
+  .ab-ideal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: left;
+    column-gap: 16px;
+    padding: 0;
+  }
+  .ab-ideal-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
+    box-shadow: 0 8px 20px rgba(0, 155, 255, 0.2);
+  }
+  .ab-ideal-no {
+    display: none;
+  }
+  .ab-ideal-label {
+    order: 2;
+    margin-top: 0;
+    flex: 1 1 calc(100% - 90px);
+  }
+  .ab-ideal-desc {
+    order: 3;
+    flex: 0 0 100%;
+    max-width: none;
+    margin-top: 10px;
+  }
+}

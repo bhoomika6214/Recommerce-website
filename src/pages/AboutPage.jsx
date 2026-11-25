@@ -8,6 +8,7 @@ import { features } from '../components/whyData';
 import heroPhoto from '../assets/gallery-web/banners/about-hero.webp';
 import joinPhoto from '../assets/gallery-web/banners/about-join.webp';
 import './AboutPage.css';
+import './AboutIdeals.css';
 
 // Web-sized event photos (see src/assets/gallery-web).
 const expoFiles = import.meta.glob('../assets/gallery-web/6thRecommerce/*.webp', { eager: true, query: '?url', import: 'default' });
@@ -16,12 +17,13 @@ const expoPic = (n) => expoFiles[`../assets/gallery-web/6thRecommerce/${n}.webp`
 const itadPic = (n) => itadFiles[`../assets/gallery-web/itad/${n}.webp`];
 
 const IDEALS = [
-  { label: 'Engage', icon: <FiUsers /> },
-  { label: 'Educate', icon: <FiBookOpen /> },
-  { label: 'Exchange', icon: <FiRepeat /> },
-  { label: 'Empower', icon: <FiZap /> },
-  { label: 'Enable', icon: <FiSettings /> },
+  { label: 'Engage', icon: <FiUsers />, desc: 'Bringing industries, people and ideas together.' },
+  { label: 'Educate', icon: <FiBookOpen />, desc: 'Sharing knowledge that drives responsible practice.' },
+  { label: 'Exchange', icon: <FiRepeat />, desc: 'Creating spaces to trade insight and opportunity.' },
+  { label: 'Empower', icon: <FiZap />, desc: 'Equipping businesses to act with confidence.' },
+  { label: 'Enable', icon: <FiSettings />, desc: 'Turning intent into real, lasting outcomes.' },
 ];
+
 
 const PILLARS = [
   {
@@ -182,6 +184,7 @@ export default function AboutPage() {
                 <span className="ab-ideal-no">{String(i + 1).padStart(2, '0')}</span>
                 <span className="ab-ideal-icon">{d.icon}</span>
                 <span className="ab-ideal-label">{d.label}</span>
+                <p className="ab-ideal-desc">{d.desc}</p>
               </li>
             ))}
           </ol>
