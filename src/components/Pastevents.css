@@ -1,13 +1,12 @@
-/* ============ Our Past Events: event folders + marquee of edition cards ============ */
+/* ============ Our Past Events: dark poster wall ============ */
 
-.pv {
+.pe {
   padding: 100px 0 100px;
-  background: #f2f6f9;
-  color: #0e1630;
-  overflow: hidden;
+  background: linear-gradient(135deg, #05091b 0%, #0a1740 100%);
+  color: #fff;
 }
 
-.pv-wrap {
+.pe-wrap {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 40px;
@@ -15,11 +14,11 @@
 
 /* ---------- header ---------- */
 
-.pv-head {
+.pe-head {
   max-width: 720px;
 }
 
-.pv-eyebrow {
+.pe-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -27,333 +26,215 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.22em;
-  color: #009bff;
+  color: #6fc6ff;
 }
 
-.pv-heading {
+.pe-heading {
   margin-top: 14px;
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: clamp(2rem, 3.4vw, 3.4rem);
   line-height: 1.1;
   letter-spacing: -0.015em;
+  color: #fff;
 }
 
-.pv-accent {
+.pe-accent {
   color: #009bff;
 }
 
-.pv-sub {
+.pe-sub {
   margin-top: 16px;
   font-size: 17px;
   line-height: 1.7;
-  color: #566078;
+  color: rgba(255, 255, 255, 0.72);
 }
 
-/* ---------- folder chips ---------- */
+/* ---------- filter chips ---------- */
 
-.pv-folders {
-  margin-top: 40px;
+.pe-chips {
+  margin-top: 38px;
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 10px;
 }
 
-.pv-folder {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 24px 16px 20px;
-  border-radius: 16px;
-  border: 2px solid transparent;
-  background: #fff;
+.pe-chip {
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  color: #0e1630;
-  text-align: left;
+  color: #fff;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(14, 22, 48, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.pv-folder small {
-  display: block;
-  margin-top: 2px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #7a869b;
+.pe-chip small {
+  margin-left: 6px;
+  opacity: 0.7;
 }
 
-.pv-folder svg {
-  flex-shrink: 0;
-  color: #5b6a85;
-  transition: color 0.25s ease;
-}
-
-.pv-folder:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(0, 155, 255, 0.16);
-}
-
-.pv-folder.active {
+.pe-chip:hover {
   border-color: #009bff;
-  background: #eaf6ff;
 }
 
-.pv-folder.active svg {
-  color: #009bff;
+.pe-chip.active {
+  background: #009bff;
+  border-color: #009bff;
 }
 
-.pv-summary {
-  margin-top: 22px;
-  font-size: 17px;
-  color: #566078;
-  animation: pv-in 0.4s ease both;
+/* ---------- poster wall ---------- */
+
+.pe-grid {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 18px;
 }
 
-.pv-summary b {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: 1.5em;
-  color: #009bff;
-  margin-right: 4px;
-}
-
-/* ---------- marquee ---------- */
-
-.pm {
-  --pm-w: 330px;
-  --pm-gap: 24px;
-  margin-top: 40px;
-  padding: 14px 0 34px;
-  animation: pv-in 0.45s ease both;
-}
-
-.pm--scroll {
-  overflow: hidden;
-  -webkit-mask: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-  mask: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-}
-
-.pm-track {
-  display: flex;
-  width: max-content;
-}
-
-.pm--scroll .pm-track {
-  animation: pm-scroll 60s linear infinite;
-}
-
-/* the track slides left by exactly one copy of the cards, so the loop never jumps */
-@keyframes pm-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.pm--scroll:hover .pm-track {
-  animation-play-state: paused;
-}
-
-/* a few cards: centred and still */
-.pm--still .pm-track {
-  width: auto;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--pm-gap);
-  padding: 0 24px;
-}
-
-.pm-card {
-  flex: 0 0 auto;
-  width: var(--pm-w);
-  margin-right: var(--pm-gap); /* a margin (not a gap) keeps both copies exactly the same width */
-  overflow: hidden;
-  border-radius: 24px;
-  background: #fff;
-  border: 1px solid #e3eaf2;
-  box-shadow: 0 14px 34px rgba(14, 22, 48, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pm--still .pm-card {
-  margin-right: 0;
-}
-
-.pm-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 26px 48px rgba(0, 155, 255, 0.2);
-}
-
-.pm-photo {
+.pe-poster {
   position: relative;
-  height: 210px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 22px;
   background-size: cover;
   background-position: center;
-  background-color: #dfe9ee;
+  background-color: #16204a;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* big edition number */
-.pm-edition {
+.pe-poster:hover {
+  transform: translateY(-8px) rotate(-0.6deg);
+  box-shadow: 0 30px 56px rgba(0, 155, 255, 0.3);
+}
+
+.pe-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 9, 27, 0.2) 0%, rgba(5, 9, 27, 0.15) 35%, rgba(5, 9, 27, 0.95) 100%);
+}
+
+/* big outlined edition number */
+.pe-no {
   position: absolute;
   left: 16px;
-  bottom: -26px;
-  width: 78px;
-  height: 78px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background: linear-gradient(145deg, #27b0ff, #009bff);
-  box-shadow: 0 12px 24px rgba(0, 155, 255, 0.4);
-  border: 4px solid #fff;
-}
-
-.pm-edition b {
+  top: 8px;
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 26px;
+  font-size: 4.2rem;
   line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
 }
 
-.pm-edition i {
-  margin-top: 3px;
-  font-style: normal;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.pm-series {
+.pe-tag {
   position: absolute;
+  right: 14px;
   top: 16px;
-  right: 16px;
-  padding: 5px 12px;
+  padding: 4px 11px;
   border-radius: 999px;
   background: #fff;
   color: #009bff;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(14, 22, 48, 0.14);
 }
 
-.pm-body {
-  padding: 40px 24px 24px;
-  min-height: 150px;
+.pe-body {
+  position: relative;
+  padding: 18px;
 }
 
-.pm-body h3 {
+.pe-body h3 {
+  margin-bottom: 10px;
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: 1.02rem;
   line-height: 1.3;
 }
 
-.pm-meta {
+.pe-meta {
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  margin-top: 14px;
-  font-size: 14.5px;
-  color: #566078;
+  gap: 6px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.86);
 }
 
-.pm-meta span {
+.pe-meta span {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 }
 
-.pm-meta svg {
+.pe-meta svg {
   flex-shrink: 0;
-  color: #009bff;
+  color: #7fd0ff;
 }
 
-.pm-note {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid #edf1f6;
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: #6b7790;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.pm-soon {
-  margin-top: 14px;
+.pe-soon {
   font-size: 14px;
-  color: #9aa6ba;
+  color: rgba(255, 255, 255, 0.55);
 }
 
-@keyframes pv-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* No motion: a normal row you swipe by hand, with only the first copy of the cards. */
 @media (prefers-reduced-motion: reduce) {
-  .pm,
-  .pv-summary {
-    animation: none;
-  }
-  .pm--scroll {
-    overflow-x: auto;
-    -webkit-mask: none;
-    mask: none;
-  }
-  .pm--scroll .pm-track {
-    animation: none;
-    padding: 0 24px;
-  }
-  .pm-card[aria-hidden='true'] {
-    display: none;
-  }
-  .pm-card,
-  .pv-folder {
+  .pe-poster,
+  .pe-chip {
     transition: none;
+  }
+  .pe-poster:hover {
+    transform: none;
   }
 }
 
 /* ---------- responsive ---------- */
 
 @media (max-width: 960px) {
-  .pv {
+  .pe {
     padding: 80px 0;
   }
 }
 
-@media (max-width: 560px) {
-  .pv-wrap {
+@media (max-width: 640px) {
+  .pe-wrap {
     padding: 0 20px;
   }
-  .pv-folders {
-    gap: 10px;
+  .pe-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
-  .pv-folder {
-    flex: 1 1 calc(50% - 10px);
-    padding: 14px 16px 14px 14px;
-    font-size: 15px;
+  .pe-no {
+    left: 12px;
+    top: 6px;
+    font-size: 2.6rem;
   }
-  .pm {
-    --pm-w: 280px;
-    --pm-gap: 16px;
+  /* in narrow cards the tag sits under the number so the two never overlap */
+  .pe-tag {
+    left: 12px;
+    right: auto;
+    top: 56px;
+    font-size: 9.5px;
+    padding: 3px 9px;
+  }
+  /* a card left alone on the last row spans both columns, so a long title has room */
+  .pe-poster:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    aspect-ratio: 4 / 3;
+  }
+  .pe-body {
+    padding: 12px;
+  }
+  .pe-body h3 {
+    font-size: 0.9rem;
+  }
+  .pe-meta {
+    font-size: 12.5px;
   }
 }

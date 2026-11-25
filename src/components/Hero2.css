@@ -89,16 +89,24 @@
 
 @media (max-width: 560px) {
   .hero__content {
-    gap: 18px;
-    padding-left: 18px;
-    padding-right: 18px;
+    gap: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  /* the two headline lines sit close together */
+  .hero__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
   .hero__line {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.35;
   }
   .hero__cta {
-    padding: 14px 30px;
-    font-size: 13px;
+    margin-top: 12px;
+    padding: 17px 36px;
+    font-size: 15px;
   }
 }
 
