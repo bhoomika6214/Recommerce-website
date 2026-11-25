@@ -31,9 +31,9 @@ const Navbar = () => {
               AWARENESS
             </NavLink>
           </div>
-          <a className="nav-contact-btn" href="mailto:info@recommerceeco.com">
+          <Link className="nav-contact-btn" to="/contact">
             CONTACT US →
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

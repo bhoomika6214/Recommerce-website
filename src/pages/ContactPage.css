@@ -1,0 +1,410 @@
+/* ============ Contact page (builds on the shared .ab-* styles in AboutPage.css) ============ */
+
+.ct-hero {
+  min-height: 52vh;
+  padding: 160px 24px 90px;
+}
+
+/* ---------- message + details ---------- */
+
+.ct-main {
+  padding: 100px 0 90px;
+  background: linear-gradient(180deg, #fff 0%, #f2f6f9 100%);
+}
+
+.ct-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.ct-form {
+  padding: 46px 44px 40px;
+  border-radius: 30px;
+  background: #fff;
+  border: 1px solid #e3eaf2;
+  box-shadow: 0 22px 54px rgba(14, 22, 48, 0.09);
+}
+
+.ct-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: #0e1630;
+}
+
+.ct-title span {
+  color: #009bff;
+}
+
+.ct-form-sub {
+  margin: 10px 0 28px;
+  font-size: 16px;
+  color: #566078;
+}
+
+.ct-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.ct-field {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.ct-field > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #3b4660;
+}
+
+.ct-field input,
+.ct-field select,
+.ct-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1.5px solid #d9e3ee;
+  background: #f7fafd;
+  font-family: 'Inter', sans-serif;
+  font-size: 15.5px;
+  color: #0e1630;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.ct-field textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.ct-field input::placeholder,
+.ct-field textarea::placeholder {
+  color: #9aa6ba;
+}
+
+.ct-field input:focus,
+.ct-field select:focus,
+.ct-field textarea:focus {
+  outline: none;
+  border-color: #009bff;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(0, 155, 255, 0.14);
+}
+
+.ct-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 999px;
+  background: #009bff;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(0, 155, 255, 0.32);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ct-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0, 155, 255, 0.42);
+}
+
+.ct-note {
+  margin-top: 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #6b7790;
+}
+
+/* ---------- phone / email / address ---------- */
+
+.ct-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ct-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 26px 26px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid #e3eaf2;
+  border-left: 5px solid #009bff;
+  box-shadow: 0 12px 30px rgba(14, 22, 48, 0.07);
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ct-card.ab-in:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 44px rgba(0, 155, 255, 0.18);
+}
+
+.ct-card-icon {
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  color: #009bff;
+  background: #e8f5ff;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.ct-card.ab-in:hover .ct-card-icon {
+  background: #009bff;
+  color: #fff;
+}
+
+.ct-card-body {
+  min-width: 0;
+}
+
+.ct-card-body small {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #009bff;
+}
+
+.ct-card-body strong {
+  display: block;
+  margin-top: 6px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #0e1630;
+  overflow-wrap: anywhere;
+}
+
+.ct-card-body em {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 600;
+  color: #009bff;
+}
+
+/* ---------- ready to join ---------- */
+
+.ct-join {
+  padding: 40px 0 100px;
+  background: #f2f6f9;
+}
+
+.ct-join .ab-join-card {
+  padding: 70px 50px;
+}
+
+.ct-join .ab-join-card h2 {
+  font-size: clamp(1.7rem, 3.4vw, 2.7rem);
+}
+
+.ct-join .ab-join-actions {
+  margin-top: 30px;
+}
+
+/* ---------- team ---------- */
+
+.ct-team {
+  padding: 100px 0 110px;
+  background: #fff;
+}
+
+.ct-team-grid {
+  margin-top: 54px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.ct-person {
+  position: relative;
+  overflow: hidden;
+  padding: 36px 28px 30px;
+  border-radius: 26px;
+  background: #fff;
+  border: 1px solid #e3eaf2;
+  box-shadow: 0 14px 36px rgba(14, 22, 48, 0.07);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ct-person::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #009bff, #7fd0ff);
+}
+
+.ct-person.ab-in:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 50px rgba(0, 155, 255, 0.18);
+}
+
+.ct-person-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  color: #009bff;
+  background: #eaf6ff;
+  border: 2px solid #009bff;
+}
+
+.ct-person h3 {
+  margin-top: 22px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: #009bff;
+}
+
+.ct-person-name {
+  margin: 12px 0 16px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #0e1630;
+}
+
+.ct-person a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: #3b4660;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+.ct-person a svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: #009bff;
+}
+
+.ct-person a:hover {
+  color: #009bff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-card,
+  .ct-person,
+  .ct-submit {
+    transition: none;
+  }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1100px) {
+  .ct-person h3 {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .ct-team-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ct-hero {
+    padding: 130px 20px 70px;
+    min-height: 0;
+  }
+  .ct-main {
+    padding: 70px 0;
+  }
+  .ct-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ct-join {
+    padding: 20px 0 80px;
+  }
+  .ct-team {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .ct-person {
+    padding: 32px 22px 26px;
+  }
+  .ct-person a {
+    font-size: 13.5px;
+    gap: 8px;
+  }
+  .ct-form {
+    padding: 32px 22px 28px;
+    border-radius: 24px;
+  }
+  .ct-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .ct-submit {
+    width: 100%;
+    justify-content: center;
+  }
+  .ct-card {
+    padding: 22px 20px;
+  }
+  .ct-join .ab-join-card {
+    padding: 48px 24px;
+  }
+  .ct-team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* very small phones: the longest email address needs a slightly smaller size to stay on one line */
+@media (max-width: 380px) {
+  .ct-person {
+    padding: 28px 16px 22px;
+  }
+  .ct-person a {
+    font-size: 12px;
+    gap: 6px;
+  }
+}

@@ -158,7 +158,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <button className="uf-cta-btn" type="button">
+          <button className="uf-cta-btn" type="button" onClick={() => { window.location.href = "/contact"; }}>
             <span>Contact Us</span>
             <span className="uf-cta-btn-circle">
               <IconArrowRight />
@@ -191,7 +191,7 @@ const Footer = () => {
             <ul className="uf-list">
               {quickLinks.map((item) => (
                 <li key={item}>
-                  <a href={item === "About Us" ? "/about" : "#!"}>
+                  <a href={item === "About Us" ? "/about" : item === "Contact Us" ? "/contact" : "#!"}>
                     <span>{item}</span>
                     <IconChevron />
                   </a>

@@ -49,29 +49,37 @@
   color: #009bff;
 }
 
-.aw-support-badge {
+/* the logo has white lettering, so it sits on a dark panel */
+.aw-support-logo {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 22px;
-  padding: 18px 34px;
-  border-radius: 999px;
-  background: #f2f6f9;
-  border: 1px solid #e3eaf2;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: 0.01em;
-  color: #0e1630;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 26px 46px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #05091b 0%, #0a1740 100%);
+  box-shadow: 0 18px 40px rgba(14, 22, 48, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.aw-support-dot {
-  flex-shrink: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #009bff;
-  box-shadow: 0 0 0 5px rgba(0, 155, 255, 0.18);
+.aw-support-logo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 50px rgba(0, 155, 255, 0.25);
+}
+
+.aw-support-logo img {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+.aw-support-name {
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #6b7790;
 }
 
 /* ---------- intro ---------- */
@@ -289,6 +297,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .aw-support-logo,
   .aw-why-card,
   .aw-point {
     transition: none;
@@ -326,11 +335,12 @@
   .aw-support {
     padding-top: 56px;
   }
-  .aw-support-badge {
-    padding: 16px 22px;
-    border-radius: 24px;
-    font-size: 0.95rem;
-    text-align: left;
+  .aw-support-logo {
+    padding: 22px 28px;
+    border-radius: 20px;
+  }
+  .aw-support-logo img {
+    width: 240px;
   }
   .aw-intro {
     padding: 56px 0 80px;

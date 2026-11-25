@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { FiUsers, FiBookOpen, FiRepeat, FiZap, FiSettings, FiFlag, FiEye, FiCompass, FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import NetworkBackground from '../components/NetworkBackground';
@@ -248,9 +249,9 @@ export default function AboutPage() {
                 <a className="ab-btn ab-btn--white" href="/#events">
                   Explore Events <FiArrowRight />
                 </a>
-                <a className="ab-btn ab-btn--ghost" href="mailto:info@recommerceeco.com">
+                <Link className="ab-btn ab-btn--ghost" to="/contact">
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>

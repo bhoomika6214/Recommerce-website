@@ -9,10 +9,12 @@ import {
   FiHome,
   FiArrowRight,
 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import NetworkBackground from '../components/NetworkBackground';
 import joinPhoto from '../assets/gallery-web/banners/about-join.webp';
+import digitalIndia from '../assets/digital-india-logo.png';
 import './AboutPage.css'; // shared hero, buttons and reveal styles
 import './AwarenessPage.css';
 
@@ -104,10 +106,10 @@ export default function AwarenessPage() {
       <section className="aw-support">
         <div className="ab-wrap ab-center ab-reveal">
           <h2 className="aw-support-title">SUPPORTED BY</h2>
-          <div className="aw-support-badge">
-            <span className="aw-support-dot" aria-hidden="true" />
-            <span>Ministry of Electronics and Information Technology</span>
+          <div className="aw-support-logo">
+            <img src={digitalIndia} alt="Digital India: Power To Empower" />
           </div>
+          <p className="aw-support-name">Ministry of Electronics and Information Technology</p>
         </div>
       </section>
 
@@ -222,9 +224,9 @@ export default function AwarenessPage() {
                 <a className="ab-btn ab-btn--white" href="/#events">
                   Explore Events <FiArrowRight />
                 </a>
-                <a className="ab-btn ab-btn--ghost" href="mailto:info@recommerceeco.com">
+                <Link className="ab-btn ab-btn--ghost" to="/contact">
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>

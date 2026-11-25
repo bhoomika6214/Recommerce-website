@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import CareersPage from './pages/CareersPage'
 import AboutPage from './pages/AboutPage'
 import AwarenessPage from './pages/AwarenessPage'
+import ContactPage from './pages/ContactPage'
 import Gallery from './components/Gallery'
 import Services from './components/Services';
 import PosterReport from './components/PosterReport';
@@ -48,6 +49,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/awareness" element={<AwarenessPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/careers" element={<CareersPage />} />
         {/* the gallery is a section on the home page now; send old links there */}
         <Route path="/gallery" element={<Navigate to="/" replace />} />
