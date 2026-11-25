@@ -191,7 +191,7 @@ const Footer = () => {
             <ul className="uf-list">
               {quickLinks.map((item) => (
                 <li key={item}>
-                  <a href="#!">
+                  <a href={item === "About Us" ? "/about" : "#!"}>
                     <span>{item}</span>
                     <IconChevron />
                   </a>

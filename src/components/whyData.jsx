@@ -20,7 +20,7 @@ export const features = [
     no: '02',
     title: 'Expertise-Driven Events',
     description:
-      'Exhibitions, conferences and training workshops that unite industry experts and change-makers from diverse backgrounds.',
+      'Recommerce’s subject-oriented, theme-based events are powered by expert market analysis and research, amplifying business and communication strategies.',
     Icon: Users,
     star: true,
     image: card2,
@@ -30,7 +30,7 @@ export const features = [
     no: '03',
     title: 'Positive Impact',
     description:
-      'We help businesses and individuals make a positive environmental impact while fostering growth and success.',
+      'By engaging with Recommerce, you’re joining a movement that contributes to a cleaner, more sustainable future, leaving a positive legacy for generations to come.',
     Icon: Sprout,
     image: card3,
   },

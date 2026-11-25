@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import RecommerceLogo from '../assets/RecommerceLogo.png';
 
@@ -22,9 +22,19 @@ const Navbar = () => {
           <img src={RecommerceLogo} alt="Recommerce: reuse redefined" className="logo-lockup" />
         </Link>
 
-        <a className="nav-contact-btn" href="mailto:info@recommerceeco.com">
-          CONTACT US →
-        </a>
+        <div className="nav-right">
+          <div className="nav-links">
+            <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
+              ABOUT US
+            </NavLink>
+            <NavLink to="/awareness" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
+              AWARENESS
+            </NavLink>
+          </div>
+          <a className="nav-contact-btn" href="mailto:info@recommerceeco.com">
+            CONTACT US →
+          </a>
+        </div>
       </div>
     </nav>
   );
