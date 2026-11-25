@@ -1,21 +1,8 @@
-import React from "react";
 import "./Footer.css";
 import recommerceLogo from "../assets/Logo.png";
 import urdhvaLogo from "../assets/urdhva-logo.webp";
 
 /* ---------- inline icons (no external deps) ---------- */
-
-const IconRecycleLeaf = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M12 3c3.5 0 6 2.5 6 6M12 3c-3.5 0-6 2.5-6 6M6 9l-1.5-2.5M6 9l2.7-.7M18 9l1.5-2.5M18 9l-2.7-.7M12 21c-3.5 0-6-2.5-6-6M12 21c3.5 0 6-2.5 6-6M6 15l-1.5 2.5M6 15l2.7.7M18 15l1.5 2.5M18 15l-2.7.7"
-      stroke="currentColor"
-      strokeWidth="1.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
 
 const IconArrowRight = () => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,22 +75,20 @@ const IconLinkedIn = () => (
   </svg>
 );
 
-const IconX = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M4 4l16 16M20 4L4 20"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-
 const IconInstagram = () => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="1.4" />
     <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.4" />
     <circle cx="17.2" cy="6.8" r="1" fill="currentColor" />
+  </svg>
+);
+
+const IconFacebook = () => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.7V21h3.1z"
+      fill="currentColor"
+    />
   </svg>
 );
 
@@ -127,10 +112,10 @@ const solutions = [
 ];
 
 const socials = [
-  { icon: <IconLinkedIn />, label: "LinkedIn" },
-  { icon: <IconX />, label: "X" },
-  { icon: <IconInstagram />, label: "Instagram" },
-  { icon: <IconYoutube />, label: "YouTube" },
+  { icon: <IconLinkedIn />, label: "LinkedIn", href: "https://www.linkedin.com/company/recommerceeco/" },
+  { icon: <IconInstagram />, label: "Instagram", href: "https://www.instagram.com/recommerceeco/" },
+  { icon: <IconFacebook />, label: "Facebook", href: "https://www.facebook.com/Recommerceeco" },
+  { icon: <IconYoutube />, label: "YouTube", href: "https://www.youtube.com/@recommerceeco" },
 ];
 
 /* ---------- component ---------- */
@@ -261,7 +246,14 @@ const Footer = () => {
             <p className="uf-connect-desc">Follow us for updates, insights and events.</p>
             <div className="uf-socials">
               {socials.map((s) => (
-                <a href="#!" key={s.label} className="uf-social-btn" aria-label={s.label}>
+                <a
+                  href={s.href}
+                  key={s.label}
+                  className="uf-social-btn"
+                  aria-label={`Recommerce on ${s.label}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {s.icon}
                 </a>
               ))}
@@ -281,9 +273,9 @@ const Footer = () => {
         <div className="uf-bottom">
           <p>© 2026 Urdhva Management Private Limited. All Rights Reserved.</p>
           <div className="uf-bottom-links">
-            <a href="#!">Privacy Policy</a>
+            <a href="/privacy">Privacy Policy</a>
             <span className="uf-divider" />
-            <a href="#!">Terms &amp; Conditions</a>
+            <a href="/terms">Terms &amp; Conditions</a>
           </div>
         </div>
       </div>

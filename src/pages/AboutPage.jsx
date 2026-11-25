@@ -116,37 +116,61 @@ export default function AboutPage() {
 
       {/* ---------- who we are ---------- */}
       <section className="ab-who">
-        <div className="ab-wrap ab-who-grid">
-          <div className="ab-reveal">
+        <div className="ab-wrap">
+          <div className="ab-who-head ab-center ab-reveal">
             <div className="ab-eyebrow">
               <span className="ab-eyebrow-line" />
               WHO WE ARE
+              <span className="ab-eyebrow-line" />
             </div>
             <h2 className="ab-h2">
               A pioneering force for a <span>brighter future</span> for industries
             </h2>
-            <div className="ab-collage">
-              <img className="ab-collage-a" src={itadPic('6k4a4753')} alt="Two delegates meeting at the ITAD & WEEE Global Leaders Meet" loading="lazy" />
-              <img className="ab-collage-b" src={expoPic('urs_4223')} alt="Delegates at a table at the Recommerce Expo" loading="lazy" />
-              <span className="ab-collage-dots" aria-hidden="true" />
-            </div>
           </div>
-          <div className="ab-who-text ab-reveal">
-            <p className="ab-lead">
-              Recommerce, is a brand of <mark>Urdhva Management</mark> and the pioneering force in leading the charge
-              towards a brighter future for the industries, A category-defining company dedicated to building a{' '}
-              <mark>sustainable reverse commerce ecosystem</mark>
-            </p>
-            <p>
-              At Recommerce, we embody the ideals of <mark>Engage, Educate, Exchange, Empower, and Enable</mark>,
-              propelling industries and individuals towards a brighter future. Our tagline,{' '}
-              <em>
-                &ldquo;Unlocking Infinite Possibilities, Connecting Industries: Pioneering Sustainability for a
-                Thriving Tomorrow!&rdquo;
-              </em>{' '}
-              encapsulates our mission to revolutionize India&rsquo;s business landscape through Recommerce, our
-              pioneering brand dedicated to driving a <mark>circular economy</mark>.
-            </p>
+
+          <div className="ab-who-grid">
+            <div className="ab-who-media ab-reveal">
+              <img
+                className="ab-who-photo-a"
+                src={itadPic('6k4a4753')}
+                alt="Two delegates meeting at the ITAD & WEEE Global Leaders Meet"
+                loading="lazy"
+              />
+              <img
+                className="ab-who-photo-b"
+                src={expoPic('urs_4223')}
+                alt="Delegates at a table at the Recommerce Expo"
+                loading="lazy"
+              />
+              <div className="ab-who-badge">
+                <span className="ab-who-badge-icon">
+                  <FiFlag />
+                </span>
+                <span>
+                  <small>Recommerce</small>
+                  <strong>A brand of Urdhva Management</strong>
+                </span>
+              </div>
+              <span className="ab-who-dots" aria-hidden="true" />
+            </div>
+
+            <div className="ab-who-text ab-reveal">
+              <p className="ab-lead">
+                Recommerce, is a brand of <mark>Urdhva Management</mark> and the pioneering force in leading the
+                charge towards a brighter future for the industries, A category-defining company dedicated to
+                building a <mark>sustainable reverse commerce ecosystem</mark>
+              </p>
+              <p>
+                At Recommerce, we embody the ideals of <mark>Engage, Educate, Exchange, Empower, and Enable</mark>,
+                propelling industries and individuals towards a brighter future. Our tagline,{' '}
+                <em>
+                  &ldquo;Unlocking Infinite Possibilities, Connecting Industries: Pioneering Sustainability for a
+                  Thriving Tomorrow!&rdquo;
+                </em>{' '}
+                encapsulates our mission to revolutionize India&rsquo;s business landscape through Recommerce, our
+                pioneering brand dedicated to driving a <mark>circular economy</mark>.
+              </p>
+            </div>
           </div>
         </div>
 

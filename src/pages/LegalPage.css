@@ -1,0 +1,437 @@
+/* ============ Terms & Conditions page (builds on the shared .ab-* hero styles in AboutPage.css) ============ */
+
+.tm-hero {
+  min-height: 46vh;
+  padding: 160px 24px 80px;
+}
+
+.tm-hero-title {
+  font-size: clamp(2.4rem, 7vw, 5.4rem);
+}
+
+.tm-body {
+  padding: 80px 0 110px;
+  background: linear-gradient(180deg, #fff 0%, #f2f6f9 100%);
+}
+
+.tm-grid {
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+/* ---------- table of contents ---------- */
+
+.tm-toc {
+  position: sticky;
+  top: 120px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid #e3eaf2;
+  box-shadow: 0 16px 40px rgba(14, 22, 48, 0.07);
+  overflow: hidden;
+}
+
+.tm-toc summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 24px;
+  list-style: none;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #0e1630;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.tm-toc summary::-webkit-details-marker {
+  display: none;
+}
+
+.tm-toc summary span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tm-toc summary svg {
+  color: #009bff;
+}
+
+.tm-toc-chevron {
+  display: none;
+  transition: transform 0.3s ease;
+}
+
+.tm-toc-list {
+  list-style: none;
+  max-height: calc(100vh - 260px);
+  overflow-y: auto;
+  padding: 10px 10px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #c4d6e8 transparent;
+}
+
+.tm-toc-link {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 9px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #566078;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tm-toc-link b {
+  flex-shrink: 0;
+  width: 22px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #9aa6ba;
+}
+
+.tm-toc-link:hover {
+  background: #f2f6f9;
+  color: #0e1630;
+}
+
+.tm-toc-link.active {
+  background: #eaf6ff;
+  color: #0a56c8;
+  font-weight: 600;
+}
+
+.tm-toc-link.active b {
+  color: #009bff;
+}
+
+/* ---------- the terms ---------- */
+
+.tm-content {
+  padding: 18px 56px 40px;
+  border-radius: 28px;
+  background: #fff;
+  border: 1px solid #e3eaf2;
+  box-shadow: 0 20px 50px rgba(14, 22, 48, 0.07);
+}
+
+.tm-section {
+  padding: 38px 0 34px;
+  border-bottom: 1px solid #edf1f6;
+  scroll-margin-top: 120px;
+}
+
+.tm-section:last-child {
+  border-bottom: none;
+}
+
+.tm-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  line-height: 1.3;
+  color: #0e1630;
+}
+
+.tm-num {
+  flex-shrink: 0;
+  min-width: 46px;
+  height: 46px;
+  padding: 0 8px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #fff;
+  background: linear-gradient(145deg, #27b0ff, #009bff);
+  box-shadow: 0 8px 18px rgba(0, 155, 255, 0.3);
+}
+
+.tm-section p {
+  font-size: 16.5px;
+  line-height: 1.9;
+  color: #3b4660;
+}
+
+.tm-section p + p,
+.tm-section p + ul,
+.tm-section ul + p,
+.tm-section ul + ul {
+  margin-top: 18px;
+}
+
+.tm-section ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tm-section li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: #3b4660;
+}
+
+.tm-section li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.78em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #009bff;
+  box-shadow: 0 0 0 4px rgba(0, 155, 255, 0.15);
+}
+
+.tm-section a {
+  color: #0a56c8;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(10, 86, 200, 0.35);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.tm-section a:hover {
+  color: #009bff;
+  text-decoration-color: #009bff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tm-toc-chevron,
+  .tm-toc-link,
+  .tm-section a {
+    transition: none;
+  }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1100px) {
+  .tm-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  /* the contents become a fold-out above the text, closed by default (set in the script on small screens) */
+  .tm-toc {
+    position: relative;
+    top: 0;
+  }
+  .tm-toc-chevron {
+    display: block;
+  }
+  .tm-toc:not([open]) .tm-toc-chevron {
+    transform: rotate(0deg);
+  }
+  .tm-toc[open] .tm-toc-chevron {
+    transform: rotate(180deg);
+  }
+  .tm-toc:not([open]) summary {
+    border-bottom: none;
+  }
+  .tm-toc-list {
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 900px) {
+  .tm-hero {
+    padding: 130px 20px 60px;
+    min-height: 0;
+  }
+  .tm-body {
+    padding: 60px 0 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tm-content {
+    padding: 8px 22px 24px;
+    border-radius: 22px;
+  }
+  .tm-section {
+    padding: 30px 0 26px;
+  }
+  .tm-section h2 {
+    gap: 12px;
+  }
+  .tm-num {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+  .tm-section p,
+  .tm-section li {
+    font-size: 15.5px;
+  }
+}
+
+/* ============ extras used by the Privacy Policy (numbered lists, sub-headings, cookie cards, opening note) ============ */
+
+/* opening summary at the top of the document */
+.tm-intro {
+  margin: 30px 0 6px;
+  padding: 24px 28px;
+  border-radius: 18px;
+  border-left: 5px solid #009bff;
+  background: #eaf6ff;
+}
+
+.tm-intro p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #0e1630;
+}
+
+/* sub-headings inside a section */
+.tm-section .tm-sub {
+  margin-top: 30px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #0a56c8;
+}
+
+.tm-section .tm-sub--small {
+  margin-top: 24px;
+  font-size: 1.05rem;
+  color: #0e1630;
+}
+
+.tm-section h2 + .tm-sub {
+  margin-top: 0;
+}
+
+.tm-section .tm-sub + p,
+.tm-section .tm-sub + ol,
+.tm-section .tm-sub + ul {
+  margin-top: 12px;
+}
+
+/* the bold lead-in of a list item */
+.tm-section li strong {
+  font-weight: 700;
+  color: #0e1630;
+}
+
+/* numbered lists */
+.tm-section ol.tm-ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  counter-reset: tm-n;
+}
+
+.tm-section ol.tm-ol li {
+  counter-increment: tm-n;
+  padding-left: 46px;
+}
+
+.tm-section ol.tm-ol li::before {
+  content: counter(tm-n);
+  left: 0;
+  top: 0.12em;
+  width: 29px;
+  height: 29px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  background: #009bff;
+  box-shadow: none;
+}
+
+.tm-section p + ol.tm-ol,
+.tm-section ol.tm-ol + h4,
+.tm-section ol.tm-ol + p,
+.tm-section .tm-card + .tm-card,
+.tm-section p + .tm-card,
+.tm-section .tm-card + p {
+  margin-top: 18px;
+}
+
+/* a cookie description */
+.tm-card {
+  padding: 22px 26px 24px;
+  border-radius: 18px;
+  background: #f5f9fd;
+  border: 1px solid #e3eaf2;
+  border-left: 4px solid #009bff;
+}
+
+.tm-card h4 {
+  margin-bottom: 14px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #0e1630;
+}
+
+.tm-card dl > div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 16px;
+  padding: 9px 0;
+  border-top: 1px solid #e3eaf2;
+}
+
+.tm-card dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #009bff;
+  padding-top: 4px;
+}
+
+.tm-card dd {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #3b4660;
+}
+
+@media (max-width: 600px) {
+  .tm-intro {
+    padding: 20px 20px;
+  }
+  .tm-intro p {
+    font-size: 16px;
+  }
+  .tm-card {
+    padding: 20px 18px 20px;
+  }
+  .tm-card dl > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .tm-card dd {
+    font-size: 15px;
+  }
+  .tm-section ol.tm-ol li {
+    padding-left: 42px;
+  }
+}

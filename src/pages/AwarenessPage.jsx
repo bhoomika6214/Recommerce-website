@@ -14,7 +14,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import NetworkBackground from '../components/NetworkBackground';
 import joinPhoto from '../assets/gallery-web/banners/about-join.webp';
-import digitalIndia from '../assets/digital-india-logo.png';
+import supportedBy from '../assets/supported-by.png';
 import './AboutPage.css'; // shared hero, buttons and reveal styles
 import './AwarenessPage.css';
 
@@ -42,6 +42,19 @@ const POINTS = [
     text: 'Decluttering homes of unused or broken electronics has a significant positive impact on sustainability. By clearing out these items, individuals can reduce pollution and prevent harmful e-waste from ending up in landfills. Recycling these devices not only recovers valuable materials but also conserves resources and minimizes the need for environmentally damaging extraction processes.',
   },
 ];
+
+// "E-Waste" must never break at its hyphen, so it is wrapped in a no-wrap span
+const renderTitle = (title) =>
+  title.split('E-Waste').flatMap((part, i, all) =>
+    i < all.length - 1 ? [part, <span className="aw-nowrap" key={i}>E-Waste</span>] : [part]
+  );
+
+// the blue glow inside a card follows the pointer
+const trackPointer = (e) => {
+  const r = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+  e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+};
 
 export default function AwarenessPage() {
   const ref = useRef(null);
@@ -105,11 +118,13 @@ export default function AwarenessPage() {
       {/* ---------- supported by ---------- */}
       <section className="aw-support">
         <div className="ab-wrap ab-center ab-reveal">
-          <h2 className="aw-support-title">SUPPORTED BY</h2>
-          <div className="aw-support-logo">
-            <img src={digitalIndia} alt="Digital India: Power To Empower" />
+          {/* the image carries its own "Supported by" heading and both logos in white, so it sits on a dark panel */}
+          <div className="aw-support-panel">
+            <img
+              src={supportedBy}
+              alt="Supported by Digital India (Power To Empower) and the Ministry of Electronics and Information Technology"
+            />
           </div>
-          <p className="aw-support-name">Ministry of Electronics and Information Technology</p>
         </div>
       </section>
 
@@ -157,6 +172,7 @@ export default function AwarenessPage() {
       {/* ---------- why it is important ---------- */}
       <section className="ab-why aw-why">
         <div className="ab-why-glow" aria-hidden="true" />
+        <div className="aw-why-grid-bg" aria-hidden="true" />
         <div className="ab-wrap">
           <div className="ab-center ab-reveal">
             <div className="ab-eyebrow ab-eyebrow--light">
@@ -171,10 +187,18 @@ export default function AwarenessPage() {
 
           <div className="aw-why-grid">
             {WHY.map((w, i) => (
-              <article className="aw-why-card ab-reveal" key={w.title} style={{ transitionDelay: `${i * 0.08}s` }}>
+              <article
+                className={`aw-why-card aw-why-card--${i < 2 ? 'wide' : 'tall'} ab-reveal`}
+                key={w.title}
+                style={{ transitionDelay: `${i * 0.08}s` }}
+                onMouseMove={trackPointer}
+              >
                 <span className="aw-why-no">{String(i + 1).padStart(2, '0')}</span>
                 <span className="aw-why-icon">{w.icon}</span>
-                <h3>{w.title}</h3>
+                <div className="aw-why-text">
+                  <h3>{renderTitle(w.title)}</h3>
+                  <span className="aw-why-bar" aria-hidden="true" />
+                </div>
               </article>
             ))}
           </div>

@@ -41,45 +41,25 @@
   background: #fff;
 }
 
-.aw-support-title {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: 1.4rem;
-  letter-spacing: 0.06em;
-  color: #009bff;
-}
-
-/* the logo has white lettering, so it sits on a dark panel */
-.aw-support-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 24px;
-  padding: 26px 46px;
-  border-radius: 24px;
+.aw-support-panel {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 26px 40px 30px;
+  border-radius: 28px;
   background: linear-gradient(135deg, #05091b 0%, #0a1740 100%);
-  box-shadow: 0 18px 40px rgba(14, 22, 48, 0.2);
+  box-shadow: 0 20px 46px rgba(14, 22, 48, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.aw-support-logo:hover {
+.aw-support-panel:hover {
   transform: translateY(-4px);
-  box-shadow: 0 26px 50px rgba(0, 155, 255, 0.25);
+  box-shadow: 0 28px 56px rgba(0, 155, 255, 0.25);
 }
 
-.aw-support-logo img {
+.aw-support-panel img {
   display: block;
-  width: 300px;
-  max-width: 100%;
+  width: 100%;
   height: auto;
-}
-
-.aw-support-name {
-  margin-top: 18px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #6b7790;
 }
 
 /* ---------- intro ---------- */
@@ -155,65 +135,178 @@
 
 /* ---------- why it is important ---------- */
 
+.aw-nowrap {
+  white-space: nowrap;
+}
+
+/* faint grid texture behind the cards */
+.aw-why-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 155, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 155, 255, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 55%, #000 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 55%, #000 25%, transparent 78%);
+  pointer-events: none;
+}
+
+/* bento: two wide cards on top, three below, so the grid has no gaps */
 .aw-why-grid {
-  margin-top: 56px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 22px;
+}
+
+.aw-why-card--wide {
+  grid-column: span 3;
+}
+
+.aw-why-card--tall {
+  grid-column: span 2;
 }
 
 .aw-why-card {
+  --mx: 50%;
+  --my: 0%;
   position: relative;
-  flex: 0 1 calc((100% - 48px) / 3);
-  min-height: 240px;
-  padding: 38px 30px 32px;
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 250px;
+  padding: 34px 32px 30px;
+  border-radius: 28px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease, border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* the glow that follows the pointer */
+.aw-why-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(360px circle at var(--mx) var(--my), rgba(0, 155, 255, 0.28), transparent 62%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
 .aw-why-card.ab-in:hover {
   transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(0, 155, 255, 0.7);
+  border-color: rgba(0, 155, 255, 0.75);
+  box-shadow: 0 26px 54px rgba(0, 120, 220, 0.28);
 }
 
+.aw-why-card:hover::before {
+  opacity: 1;
+}
+
+/* big outlined number */
 .aw-why-no {
   position: absolute;
-  top: 22px;
-  right: 26px;
+  top: 18px;
+  right: 24px;
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 3.2rem;
+  font-size: 4.2rem;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.28);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.22);
+  transition: -webkit-text-stroke-color 0.35s ease;
+}
+
+.aw-why-card:hover .aw-why-no {
+  -webkit-text-stroke-color: rgba(127, 208, 255, 0.7);
 }
 
 .aw-why-icon {
-  width: 66px;
-  height: 66px;
-  border-radius: 20px;
+  position: relative;
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 31px;
   color: #fff;
-  background: linear-gradient(145deg, #27b0ff, #009bff);
-  box-shadow: 0 12px 26px rgba(0, 155, 255, 0.4);
+  background: linear-gradient(145deg, #27b0ff, #006fd6);
+  box-shadow: 0 14px 30px rgba(0, 155, 255, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.35s ease;
+}
+
+/* a soft ring that pulses behind the icon */
+.aw-why-icon::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 28px;
+  border: 1.5px solid rgba(0, 155, 255, 0.45);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.aw-why-card:hover .aw-why-icon {
+  transform: scale(1.06) rotate(-4deg);
+}
+
+.aw-why-card:hover .aw-why-icon::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .aw-why-card h3 {
-  margin-top: 26px;
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.32rem;
   line-height: 1.35;
   color: #fff;
+}
+
+/* accent line under the title: grows when the card is hovered */
+.aw-why-bar {
+  display: block;
+  width: 38px;
+  height: 3px;
+  margin-top: 18px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #009bff, #7fd0ff);
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aw-why-card:hover .aw-why-bar {
+  width: 100%;
+}
+
+/* wide cards put the icon beside the title */
+.aw-why-card--wide {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 28px;
+  min-height: 190px;
+  padding-right: 110px;
+}
+
+.aw-why-card--wide .aw-why-icon {
+  width: 82px;
+  height: 82px;
+  border-radius: 26px;
+  font-size: 36px;
+}
+
+.aw-why-card--wide h3 {
+  font-size: 1.5rem;
 }
 
 /* ---------- points to be discussed ---------- */
@@ -297,8 +390,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .aw-support-logo,
+  .aw-support-panel,
   .aw-why-card,
+  .aw-why-card::before,
+  .aw-why-icon,
+  .aw-why-icon::after,
+  .aw-why-bar,
   .aw-point {
     transition: none;
   }
@@ -307,8 +404,31 @@
 /* ---------- responsive ---------- */
 
 @media (max-width: 1000px) {
-  .aw-why-card {
-    flex-basis: calc((100% - 24px) / 2);
+  .aw-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .aw-why-card--wide,
+  .aw-why-card--tall {
+    grid-column: span 1;
+  }
+  .aw-why-card:last-child {
+    grid-column: 1 / -1;
+  }
+  .aw-why-card--wide {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-right: 32px;
+    min-height: 250px;
+  }
+  .aw-why-card--wide .aw-why-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 22px;
+    font-size: 31px;
+  }
+  .aw-why-card--wide h3 {
+    font-size: 1.32rem;
   }
   .aw-intro-grid {
     grid-template-columns: 1fr;
@@ -335,20 +455,29 @@
   .aw-support {
     padding-top: 56px;
   }
-  .aw-support-logo {
-    padding: 22px 28px;
+  .aw-support-panel {
+    padding: 18px 14px 20px;
     border-radius: 20px;
-  }
-  .aw-support-logo img {
-    width: 240px;
   }
   .aw-intro {
     padding: 56px 0 80px;
   }
-  .aw-why-card {
-    flex-basis: 100%;
+  .aw-why-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 44px;
+  }
+  .aw-why-card:last-child {
+    grid-column: auto;
+  }
+  .aw-why-card,
+  .aw-why-card--wide {
     min-height: 0;
-    padding: 32px 24px 28px;
+    padding: 28px 24px 26px;
+    gap: 24px;
+  }
+  .aw-why-no {
+    font-size: 3.2rem;
   }
   .aw-points {
     padding: 80px 0;
