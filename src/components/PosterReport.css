@@ -15,6 +15,29 @@
   margin-right: auto;
 }
 
+.carousel-eyebrow {
+  text-align: center;
+  margin: 0 0 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: #009BFF;
+}
+
+.carousel-header h2 span {
+  color: #009BFF;
+}
+
+.carousel-sub {
+  max-width: 640px;
+  margin: 16px auto 0;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #566078;
+}
+
 .carousel-header h2 {
   margin: 0;
   font-family: 'Manrope', sans-serif;
@@ -65,25 +88,29 @@
   height: 20px;
 }
 
-/* Scrollable Wrapper */
+/* The wrapper clips the row; the track inside is moved with a transform from the script. */
 .carousel-wrapper {
   flex: 1;
-  overflow-x: auto;
-  overflow-y: hidden;
+  min-width: 0;
+  overflow: hidden;
   padding: 30px 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  touch-action: pan-y; /* the page still scrolls vertically; sideways drags move the row */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-mask: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+  mask: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
 }
 
-.carousel-wrapper::-webkit-scrollbar {
-  display: none;
+.carousel-wrapper.is-dragging {
+  cursor: grabbing;
 }
 
 .carousel-track {
   display: flex;
   gap: 32px;
   width: max-content;
+  will-change: transform;
 }
 
 /* Premium Card Layout */
@@ -108,6 +135,7 @@
 
 /* Image Container */
 .image-container {
+  position: relative;
   width: 100%;
   aspect-ratio: 1 / 1.35; 
   background-color: #f8f9fa;
@@ -147,6 +175,29 @@
   color: #111A38; /* Black / Dark Navy */
   line-height: 1.3;
   font-weight: 700;
+  text-align: left;
+}
+
+.report-series {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #fff;
+  color: #009BFF;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(14, 22, 48, 0.18);
+}
+
+.report-meta {
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #6b7790;
   text-align: left;
 }
 

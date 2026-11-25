@@ -13,7 +13,7 @@ import CareersPage from './pages/CareersPage'
 import Gallery from './components/Gallery'
 import Services from './components/Services';
 import PosterReport from './components/PosterReport';
-import Pastevents from './components/Pastevents';
+import Pastevents from './components/PastPicker';
 import Loader from './components/Loader';
 import CursorMultifollow from './components/ui/motion-cursor-multifollow';
 

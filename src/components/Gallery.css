@@ -4,8 +4,8 @@
   position: relative;
   padding: 100px 0 110px;
   overflow: hidden;
-  background: linear-gradient(180deg, #05091b 0%, #0a1330 55%, #05091b 100%);
-  color: #fff;
+  background: linear-gradient(180deg, #ffffff 0%, #eaf3fb 100%);
+  color: #0e1630;
 }
 
 /* soft blue glow behind the strip */
@@ -17,7 +17,7 @@
   width: 900px;
   height: 500px;
   transform: translateX(-50%);
-  background: radial-gradient(ellipse, rgba(0, 155, 255, 0.2), transparent 70%);
+  background: radial-gradient(ellipse, rgba(0, 155, 255, 0.12), transparent 70%);
   pointer-events: none;
 }
 
@@ -37,7 +37,7 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.24em;
-  color: #6fc6ff;
+  color: #009bff;
 }
 
 .gl-eyebrow-line {
@@ -64,14 +64,21 @@
   margin: 16px auto 0;
   font-size: 17px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.72);
+  color: #566078;
 }
 
 .gl .ias {
   position: relative;
-  padding: 18px 0;
+  padding: 20px 0 64px; /* room below so the photo shadows fade out instead of being clipped */
+  margin-bottom: -40px;
   --ias-ratio: 1.5; /* landscape tiles: the event photos are 3:2 */
   --ias-size: 300px;
+}
+
+/* on a light background the photos need a soft, light shadow instead of the heavy dark one */
+.gl .ias-item {
+  background: #dfe9ee;
+  box-shadow: 0 14px 30px rgba(14, 22, 48, 0.13);
 }
 
 @media (max-width: 900px) {
