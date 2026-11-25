@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import heroVideo from '../assets/background_video.mp4';
 import { LiquidText } from './ui/liquid-text';
 import './Hero2.css';
+import { ENQUIRY_URL } from '../pages/contactMail';
 
 const HEADLINE = 'Unlocking Infinite Possibilities';
 
@@ -83,8 +84,8 @@ const Hero2 = () => {
           <p className="hero__line">Pioneering Sustainability for a Thriving Tomorrow</p>
         </div>
 
-        <a className="btn-primary hero__cta" href="#events">
-          EXPLORE EVENTS &rarr;
+        <a className="btn-primary hero__cta" href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer">
+          ENQUIRE NOW &rarr;
         </a>
       </div>
     </section>

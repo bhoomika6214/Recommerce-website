@@ -2,35 +2,46 @@
 
 export const GENERAL_EMAIL = 'info@recommerceeco.com';
 
+// The enquiry form used by every "Enquire Now" button on the site.
+export const ENQUIRY_URL = 'https://events.recommerceeco.com/?f=r6GLjfFNemQAVNai05mp&e=O4XrnthpX51ToWC48v5y';
+
 // The team. `topic` is what the visitor picks in the form; the message goes to that person.
 export const TEAM = [
   {
-    topic: 'Sponsor & Exhibitor',
-    title: 'Sponsor & Exhibitor Reach Out',
-    name: 'Ms. Kavitha Jayaraman',
-    phone: '+91 7022250709',
-    email: 'kavitha@recommerceeco.com',
-  },
-  {
-    topic: 'Speaker',
-    title: 'Speaker Acquisition Reach Out',
-    name: 'Ms. Sarita Pradhan',
-    phone: '+91 9606025447',
-    email: 'sarita@urdhvamanagement.com',
+    topic: 'Sponsorship & Exhibitor',
+    role: 'Sponsorship & Exhibitor',
+    name: 'Janani Gowda',
+    first: 'Janani',
+    desc: 'Contact Janani for sponsorship and exhibitor opportunities.',
+    phone: '+91 7338674800',
+    email: 'janani@recommerceeco.com',
   },
   {
     topic: 'Delegate',
-    title: 'Delegates Reach Out',
-    name: 'Ms. Jennifer',
+    role: 'Delegates',
+    name: 'Jennifer Lawrence',
+    first: 'Jennifer',
+    desc: 'Reach out to Jennifer for delegate registration and attendance.',
     phone: '+91 7338674797',
     email: 'jennifer@recommerceeco.com',
   },
   {
-    topic: 'Media & Association',
-    title: 'Media & Association Reach Out',
-    name: 'Ms. Bhagyashree Chinchansoor',
-    phone: '+91 7338674789',
-    email: 'bhagyashree@urdhvamanagement.com',
+    topic: 'Speaker',
+    role: 'Speaker Acquisition',
+    name: 'Sarita Pradhan',
+    first: 'Sarita',
+    desc: 'Speak with Sarita about speaker opportunities and participation.',
+    phone: '+91 9606025447',
+    email: 'sarita@recommerceeco.com',
+  },
+  {
+    topic: 'Media & Associate Partner',
+    role: 'Media & Associate Partner',
+    name: 'Shruti D S',
+    first: 'Shruti',
+    desc: 'Get in touch with Shruti for media and associate partnerships.',
+    phone: '+91 7338674799',
+    email: 'shruthi@recommerceeco.com',
   },
 ];
 

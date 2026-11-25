@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { FiPhone, FiMail, FiMapPin, FiSend, FiArrowRight, FiBriefcase, FiMic, FiUsers, FiGlobe } from 'react-icons/fi';
+import { FiPhone, FiMail, FiMapPin, FiSend, FiArrowRight, FiCalendar } from 'react-icons/fi';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import NetworkBackground from '../components/NetworkBackground';
-import joinPhoto from '../assets/gallery-web/banners/about-join.webp';
-import './AboutPage.css'; // shared hero, buttons and reveal styles
+import './AboutPage.css'; // shared reveal-on-scroll styles
 import './ContactPage.css';
-import { GENERAL_EMAIL, TEAM as TEAM_DATA, buildMailto } from './contactMail';
+import { ENQUIRY_URL, GENERAL_EMAIL, TEAM, buildMailto } from './contactMail';
 
 const PHONE = '+919731775124';
 const PHONE_LABEL = '+91 97317 75124';
@@ -14,15 +13,25 @@ const ADDRESS =
   "Urdhva Management, RoofSquare Realty: No.549, 4th Floor, 'SRINILAYAM' 7th Main Road Rajiv Gandhi Nagar, 2nd Phase, Post, NTI Layout, Vidyaranyapura, Bengaluru, Karnataka 560097";
 const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
 
-const ICONS = {
-  'Sponsor & Exhibitor': <FiBriefcase />,
-  Speaker: <FiMic />,
-  Delegate: <FiUsers />,
-  'Media & Association': <FiGlobe />,
+// The next event, as shown on https://expo.recommerceeco.com/
+const NEXT_EVENT = {
+  name: '7th Recommerce Expo',
+  date: '3 – 4 March 2027',
+  place: 'The LaLiT Ashok, Bengaluru',
+  href: 'https://expo.recommerceeco.com/',
 };
-const TEAM = TEAM_DATA.map((t) => ({ ...t, icon: ICONS[t.topic] }));
 
 const tel = (p) => `tel:${p.replace(/[^\d+]/g, '')}`;
+
+// "Ms. Kavitha Jayaraman" -> "KJ", "Ms. Jennifer" -> "J"
+const initials = (name) =>
+  name
+    .replace(/^(Ms|Mr|Mrs|Dr)\.?\s+/i, '')
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
 
 export default function ContactPage() {
   const ref = useRef(null);
@@ -52,10 +61,16 @@ export default function ContactPage() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToForm = (e) => {
-    e.preventDefault();
+  const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     formRef.current?.querySelector('input')?.focus({ preventScroll: true });
+  };
+
+  // "Talk to ..." takes the visitor to the form with that team member already chosen.
+  const enquire = (e, member) => {
+    e.preventDefault();
+    setTopic(member.topic);
+    scrollToForm();
   };
 
   // No server receives this form: it opens the visitor's email app with the message filled in.
@@ -71,20 +86,58 @@ export default function ContactPage() {
     <div className="ab ct" ref={ref}>
       <Navbar />
 
-      {/* ---------- hero ---------- */}
-      <header className="ab-hero ct-hero">
-        <NetworkBackground className="ab-hero-net" />
-        <div className="ab-hero-glow" aria-hidden="true" />
-        <div className="ab-hero-inner">
-          <div className="ab-eyebrow ab-eyebrow--light ab-reveal">
-            <span className="ab-eyebrow-line" />
-            GET IN TOUCH
-            <span className="ab-eyebrow-line" />
-          </div>
-          <h1 className="ab-hero-title ab-reveal">
-            Contact <span>Us</span>
+      {/* ---------- connect with our team ---------- */}
+      <header className="ct2">
+        <NetworkBackground className="ct2-net" />
+        <div className="ct2-glow" aria-hidden="true" />
+
+        <div className="ct2-inner">
+          <p className="ct2-eyebrow ab-reveal">CONTACT US</p>
+          <h1 className="ct2-title ab-reveal">
+            Reach Out To <span>Our Team</span>
           </h1>
-          <p className="ab-hero-brand ab-reveal">Recommerce &middot; A brand of Urdhva Management</p>
+          <p className="ct2-sub ab-reveal">Ready to join as a delegate, exhibitor, or sponsor?</p>
+
+          <div className="ct2-actions ab-reveal">
+            <a className="ct2-enquire" href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer">
+              Enquire Now <FiArrowRight />
+            </a>
+          </div>
+
+          <a className="ct2-pill ab-reveal" href={NEXT_EVENT.href} target="_blank" rel="noopener noreferrer">
+            <FiCalendar />
+            <span>{NEXT_EVENT.name}</span>
+            <i aria-hidden="true">&bull;</i>
+            <span>{NEXT_EVENT.date}</span>
+            <i aria-hidden="true">&bull;</i>
+            <span>{NEXT_EVENT.place}</span>
+          </a>
+
+          <div className="ct2-cards">
+            {TEAM.map((t, i) => (
+              <article className="ct2-card ab-reveal" key={t.email} style={{ transitionDelay: `${i * 0.1}s` }}>
+                <div className="ct2-avatar" role="img" aria-label={`${t.name}`}>
+                  <span>{initials(t.name)}</span>
+                </div>
+                <div className="ct2-body">
+                  <span className="ct2-role">{t.role}</span>
+                  <h3>{t.name}</h3>
+                  <p>{t.desc}</p>
+                  <div className="ct2-chips">
+                    <a href={tel(t.phone)}>
+                      <FiPhone /> {t.phone}
+                    </a>
+                    <a href={`mailto:${t.email}`} aria-label={`Email ${t.first} at ${t.email}`} title={t.email}>
+                      <FiMail /> Email
+                    </a>
+                  </div>
+                  <a className="ct2-talk" href="#message" onClick={(e) => enquire(e, t)}>
+                    Talk to {t.first} <FiArrowRight />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </header>
 
@@ -185,55 +238,6 @@ export default function ContactPage() {
               </span>
             </a>
           </aside>
-        </div>
-      </section>
-
-      {/* ---------- ready to join ---------- */}
-      <section className="ab-join ct-join">
-        <div className="ab-wrap">
-          <div className="ab-join-card ab-reveal" style={{ '--join-photo': `url(${joinPhoto})` }}>
-            <NetworkBackground className="ab-join-net" />
-            <div className="ab-join-inner">
-              <h2>Ready to join as a delegate, exhibitor, or sponsor?</h2>
-              <div className="ab-join-actions">
-                <a className="ab-btn ab-btn--white" href="#message" onClick={scrollToForm}>
-                  Enquire Now <FiArrowRight />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- team ---------- */}
-      <section className="ct-team">
-        <div className="ab-wrap">
-          <div className="ab-center ab-reveal">
-            <div className="ab-eyebrow">
-              <span className="ab-eyebrow-line" />
-              OUR TEAM
-              <span className="ab-eyebrow-line" />
-            </div>
-            <h2 className="ab-h2">
-              Reach Out To <span>Our Team</span>
-            </h2>
-          </div>
-
-          <div className="ct-team-grid">
-            {TEAM.map((t, i) => (
-              <article className="ct-person ab-reveal" key={t.email} style={{ transitionDelay: `${i * 0.09}s` }}>
-                <span className="ct-person-icon">{t.icon}</span>
-                <h3>{t.title}</h3>
-                <p className="ct-person-name">{t.name}</p>
-                <a href={tel(t.phone)}>
-                  <FiPhone /> {t.phone}
-                </a>
-                <a href={`mailto:${t.email}`}>
-                  <FiMail /> {t.email}
-                </a>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 

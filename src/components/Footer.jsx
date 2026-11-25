@@ -16,18 +16,6 @@ const IconArrowRight = () => (
   </svg>
 );
 
-const IconChevron = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M9 6l6 6-6 6"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
 const IconPhone = () => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -101,16 +89,6 @@ const IconYoutube = () => (
 
 /* ---------- data ---------- */
 
-const quickLinks = ["About Us", "Our Services", "Events", "Resources", "Contact Us"];
-
-const solutions = [
-  { label: "Recommerce Expo", href: "https://expo.recommerceeco.com/" },
-  { label: "ITAD & WEEE", href: "https://itad.recommerceeco.com/" },
-  { label: "Biomedical Waste" },
-  { label: "Solid Waste Management" },
-  { label: "Research & Reporting" },
-];
-
 const socials = [
   { icon: <IconLinkedIn />, label: "LinkedIn", href: "https://www.linkedin.com/company/recommerceeco/" },
   { icon: <IconInstagram />, label: "Instagram", href: "https://www.instagram.com/recommerceeco/" },
@@ -168,39 +146,6 @@ const Footer = () => {
               Driving the transition to a circular economy through knowledge, innovation and
               impactful partnerships.
             </p>
-          </div>
-
-          {/* Quick links */}
-          <div className="uf-col">
-            <h4 className="uf-heading">QUICK LINKS</h4>
-            <ul className="uf-list">
-              {quickLinks.map((item) => (
-                <li key={item}>
-                  <a href={item === "About Us" ? "/about" : item === "Contact Us" ? "/contact" : "#!"}>
-                    <span>{item}</span>
-                    <IconChevron />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Our solutions */}
-          <div className="uf-col">
-            <h4 className="uf-heading">OUR SOLUTIONS</h4>
-            <ul className="uf-list">
-              {solutions.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href || "#!"}
-                    {...(item.href ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  >
-                    <span>{item.label}</span>
-                    <IconChevron />
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Contact us */}
