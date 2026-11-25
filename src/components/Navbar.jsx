@@ -12,7 +12,9 @@ const EVENT_LINKS = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [eventsOpen, setEventsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // the phone menu
   const eventsRef = useRef(null);
+  const navRef = useRef(null);
   const { pathname } = useLocation();
   const isHomePage = pathname === '/';
 
@@ -40,16 +42,45 @@ const Navbar = () => {
     };
   }, [eventsOpen]);
 
+  // phone menu: close on an outside tap or Escape
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onDown = (e) => {
+      if (!navRef.current?.contains(e.target)) setMenuOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    document.addEventListener('pointerdown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [menuOpen]);
+
+  const closeAll = () => {
+    setEventsOpen(false);
+    setMenuOpen(false);
+  };
+
   return (
-    <nav className={`navbar ${scrolled || !isHomePage ? 'navbar-scrolled' : 'navbar-transparent'}`}>
+    <nav
+      ref={navRef}
+      className={`navbar ${scrolled || !isHomePage ? 'navbar-scrolled' : 'navbar-transparent'}${menuOpen ? ' navbar--open' : ''}`}
+    >
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo" aria-label="Recommerce, home">
+        <Link to="/" className="navbar-logo" aria-label="Recommerce, home" onClick={closeAll}>
           <img src={RecommerceLogo} alt="Recommerce: reuse redefined" className="logo-lockup" />
         </Link>
 
         <div className="nav-right">
-          <div className="nav-links">
-            <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
+          <div className="nav-links" id="nav-links">
+            <NavLink
+              to="/about"
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}
+              onClick={closeAll}
+            >
               ABOUT US
             </NavLink>
             <div className={`nav-dropdown ${eventsOpen ? 'nav-dropdown--open' : ''}`} ref={eventsRef}>
@@ -68,24 +99,45 @@ const Navbar = () => {
               <ul className="nav-menu">
                 {EVENT_LINKS.map((e) => (
                   <li key={e.href}>
-                    <a href={e.href} target="_blank" rel="noopener noreferrer" onClick={() => setEventsOpen(false)}>
+                    <a href={e.href} target="_blank" rel="noopener noreferrer" onClick={closeAll}>
                       {e.label}
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
-            <NavLink to="/awareness" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
+            <NavLink
+              to="/awareness"
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}
+              onClick={closeAll}
+            >
               AWARENESS
             </NavLink>
-            <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`}
+              onClick={closeAll}
+            >
               CONTACT US
             </NavLink>
           </div>
-          <a className="nav-contact-btn" href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer">
+          <a className="nav-contact-btn" href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" onClick={closeAll}>
             ENQUIRE NOW →
           </a>
         </div>
+
+        <button
+          type="button"
+          className="nav-burger"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="nav-links"
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
     </nav>
   );
